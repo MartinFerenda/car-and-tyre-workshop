@@ -32,19 +32,19 @@ Umjesto ovih uputa opišite zahtjeve za funkcionalnošću programskog proizvoda.
 Oznaka | Naziv | Kratki opis | Odgovorni član tima
 ------ | ----- | ----------- | -------------------
 F01 | Login | Za pristup dnevniku potrebnba je autentikacija korisnika pomoću login funkcionalnosti. Korisnik se logira s podacima koji su mu dodijeljeni prilikom ... | Zlatko Stapić
-F02|Pregled novih autiju||
-F03|Pregled lokacija servisa||
-F04|Prijava kvara||
-F05|Dogovor termina predaje vozila||
-F06|Pregled stanja svojeg vozila u servisu||
-F07|Pregled povijesti racuna||
-F08|Pregled statistike||
-F09|Zamjena guma||
-F10|Skladistenje Zimskih/Ljetnih guma||
-F11|Azuriranje popisa novih automobila||
-F12|Azuriranje popisa auto dijelova||
-F13|Prikaz i unos odataka o servisu||
-F14|Usluge autopraone||
+F02|Pregled novih autiju|Korisnik ima pregled ponude autiju od autokoče. Nakon odabira auta prikazuje mu lokaciju gdje može kupiti ili isprobati željeni auto.|
+F03|Pregled lokacija servisa|Pruža mogućnost korisniku da pronađe lokaciju blizu sebe kako bi servisirao auto|
+F04|Prijava kvara|Omogućuje prijavu kvara kako bi se pružila pomoć vozaću u što kraćem roku|
+F05|Dogovor termina predaje vozila|Dopušta bukiranje termina predaje vozila na servis te termina test vožnje novih vozila|
+F06|Pregled stanja svojeg vozila u servisu|Uvid u stanje svojeg vozila koje je na servisu te očekivano vrijeme servisiranja|
+F07|Pregled povijesti racuna|Pregled plačenih računa kod Autokuče|
+F08|Pregled statistike|Prikaz statistike vezane za kupce,aute i dijelove|
+F09|Zamjena guma|Omogučuje korisniku da dogovori termin zamjene guma|
+F10|Skladistenje Zimskih/Ljetnih guma|Vodi evidenciju kopuaca i njihovih guma koje su na čuvanju u Autokući|
+F11|Azuriranje popisa novih automobila|Admin može ažurirati popis novih vozila|
+F12|Azuriranje popisa auto dijelova|Admin može ažrirati i proširiti popis autodijelova|
+F13|Prikaz i unos odataka o servisu|Zaposlenici ažuriraju stanje vozila kako bi kupac imao trenutne informacije o svojem vozilu.|
+F14|Usluge autopraone|Pregled ponude autopraone. Pregled slobodnih termina autopraone i bukiranje istih. Prikaz skupljenih bodova radiostvarivanje pousta u autopraoni.|
 
 ## Tehnologije i oprema
 Visual Studio, MS SQL Server, Visual Paradigm, Draw.io, Excell
