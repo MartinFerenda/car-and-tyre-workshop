@@ -33,17 +33,18 @@ Umjesto ovih uputa opišite zahtjeve za funkcionalnošću programskog proizvoda.
 Oznaka | Naziv | Kratki opis | Odgovorni član tima
 ------ | ----- | ----------- | -------------------
 F01 | Login | Za pristup dnevniku potrebnba je autentikacija korisnika pomoću login funkcionalnosti. Korisnik se logira s podacima koji su mu dodijeljeni prilikom ... | Zlatko Stapić
-F02 | Pregled dnevnika | .... | ...
-F|Pregled novih autiju||
-F|Prijava kvara||
-F|Pregled stanja svojeg vozila||
-F|Pregled povijesti racuna||
-F|Pregled statistike||
-F|Zamjena guma||
-F|Skladistenje Zimskih/Ljetnih guma||
-F|
-F|
-F|
+F02|Pregled novih autiju||
+F03|Pregled lokacija servisa||
+F04|Prijava kvara||
+F05|Dogovor termina predaje vozila||
+F06|Pregled stanja svojeg vozila u servisu||
+F07|Pregled povijesti racuna||
+F08|Pregled statistike||
+F09|Zamjena guma||
+F10|Skladistenje Zimskih/Ljetnih guma||
+F11|Azuriranje popisa novih automobila||
+F12|Azuriranje popisa auto dijelova||
+F13|
 
 ## Tehnologije i oprema
 Visual Studio, MS SQL Server, Visual Paradigm, Draw.io, Excell
