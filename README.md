@@ -34,6 +34,16 @@ Oznaka | Naziv | Kratki opis | Odgovorni član tima
 ------ | ----- | ----------- | -------------------
 F01 | Login | Za pristup dnevniku potrebnba je autentikacija korisnika pomoću login funkcionalnosti. Korisnik se logira s podacima koji su mu dodijeljeni prilikom ... | Zlatko Stapić
 F02 | Pregled dnevnika | .... | ...
+F|Pregled novih autiju||
+F|Prijava kvara||
+F|Pregled stanja svojeg vozila||
+F|Pregled povijesti racuna||
+F|Pregled statistike||
+F|Zamjena guma||
+F|Skladistenje Zimskih/Ljetnih guma||
+F|
+F|
+F|
 
 ## Tehnologije i oprema
 Visual Studio, MS SQL Server, Visual Paradigm, Draw.io, Excell
