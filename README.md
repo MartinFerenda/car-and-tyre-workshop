@@ -44,7 +44,8 @@ F09|Zamjena guma||
 F10|Skladistenje Zimskih/Ljetnih guma||
 F11|Azuriranje popisa novih automobila||
 F12|Azuriranje popisa auto dijelova||
-F13|
+F13|Prikaz i unos odataka o servisu||
+F14|Usluge autopraone||
 
 ## Tehnologije i oprema
 Visual Studio, MS SQL Server, Visual Paradigm, Draw.io, Excell
