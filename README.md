@@ -22,4 +22,4 @@ F09 | Skladište i evidencija | Zaposlenik vodi evidenciju kupaca i njihovih gum
 F10 | Usluge autopraonice | Pregled ponude autopraoice. Pregled slobodnih termina autopraone i rezervacija istih. Prikaz sakupljenih bodova za ostvarivanje pousta u autopraonici. | Viktor Kapelina
 
 ## Tehnologije i oprema
-Microsoft Visual Studio 2019, MS SQL Server, Visual Paradigm, Draw.io, Excel
+Microsoft Visual Studio 2019, MS SQL Server, Visual Paradigm, Draw.io, Excel, GitHub, GitHub Classroom
