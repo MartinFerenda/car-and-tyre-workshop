@@ -19,7 +19,7 @@ Nakon vaše prijave bit će vam dodijeljen mentor s kojim ćete tijekom semestra
 Ime i prezime | E-mail adresa (FOI) | JMBAG | Github korisničko ime
 ------------  | ------------------- | ----- | ---------------------
 Dominik Faletar|dfaletar@foi.hr|0016139082|dfaleta
-Martink Ferenđe|mferenda@foi.hr|0016135452|MartinFerenda
+Martin Ferenđa|mferenda@foi.hr|0016135452|MartinFerenda
 Viktor Kapelina|vkapelina@foi.hr|0036463697|VKapaPI
 
 
