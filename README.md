@@ -47,4 +47,4 @@ F13|Prikaz i unos odataka o servisu|Zaposlenici ažuriraju stanje vozila kako bi
 F14|Usluge autopraone|Pregled ponude autopraone. Pregled slobodnih termina autopraone i bukiranje istih. Prikaz skupljenih bodova radiostvarivanje pousta u autopraoni.|
 
 ## Tehnologije i oprema
-Visual Studio, MS SQL Server, Visual Paradigm, Draw.io, Excell
+Microsoft Visual Studio 2019, MS SQL Server, Visual Paradigm, Draw.io, Excel
