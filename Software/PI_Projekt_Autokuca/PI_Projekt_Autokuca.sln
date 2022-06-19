@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PI_Projekt_Autokuca", "PI_Projekt_Autokuca\PI_Projekt_Autokuca.csproj", "{782753D3-21BE-4F4D-A9AA-CE272F60F62C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{782753D3-21BE-4F4D-A9AA-CE272F60F62C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{782753D3-21BE-4F4D-A9AA-CE272F60F62C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{782753D3-21BE-4F4D-A9AA-CE272F60F62C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{782753D3-21BE-4F4D-A9AA-CE272F60F62C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C236D072-8DD3-4EA7-B598-EFFF81BB6234}
+	EndGlobalSection
+EndGlobal
