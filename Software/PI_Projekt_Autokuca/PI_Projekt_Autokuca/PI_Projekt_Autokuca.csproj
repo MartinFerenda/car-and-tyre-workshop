@@ -160,6 +160,23 @@
     <Compile Include="FrmSkladisteIEvidencija.Designer.cs">
       <DependentUpon>FrmSkladisteIEvidencija.cs</DependentUpon>
     </Compile>
+    <Compile Include="Klase\Adresa.cs" />
+    <Compile Include="Klase\AutomobilskiDio.cs" />
+    <Compile Include="Klase\Guma.cs" />
+    <Compile Include="Klase\Korisnik.cs" />
+    <Compile Include="Klase\Marka.cs" />
+    <Compile Include="Klase\NacinPlacanja.cs" />
+    <Compile Include="Klase\Proizvodac.cs" />
+    <Compile Include="Klase\Racun.cs" />
+    <Compile Include="Klase\RepozitorijAutokuca.cs" />
+    <Compile Include="Klase\Rezervacija.cs" />
+    <Compile Include="Klase\Servis.cs" />
+    <Compile Include="Klase\TestVoznja.cs" />
+    <Compile Include="Klase\Uloga.cs" />
+    <Compile Include="Klase\Vozilo.cs" />
+    <Compile Include="Klase\VrstaGorivo.cs" />
+    <Compile Include="Klase\VrstaVozilo.cs" />
+    <Compile Include="Klase\Zaposlenik.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmGlavniIzbornik.resx">
