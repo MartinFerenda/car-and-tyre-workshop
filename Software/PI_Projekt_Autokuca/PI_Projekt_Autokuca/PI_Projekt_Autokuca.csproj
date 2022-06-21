@@ -33,8 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +55,87 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Baza\Adresa.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\AutokucaModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutokucaModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\AutokucaModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\AutokucaModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutokucaModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\AutomobilskiDio.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\Guma.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\Korisnik.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\MarkaVozila.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\NacinPlacanja.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\PranjeVozila.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\PrijavaKvara.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\Proizvodac.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\Racun.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\Rezervacija.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\Servis.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\StavkaRacunaAutomobilskiDio.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\StavkaRacunaGuma.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\StavkaRacunaVozilo.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\sysdiagram.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\TestVoznja.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\UlogaKorisnika.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\Vozilo.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\VrstaGoriva.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\VrstaVozila.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\Zaposlenik.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="FrmGlavniIzbornik.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +156,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EntityDeploy Include="Baza\AutokucaModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AutokucaModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Baza\AutokucaModel.edmx.diagram">
+      <DependentUpon>AutokucaModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -78,6 +176,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Baza\AutokucaModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AutokucaModel.Context.cs</LastGenOutput>
+      <DependentUpon>AutokucaModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Baza\AutokucaModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AutokucaModel.edmx</DependentUpon>
+      <LastGenOutput>AutokucaModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
