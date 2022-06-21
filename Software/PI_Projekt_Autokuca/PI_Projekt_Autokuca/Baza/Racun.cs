@@ -33,7 +33,7 @@ namespace PI_Projekt_Autokuca.Baza
     
         public virtual Korisnik Korisnik1 { get; set; }
         public virtual NacinPlacanja NacinPlacanja1 { get; set; }
-        public virtual Servis Servi { get; set; }
+        public virtual Servi Servi { get; set; }
         public virtual Zaposlenik Zaposlenik1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StavkaRacunaAutomobilskiDio> StavkaRacunaAutomobilskiDios { get; set; }

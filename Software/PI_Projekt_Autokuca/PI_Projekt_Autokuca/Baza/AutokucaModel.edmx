@@ -4,12 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PI2227_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="PI2227_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Adresa">
           <Key>
             <PropertyRef Name="IdAdrese" />
           </Key>
-          <Property Name="IdAdrese" Type="int" Nullable="false" />
+          <Property Name="IdAdrese" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Broj" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Ulica" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Mjesto" Type="varchar" MaxLength="50" Nullable="false" />
@@ -49,7 +49,7 @@
           <Key>
             <PropertyRef Name="IdKorisnika" />
           </Key>
-          <Property Name="IdKorisnika" Type="int" Nullable="false" />
+          <Property Name="IdKorisnika" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Ime" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Prezime" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Kontakt" Type="varchar(max)" />
@@ -62,21 +62,21 @@
           <Key>
             <PropertyRef Name="IdMarke" />
           </Key>
-          <Property Name="IdMarke" Type="int" Nullable="false" />
+          <Property Name="IdMarke" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NazivMarkeIModela" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="NacinPlacanja">
           <Key>
             <PropertyRef Name="IdNacinPlacanja" />
           </Key>
-          <Property Name="IdNacinPlacanja" Type="int" Nullable="false" />
+          <Property Name="IdNacinPlacanja" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Naziv" Type="varbinary" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="PranjeVozila">
           <Key>
             <PropertyRef Name="IdPranja" />
           </Key>
-          <Property Name="IdPranja" Type="int" Nullable="false" />
+          <Property Name="IdPranja" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DatumIVrijeme" Type="datetime" Nullable="false" />
           <Property Name="Vozilo" Type="int" Nullable="false" />
         </EntityType>
@@ -84,7 +84,7 @@
           <Key>
             <PropertyRef Name="IdPrijave" />
           </Key>
-          <Property Name="IdPrijave" Type="int" Nullable="false" />
+          <Property Name="IdPrijave" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Opis" Type="varchar(max)" Nullable="false" />
           <Property Name="DatumIVrijeme" Type="datetime" Nullable="false" />
           <Property Name="Korisnik" Type="int" Nullable="false" />
@@ -94,7 +94,7 @@
           <Key>
             <PropertyRef Name="IdProizvodaca" />
           </Key>
-          <Property Name="IdProizvodaca" Type="int" Nullable="false" />
+          <Property Name="IdProizvodaca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Naziv" Type="varchar(max)" Nullable="false" />
           <Property Name="Kontakt" Type="varchar(max)" Nullable="false" />
         </EntityType>
@@ -102,7 +102,7 @@
           <Key>
             <PropertyRef Name="IdRacuna" />
           </Key>
-          <Property Name="IdRacuna" Type="int" Nullable="false" />
+          <Property Name="IdRacuna" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DatumIVrijeme" Type="datetime" Nullable="false" />
           <Property Name="Zaposlenik" Type="int" Nullable="false" />
           <Property Name="Opis" Type="varchar(max)" />
@@ -115,7 +115,7 @@
           <Key>
             <PropertyRef Name="IdRezervacije" />
           </Key>
-          <Property Name="IdRezervacije" Type="int" Nullable="false" />
+          <Property Name="IdRezervacije" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Status" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="DatumIVrijeme" Type="datetime" Nullable="false" />
           <Property Name="PredmetRezervacije" Type="varchar(max)" Nullable="false" />
@@ -128,7 +128,7 @@
           <Key>
             <PropertyRef Name="IdServisa" />
           </Key>
-          <Property Name="IdServisa" Type="int" Nullable="false" />
+          <Property Name="IdServisa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Opis" Type="varchar(max)" />
           <Property Name="DatumIVrijeme" Type="datetime" Nullable="false" />
           <Property Name="SatiRada" Type="int" Nullable="false" />
@@ -180,7 +180,7 @@
           <Key>
             <PropertyRef Name="IdVoznje" />
           </Key>
-          <Property Name="IdVoznje" Type="int" Nullable="false" />
+          <Property Name="IdVoznje" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Opis" Type="varchar(max)" />
           <Property Name="DatumIVrijeme" Type="datetime" Nullable="false" />
           <Property Name="Vozilo" Type="int" Nullable="false" />
@@ -190,7 +190,7 @@
           <Key>
             <PropertyRef Name="IdUloge" />
           </Key>
-          <Property Name="IdUloge" Type="int" Nullable="false" />
+          <Property Name="IdUloge" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NazivUloge" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Vozilo">
@@ -217,21 +217,21 @@
           <Key>
             <PropertyRef Name="IdGoriva" />
           </Key>
-          <Property Name="IdGoriva" Type="int" Nullable="false" />
+          <Property Name="IdGoriva" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Naziv" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="VrstaVozila">
           <Key>
             <PropertyRef Name="IdVrste" />
           </Key>
-          <Property Name="IdVrste" Type="int" Nullable="false" />
+          <Property Name="IdVrste" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Naziv" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Zaposlenik">
           <Key>
             <PropertyRef Name="IdZaposlenika" />
           </Key>
-          <Property Name="IdZaposlenika" Type="int" Nullable="false" />
+          <Property Name="IdZaposlenika" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Ime" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Prezime" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Kontakt" Type="varchar" MaxLength="50" Nullable="false" />
@@ -744,8 +744,7 @@
             <End Role="Zaposlenik" EntitySet="Zaposlenik" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PI2227_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">

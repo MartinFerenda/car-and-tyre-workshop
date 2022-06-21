@@ -20,7 +20,7 @@ namespace PI_Projekt_Autokuca.Baza
             this.PranjeVozilas = new HashSet<PranjeVozila>();
             this.PrijavaKvaras = new HashSet<PrijavaKvara>();
             this.Rezervacijas = new HashSet<Rezervacija>();
-            this.Servis = new HashSet<Servis>();
+            this.Servis = new HashSet<Servi>();
             this.StavkaRacunaVoziloes = new HashSet<StavkaRacunaVozilo>();
             this.TestVoznjas = new HashSet<TestVoznja>();
         }
@@ -50,7 +50,7 @@ namespace PI_Projekt_Autokuca.Baza
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rezervacija> Rezervacijas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Servis> Servis { get; set; }
+        public virtual ICollection<Servi> Servis { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<StavkaRacunaVozilo> StavkaRacunaVoziloes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

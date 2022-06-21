@@ -36,7 +36,7 @@ namespace PI_Projekt_Autokuca.Baza
         public virtual DbSet<Proizvodac> Proizvodacs { get; set; }
         public virtual DbSet<Racun> Racuns { get; set; }
         public virtual DbSet<Rezervacija> Rezervacijas { get; set; }
-        public virtual DbSet<Servis> Servis { get; set; }
+        public virtual DbSet<Servi> Servis { get; set; }
         public virtual DbSet<StavkaRacunaAutomobilskiDio> StavkaRacunaAutomobilskiDios { get; set; }
         public virtual DbSet<StavkaRacunaGuma> StavkaRacunaGumas { get; set; }
         public virtual DbSet<StavkaRacunaVozilo> StavkaRacunaVoziloes { get; set; }

@@ -12,10 +12,10 @@ namespace PI_Projekt_Autokuca.Baza
     using System;
     using System.Collections.Generic;
     
-    public partial class Servis
+    public partial class Servi
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Servis()
+        public Servi()
         {
             this.Racuns = new HashSet<Racun>();
         }

@@ -18,7 +18,7 @@ namespace PI_Projekt_Autokuca.Baza
         public Zaposlenik()
         {
             this.Racuns = new HashSet<Racun>();
-            this.Servis = new HashSet<Servis>();
+            this.Servis = new HashSet<Servi>();
         }
     
         public int IdZaposlenika { get; set; }
@@ -35,6 +35,6 @@ namespace PI_Projekt_Autokuca.Baza
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Racun> Racuns { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Servis> Servis { get; set; }
+        public virtual ICollection<Servi> Servis { get; set; }
     }
 }
