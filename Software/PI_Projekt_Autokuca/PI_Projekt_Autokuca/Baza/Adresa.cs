@@ -20,6 +20,7 @@ namespace PI_Projekt_Autokuca.Baza
             this.Korisniks = new HashSet<Korisnik>();
             this.Zaposleniks = new HashSet<Zaposlenik>();
             this.Zaposleniks1 = new HashSet<Zaposlenik>();
+            this.Rezervacijas = new HashSet<Rezervacija>();
         }
     
         public int IdAdrese { get; set; }
@@ -37,5 +38,7 @@ namespace PI_Projekt_Autokuca.Baza
         public virtual ICollection<Zaposlenik> Zaposleniks { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Zaposlenik> Zaposleniks1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Rezervacija> Rezervacijas { get; set; }
     }
 }

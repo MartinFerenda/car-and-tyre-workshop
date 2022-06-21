@@ -16,5 +16,6 @@ namespace PI_Projekt_Autokuca.Klase
         public DateTime KrajRezervacije { get; set; }
         public Korisnik Korisnik { get; set; }
         public Vozilo Vozilo { get; set; }
+        public Adresa Podruznica { get; set; }
     }
 }

@@ -34,7 +34,7 @@
           <Key>
             <PropertyRef Name="IdGume" />
           </Key>
-          <Property Name="IdGume" Type="int" Nullable="false" />
+          <Property Name="IdGume" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SifraGume" Type="int" Nullable="false" />
           <Property Name="Sirina" Type="int" Nullable="false" />
           <Property Name="Visina" Type="int" Nullable="false" />
@@ -123,6 +123,7 @@
           <Property Name="KrajRezervacije" Type="datetime" Nullable="false" />
           <Property Name="Korisnik" Type="int" Nullable="false" />
           <Property Name="Vozilo" Type="int" Nullable="false" />
+          <Property Name="Adresa" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Servis">
           <Key>
@@ -381,6 +382,18 @@
             </Principal>
             <Dependent Role="Racun">
               <PropertyRef Name="Zaposlenik" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rezervacija_Adresa">
+          <End Role="Adresa" Type="Self.Adresa" Multiplicity="1" />
+          <End Role="Rezervacija" Type="Self.Rezervacija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adresa">
+              <PropertyRef Name="IdAdrese" />
+            </Principal>
+            <Dependent Role="Rezervacija">
+              <PropertyRef Name="Adresa" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -671,6 +684,10 @@
             <End Role="Zaposlenik" EntitySet="Zaposlenik" />
             <End Role="Racun" EntitySet="Racun" />
           </AssociationSet>
+          <AssociationSet Name="FK_Rezervacija_Adresa" Association="Self.FK_Rezervacija_Adresa">
+            <End Role="Adresa" EntitySet="Adresa" />
+            <End Role="Rezervacija" EntitySet="Rezervacija" />
+          </AssociationSet>
           <AssociationSet Name="FK_Rezervacija_Korisnik" Association="Self.FK_Rezervacija_Korisnik">
             <End Role="Korisnik" EntitySet="Korisnik" />
             <End Role="Rezervacija" EntitySet="Rezervacija" />
@@ -763,6 +780,7 @@
           <NavigationProperty Name="Korisniks" Relationship="Self.FK_Korisnik_Adresa" FromRole="Adresa" ToRole="Korisnik" />
           <NavigationProperty Name="Zaposleniks" Relationship="Self.FK_Zaposlenik_Adresa" FromRole="Adresa" ToRole="Zaposlenik" />
           <NavigationProperty Name="Zaposleniks1" Relationship="Self.FK_Zaposlenik_Adresa1" FromRole="Adresa" ToRole="Zaposlenik" />
+          <NavigationProperty Name="Rezervacijas" Relationship="PI2227_DBModel.FK_Rezervacija_Adresa" FromRole="Adresa" ToRole="Rezervacija" />
         </EntityType>
         <EntityType Name="AutomobilskiDio">
           <Key>
@@ -898,6 +916,8 @@
           <Property Name="Vozilo" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Korisnik1" Relationship="Self.FK_Rezervacija_Korisnik" FromRole="Rezervacija" ToRole="Korisnik" />
           <NavigationProperty Name="Vozilo1" Relationship="Self.FK_Rezervacija_Vozilo" FromRole="Rezervacija" ToRole="Vozilo" />
+          <Property Name="Adresa" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Adresa1" Relationship="PI2227_DBModel.FK_Rezervacija_Adresa" FromRole="Rezervacija" ToRole="Adresa" />
         </EntityType>
         <EntityType Name="Servi">
           <Key>
@@ -1546,7 +1566,23 @@
             <End Role="VrstaVozila" EntitySet="VrstaVozilas" />
             <End Role="Vozilo" EntitySet="Voziloes" />
           </AssociationSet>
+          <AssociationSet Name="FK_Rezervacija_Adresa" Association="PI2227_DBModel.FK_Rezervacija_Adresa">
+            <End Role="Adresa" EntitySet="Adresas" />
+            <End Role="Rezervacija" EntitySet="Rezervacijas" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_Rezervacija_Adresa">
+          <End Type="PI2227_DBModel.Adresa" Role="Adresa" Multiplicity="1" />
+          <End Type="PI2227_DBModel.Rezervacija" Role="Rezervacija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adresa">
+              <PropertyRef Name="IdAdrese" />
+            </Principal>
+            <Dependent Role="Rezervacija">
+              <PropertyRef Name="Adresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1672,6 +1708,7 @@
           <EntitySetMapping Name="Rezervacijas">
             <EntityTypeMapping TypeName="PI2227_DBModel.Rezervacija">
               <MappingFragment StoreEntitySet="Rezervacija">
+                <ScalarProperty Name="Adresa" ColumnName="Adresa" />
                 <ScalarProperty Name="IdRezervacije" ColumnName="IdRezervacije" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="DatumIVrijeme" ColumnName="DatumIVrijeme" />

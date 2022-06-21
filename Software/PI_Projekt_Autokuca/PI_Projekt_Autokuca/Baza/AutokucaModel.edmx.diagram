@@ -57,6 +57,7 @@
         <AssociationConnector Association="PI2227_DBModel.FK_TestVoznja_Vozilo" ManuallyRouted="false" />
         <AssociationConnector Association="PI2227_DBModel.FK_Vozilo_VrstaGoriva" ManuallyRouted="false" />
         <AssociationConnector Association="PI2227_DBModel.FK_Vozilo_VrstaVozila" ManuallyRouted="false" />
+        <AssociationConnector Association="PI2227_DBModel.FK_Rezervacija_Adresa" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
