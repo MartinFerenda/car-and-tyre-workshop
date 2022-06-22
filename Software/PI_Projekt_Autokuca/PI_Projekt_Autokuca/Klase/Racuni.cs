@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace PI_Projekt_Autokuca.Klase
 {
-    public class Racun
+    public class Racuni
     {
         public int IDRacuna { get; set; }
         public DateTime DatumIVrijeme { get; set; }
-        public Zaposlenik Zaposlenik { get; set; }
+        public Zaposlenici Zaposlenik { get; set; }
         public string Opis { get; set; }
         public decimal Iznos { get; set; }
-        public Korisnik Korisnik { get; set; }
-        public Servis Servis { get; set; }
-        public NacinPlacanja NacinPlacanja { get; set; }
+        public Korisnici Korisnik { get; set; }
+        public Servisi Servis { get; set; }
+        public NaciniPlacanja NacinPlacanja { get; set; }
     }
 }

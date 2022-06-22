@@ -41,16 +41,28 @@
             this.lblLokacija = new System.Windows.Forms.Label();
             this.cmbLokacija = new System.Windows.Forms.ComboBox();
             this.lblSat = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbSat = new System.Windows.Forms.ComboBox();
+            this.lblTermini = new System.Windows.Forms.Label();
+            this.lblLegenda = new System.Windows.Forms.Label();
+            this.lblSlobodno = new System.Windows.Forms.Label();
+            this.lblZauzeto = new System.Windows.Forms.Label();
+            this.dgvTermini = new System.Windows.Forms.DataGridView();
+            this.Termin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtSlobodno = new System.Windows.Forms.TextBox();
+            this.txtZauzeto = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMojeRezervacije)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTermini)).BeginInit();
             this.SuspendLayout();
             // 
             // mcOdabirDatuma
             // 
             this.mcOdabirDatuma.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mcOdabirDatuma.Location = new System.Drawing.Point(12, 219);
+            this.mcOdabirDatuma.MaxSelectionCount = 1;
             this.mcOdabirDatuma.Name = "mcOdabirDatuma";
             this.mcOdabirDatuma.TabIndex = 0;
+            this.mcOdabirDatuma.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.mcOdabirDatuma_DateChanged);
             // 
             // btnRezerviraj
             // 
@@ -65,12 +77,13 @@
             // btnOdustani
             // 
             this.btnOdustani.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOdustani.Location = new System.Drawing.Point(677, 502);
+            this.btnOdustani.Location = new System.Drawing.Point(1001, 502);
             this.btnOdustani.Name = "btnOdustani";
             this.btnOdustani.Size = new System.Drawing.Size(105, 40);
             this.btnOdustani.TabIndex = 2;
             this.btnOdustani.Text = "Odustani";
             this.btnOdustani.UseVisualStyleBackColor = true;
+            this.btnOdustani.Click += new System.EventHandler(this.btnOdustani_Click);
             // 
             // lblOdabirVozila
             // 
@@ -112,7 +125,7 @@
             // 
             this.lblMojeRezervacije.AutoSize = true;
             this.lblMojeRezervacije.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMojeRezervacije.Location = new System.Drawing.Point(315, 13);
+            this.lblMojeRezervacije.Location = new System.Drawing.Point(639, 13);
             this.lblMojeRezervacije.Name = "lblMojeRezervacije";
             this.lblMojeRezervacije.Size = new System.Drawing.Size(116, 18);
             this.lblMojeRezervacije.TabIndex = 8;
@@ -122,7 +135,7 @@
             // 
             this.dgvMojeRezervacije.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvMojeRezervacije.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMojeRezervacije.Location = new System.Drawing.Point(318, 34);
+            this.dgvMojeRezervacije.Location = new System.Drawing.Point(642, 34);
             this.dgvMojeRezervacije.Name = "dgvMojeRezervacije";
             this.dgvMojeRezervacije.RowHeadersWidth = 51;
             this.dgvMojeRezervacije.RowTemplate.Height = 24;
@@ -156,6 +169,7 @@
             this.cmbLokacija.Name = "cmbLokacija";
             this.cmbLokacija.Size = new System.Drawing.Size(262, 24);
             this.cmbLokacija.TabIndex = 11;
+            this.cmbLokacija.SelectedIndexChanged += new System.EventHandler(this.cmbLokacija_SelectedIndexChanged);
             // 
             // lblSat
             // 
@@ -167,21 +181,116 @@
             this.lblSat.TabIndex = 12;
             this.lblSat.Text = "Sat:";
             // 
-            // comboBox1
+            // cmbSat
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(12, 456);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(262, 24);
-            this.comboBox1.TabIndex = 13;
+            this.cmbSat.FormattingEnabled = true;
+            this.cmbSat.Location = new System.Drawing.Point(12, 456);
+            this.cmbSat.Name = "cmbSat";
+            this.cmbSat.Size = new System.Drawing.Size(262, 24);
+            this.cmbSat.TabIndex = 13;
+            // 
+            // lblTermini
+            // 
+            this.lblTermini.AutoSize = true;
+            this.lblTermini.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTermini.Location = new System.Drawing.Point(303, 13);
+            this.lblTermini.Name = "lblTermini";
+            this.lblTermini.Size = new System.Drawing.Size(60, 18);
+            this.lblTermini.TabIndex = 14;
+            this.lblTermini.Text = "Termini:";
+            // 
+            // lblLegenda
+            // 
+            this.lblLegenda.AutoSize = true;
+            this.lblLegenda.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLegenda.Location = new System.Drawing.Point(303, 354);
+            this.lblLegenda.Name = "lblLegenda";
+            this.lblLegenda.Size = new System.Drawing.Size(64, 18);
+            this.lblLegenda.TabIndex = 15;
+            this.lblLegenda.Text = "Legenda:";
+            // 
+            // lblSlobodno
+            // 
+            this.lblSlobodno.AutoSize = true;
+            this.lblSlobodno.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSlobodno.Location = new System.Drawing.Point(362, 393);
+            this.lblSlobodno.Name = "lblSlobodno";
+            this.lblSlobodno.Size = new System.Drawing.Size(64, 18);
+            this.lblSlobodno.TabIndex = 16;
+            this.lblSlobodno.Text = "Slobodno";
+            // 
+            // lblZauzeto
+            // 
+            this.lblZauzeto.AutoSize = true;
+            this.lblZauzeto.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblZauzeto.Location = new System.Drawing.Point(509, 393);
+            this.lblZauzeto.Name = "lblZauzeto";
+            this.lblZauzeto.Size = new System.Drawing.Size(56, 18);
+            this.lblZauzeto.TabIndex = 17;
+            this.lblZauzeto.Text = "Zauzeto";
+            // 
+            // dgvTermini
+            // 
+            this.dgvTermini.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgvTermini.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTermini.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Termin,
+            this.Status});
+            this.dgvTermini.Location = new System.Drawing.Point(306, 34);
+            this.dgvTermini.Name = "dgvTermini";
+            this.dgvTermini.RowHeadersWidth = 51;
+            this.dgvTermini.RowTemplate.Height = 24;
+            this.dgvTermini.Size = new System.Drawing.Size(306, 317);
+            this.dgvTermini.TabIndex = 18;
+            // 
+            // Termin
+            // 
+            this.Termin.HeaderText = "Termin";
+            this.Termin.MinimumWidth = 6;
+            this.Termin.Name = "Termin";
+            this.Termin.ReadOnly = true;
+            this.Termin.Width = 125;
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "Slobodno/Zauzeto";
+            this.Status.MinimumWidth = 6;
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            this.Status.Width = 125;
+            // 
+            // txtSlobodno
+            // 
+            this.txtSlobodno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.txtSlobodno.Location = new System.Drawing.Point(306, 375);
+            this.txtSlobodno.Multiline = true;
+            this.txtSlobodno.Name = "txtSlobodno";
+            this.txtSlobodno.Size = new System.Drawing.Size(50, 50);
+            this.txtSlobodno.TabIndex = 19;
+            // 
+            // txtZauzeto
+            // 
+            this.txtZauzeto.BackColor = System.Drawing.Color.Red;
+            this.txtZauzeto.Location = new System.Drawing.Point(453, 375);
+            this.txtZauzeto.Multiline = true;
+            this.txtZauzeto.Name = "txtZauzeto";
+            this.txtZauzeto.Size = new System.Drawing.Size(50, 50);
+            this.txtZauzeto.TabIndex = 20;
             // 
             // FrmRezervacijaTermina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(1086, 554);
-            this.Controls.Add(this.comboBox1);
+            this.ClientSize = new System.Drawing.Size(1118, 554);
+            this.Controls.Add(this.txtZauzeto);
+            this.Controls.Add(this.txtSlobodno);
+            this.Controls.Add(this.dgvTermini);
+            this.Controls.Add(this.lblZauzeto);
+            this.Controls.Add(this.lblSlobodno);
+            this.Controls.Add(this.lblLegenda);
+            this.Controls.Add(this.lblTermini);
+            this.Controls.Add(this.cmbSat);
             this.Controls.Add(this.lblSat);
             this.Controls.Add(this.cmbLokacija);
             this.Controls.Add(this.lblLokacija);
@@ -197,7 +306,9 @@
             this.Controls.Add(this.mcOdabirDatuma);
             this.Name = "FrmRezervacijaTermina";
             this.Text = "Rezervacija termina";
+            this.Load += new System.EventHandler(this.FrmRezervacijaTermina_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMojeRezervacije)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTermini)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,6 +329,15 @@
         private System.Windows.Forms.Label lblLokacija;
         private System.Windows.Forms.ComboBox cmbLokacija;
         private System.Windows.Forms.Label lblSat;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbSat;
+        private System.Windows.Forms.Label lblTermini;
+        private System.Windows.Forms.Label lblLegenda;
+        private System.Windows.Forms.Label lblSlobodno;
+        private System.Windows.Forms.Label lblZauzeto;
+        private System.Windows.Forms.DataGridView dgvTermini;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Termin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.TextBox txtSlobodno;
+        private System.Windows.Forms.TextBox txtZauzeto;
     }
 }

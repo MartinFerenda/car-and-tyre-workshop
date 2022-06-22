@@ -14,6 +14,7 @@
           <Property Name="Ulica" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Mjesto" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="PostanskiBroj" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NazivPodruznice" Type="varchar(max)" />
           <Property Name="OpisPodruznice" Type="varchar(max)" />
           <Property Name="RadnoVrijemeOd" Type="time" Precision="7" />
           <Property Name="RadnoVrijemeDo" Type="time" Precision="7" />
@@ -781,6 +782,7 @@
           <NavigationProperty Name="Zaposleniks" Relationship="Self.FK_Zaposlenik_Adresa" FromRole="Adresa" ToRole="Zaposlenik" />
           <NavigationProperty Name="Zaposleniks1" Relationship="Self.FK_Zaposlenik_Adresa1" FromRole="Adresa" ToRole="Zaposlenik" />
           <NavigationProperty Name="Rezervacijas" Relationship="PI2227_DBModel.FK_Rezervacija_Adresa" FromRole="Adresa" ToRole="Rezervacija" />
+          <Property Name="NazivPodruznice" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="AutomobilskiDio">
           <Key>
@@ -1592,6 +1594,7 @@
           <EntitySetMapping Name="Adresas">
             <EntityTypeMapping TypeName="PI2227_DBModel.Adresa">
               <MappingFragment StoreEntitySet="Adresa">
+                <ScalarProperty Name="NazivPodruznice" ColumnName="NazivPodruznice" />
                 <ScalarProperty Name="IdAdrese" ColumnName="IdAdrese" />
                 <ScalarProperty Name="Broj" ColumnName="Broj" />
                 <ScalarProperty Name="Ulica" ColumnName="Ulica" />

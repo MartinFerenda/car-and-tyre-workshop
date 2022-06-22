@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PI_Projekt_Autokuca.Klase
 {
-    public class Vozilo
+    public class Vozila
     {
         public int IDVozila { get; set; }
         public string RegistarskaOznaka { get; set; }
@@ -18,10 +18,15 @@ namespace PI_Projekt_Autokuca.Klase
         public int StupanjMjenjaca { get; set; }
         public string Boja { get; set; }
         public int BrojPrijedenihKilometara { get; set; }
-        public Marka Marka { get; set; }
-        public Korisnik Vlasnik { get; set; }
-        public VrstaVozilo Vrsta { get; set; }
-        public VrstaGorivo Gorivo { get; set; }
+        public Marke Marka { get; set; }
+        public Korisnici Vlasnik { get; set; }
+        public VrsteVozila Vrsta { get; set; }
+        public VrsteGoriva Gorivo { get; set; }
+
+        public override string ToString()
+        {
+            return RegistarskaOznaka + " " + Marka.NazivMarkeIModel;
+        }
 
     }
 }

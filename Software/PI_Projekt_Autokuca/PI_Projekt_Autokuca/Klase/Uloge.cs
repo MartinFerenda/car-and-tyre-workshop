@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace PI_Projekt_Autokuca.Klase
 {
-    public class Marka
+    public enum Uloge
     {
-        public int IDMarke { get; set; }
-        public string NazivMarkeIModel { get; set; }
+        NeregistriraniKorisnik,
+        RegistriraniKorisnik,
+        Zaposlenik,
+        Administrator
     }
 }

@@ -6,14 +6,18 @@ using System.Threading.Tasks;
 
 namespace PI_Projekt_Autokuca.Klase
 {
-    public class AutomobilskiDio
+    public class Gume
     {
-        public int SifraDijela { get; set; }
-        public string Naziv { get; set; }
-        public bool Original { get; set; }
+        public int IDGume { get; set; }
+        public int SifraGume { get; set; }
+        public int Sirina { get; set; }
+        public int Visina { get; set; }
+        public int Promjer { get; set; }
         public decimal NabavnaCijena { get; set; }
         public decimal ProdajnaCijena { get; set; }
         public int KolicinaNaSkladistu { get; set; }
-        public Proizvodac Proizvodac { get; set; }
+        public Korisnici Korisnik { get; set; }
+        public Proizvodaci Proizvodac { get; set; }
+
     }
 }

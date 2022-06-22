@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PI_Projekt_Autokuca.Klase
 {
-    public class Rezervacija
+    public class Rezervacije
     {
         public int IDRezervacije { get; set; }
         public string Status { get; set; }
@@ -14,8 +14,8 @@ namespace PI_Projekt_Autokuca.Klase
         public string PredmetRezervacije { get; set; }
         public DateTime PocetakRezervacije { get; set; }
         public DateTime KrajRezervacije { get; set; }
-        public Korisnik Korisnik { get; set; }
-        public Vozilo Vozilo { get; set; }
-        public Adresa Podruznica { get; set; }
+        public Korisnici Korisnik { get; set; }
+        public Vozila Vozilo { get; set; }
+        public Adrese Podruznica { get; set; }
     }
 }

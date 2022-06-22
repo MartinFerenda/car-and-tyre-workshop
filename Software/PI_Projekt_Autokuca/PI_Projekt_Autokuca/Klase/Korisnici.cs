@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PI_Projekt_Autokuca.Klase
 {
-    public class Korisnik
+    public class Korisnici
     {
         public int IDKorisnik { get; set; }
         public string Ime { get; set; }
@@ -14,9 +14,9 @@ namespace PI_Projekt_Autokuca.Klase
         public string Kontakt { get; set; }
         public string KorisnickoIme { get; set; }
         public string Lozinka { get; set; }
-        public Uloga Uloga { get; set; }
-        public Adresa Adresa { get; set; }
-        public Korisnik()
+        public Uloge Uloga { get; set; }
+        public Adrese Adresa { get; set; }
+        public Korisnici()
         {
 
         }

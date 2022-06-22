@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace PI_Projekt_Autokuca.Klase
 {
-    public enum Uloga
+    public class NaciniPlacanja
     {
-        NeregistriraniKorisnik,
-        RegistriraniKorisnik,
-        Zaposlenik,
-        Administrator
+        public int IDNacinaPlacanja { get; set; }
+        public string Naziv { get; set; }
     }
 }

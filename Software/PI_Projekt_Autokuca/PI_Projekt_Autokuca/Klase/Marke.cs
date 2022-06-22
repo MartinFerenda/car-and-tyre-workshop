@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace PI_Projekt_Autokuca.Klase
 {
-    public class VrstaGorivo
+    public class Marke
     {
-        public int IDGorivo { get; set; }
-        public string Naziv { get; set; }
+        public int IDMarke { get; set; }
+        public string NazivMarkeIModel { get; set; }
     }
 }

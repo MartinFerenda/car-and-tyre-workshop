@@ -31,6 +31,7 @@ namespace PI_Projekt_Autokuca.Baza
         public string OpisPodruznice { get; set; }
         public Nullable<System.TimeSpan> RadnoVrijemeOd { get; set; }
         public Nullable<System.TimeSpan> RadnoVrijemeDo { get; set; }
+        public string NazivPodruznice { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Korisnik> Korisniks { get; set; }

@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace PI_Projekt_Autokuca.Klase
 {
-    public class VrstaVozilo
+    public class Proizvodaci
     {
-        public int IDVrsteVozila { get; set; }
+        public int IDProizvodaca { get; set; }
         public string Naziv { get; set; }
+        public string Kontakt { get; set; }
     }
 }
