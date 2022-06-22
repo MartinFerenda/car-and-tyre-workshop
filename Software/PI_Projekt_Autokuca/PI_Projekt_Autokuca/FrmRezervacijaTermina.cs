@@ -56,5 +56,11 @@ namespace PI_Projekt_Autokuca
         {
 
         }
+
+        private void btnRezerviraj_Click(object sender, EventArgs e)
+        {
+            Proba form = new Proba();
+            form.ShowDialog();
+        }
     }
 }

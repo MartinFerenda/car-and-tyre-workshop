@@ -177,6 +177,12 @@
     <Compile Include="Klase\VrsteGoriva.cs" />
     <Compile Include="Klase\VrsteVozila.cs" />
     <Compile Include="Klase\Zaposlenici.cs" />
+    <Compile Include="Proba.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proba.Designer.cs">
+      <DependentUpon>Proba.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FrmGlavniIzbornik.resx">
@@ -190,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSkladisteIEvidencija.resx">
       <DependentUpon>FrmSkladisteIEvidencija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proba.resx">
+      <DependentUpon>Proba.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
