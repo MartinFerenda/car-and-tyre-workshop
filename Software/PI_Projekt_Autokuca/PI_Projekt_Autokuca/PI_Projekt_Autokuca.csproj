@@ -46,12 +46,136 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< Updated upstream
     <Compile Include="Form1.cs">
+=======
+    <Compile Include="Baza\Adresa.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\AutokucaModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutokucaModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\AutokucaModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\AutokucaModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutokucaModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\AutomobilskiDio.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\Guma.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\Korisnik.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\MarkaVozila.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\NacinPlacanja.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\PranjeVozila.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\PrijavaKvara.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\Proizvodac.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\Racun.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\Rezervacija.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\Servi.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\StavkaRacunaAutomobilskiDio.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\StavkaRacunaGuma.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\StavkaRacunaVozilo.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\sysdiagram.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\TestVoznja.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\UlogaKorisnika.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\Vozilo.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\VoziloExt.cs" />
+    <Compile Include="Baza\VrstaGoriva.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\VrstaVozila.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Baza\Zaposlenik.cs">
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGlavniIzbornik.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGlavniIzbornik.Designer.cs">
+      <DependentUpon>FrmGlavniIzbornik.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPrikazLokacijaServisa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPrikazLokacijaServisa.Designer.cs">
+      <DependentUpon>FrmPrikazLokacijaServisa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmRezervacijaTermina.cs">
+>>>>>>> Stashed changes
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+<<<<<<< Updated upstream
+=======
+    <Compile Include="FrmSkladisteIEvidencija.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSkladisteIEvidencija.Designer.cs">
+      <DependentUpon>FrmSkladisteIEvidencija.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Klase\Adrese.cs" />
+    <Compile Include="Klase\AutomobilskiDijelovi.cs" />
+    <Compile Include="Klase\Gume.cs" />
+    <Compile Include="Klase\Korisnici.cs" />
+    <Compile Include="Klase\Marke.cs" />
+    <Compile Include="Klase\NaciniPlacanja.cs" />
+    <Compile Include="Klase\Proizvodaci.cs" />
+    <Compile Include="Klase\Racuni.cs" />
+    <Compile Include="Klase\RepozitorijAutokuca.cs" />
+    <Compile Include="Klase\Rezervacije.cs" />
+    <Compile Include="Klase\Servisi.cs" />
+    <Compile Include="Klase\TestVoznje.cs" />
+    <Compile Include="Klase\Uloge.cs" />
+    <Compile Include="Klase\Vozila.cs" />
+    <Compile Include="Klase\VrsteGoriva.cs" />
+    <Compile Include="Klase\VrsteVozila.cs" />
+    <Compile Include="Klase\Zaposlenici.cs" />
+>>>>>>> Stashed changes
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
