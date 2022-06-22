@@ -51,6 +51,7 @@
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSlobodno = new System.Windows.Forms.TextBox();
             this.txtZauzeto = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMojeRezervacije)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTermini)).BeginInit();
             this.SuspendLayout();
@@ -78,7 +79,7 @@
             // btnOdustani
             // 
             this.btnOdustani.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOdustani.Location = new System.Drawing.Point(1001, 502);
+            this.btnOdustani.Location = new System.Drawing.Point(1141, 502);
             this.btnOdustani.Name = "btnOdustani";
             this.btnOdustani.Size = new System.Drawing.Size(105, 40);
             this.btnOdustani.TabIndex = 2;
@@ -101,7 +102,7 @@
             this.cmbVozilo.FormattingEnabled = true;
             this.cmbVozilo.Location = new System.Drawing.Point(12, 34);
             this.cmbVozilo.Name = "cmbVozilo";
-            this.cmbVozilo.Size = new System.Drawing.Size(262, 24);
+            this.cmbVozilo.Size = new System.Drawing.Size(301, 24);
             this.cmbVozilo.TabIndex = 4;
             // 
             // lblPredmetRezervacije
@@ -119,14 +120,14 @@
             this.cmbPredmetRezervacije.FormattingEnabled = true;
             this.cmbPredmetRezervacije.Location = new System.Drawing.Point(12, 93);
             this.cmbPredmetRezervacije.Name = "cmbPredmetRezervacije";
-            this.cmbPredmetRezervacije.Size = new System.Drawing.Size(262, 24);
+            this.cmbPredmetRezervacije.Size = new System.Drawing.Size(301, 24);
             this.cmbPredmetRezervacije.TabIndex = 6;
             // 
             // lblMojeRezervacije
             // 
             this.lblMojeRezervacije.AutoSize = true;
             this.lblMojeRezervacije.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMojeRezervacije.Location = new System.Drawing.Point(639, 13);
+            this.lblMojeRezervacije.Location = new System.Drawing.Point(779, 13);
             this.lblMojeRezervacije.Name = "lblMojeRezervacije";
             this.lblMojeRezervacije.Size = new System.Drawing.Size(116, 18);
             this.lblMojeRezervacije.TabIndex = 8;
@@ -136,7 +137,7 @@
             // 
             this.dgvMojeRezervacije.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvMojeRezervacije.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMojeRezervacije.Location = new System.Drawing.Point(642, 34);
+            this.dgvMojeRezervacije.Location = new System.Drawing.Point(782, 34);
             this.dgvMojeRezervacije.Name = "dgvMojeRezervacije";
             this.dgvMojeRezervacije.RowHeadersWidth = 51;
             this.dgvMojeRezervacije.RowTemplate.Height = 24;
@@ -168,7 +169,7 @@
             this.cmbLokacija.FormattingEnabled = true;
             this.cmbLokacija.Location = new System.Drawing.Point(12, 155);
             this.cmbLokacija.Name = "cmbLokacija";
-            this.cmbLokacija.Size = new System.Drawing.Size(262, 24);
+            this.cmbLokacija.Size = new System.Drawing.Size(301, 24);
             this.cmbLokacija.TabIndex = 11;
             this.cmbLokacija.SelectedIndexChanged += new System.EventHandler(this.cmbLokacija_SelectedIndexChanged);
             // 
@@ -187,14 +188,14 @@
             this.cmbSat.FormattingEnabled = true;
             this.cmbSat.Location = new System.Drawing.Point(12, 456);
             this.cmbSat.Name = "cmbSat";
-            this.cmbSat.Size = new System.Drawing.Size(262, 24);
+            this.cmbSat.Size = new System.Drawing.Size(301, 24);
             this.cmbSat.TabIndex = 13;
             // 
             // lblTermini
             // 
             this.lblTermini.AutoSize = true;
             this.lblTermini.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTermini.Location = new System.Drawing.Point(303, 13);
+            this.lblTermini.Location = new System.Drawing.Point(340, 13);
             this.lblTermini.Name = "lblTermini";
             this.lblTermini.Size = new System.Drawing.Size(60, 18);
             this.lblTermini.TabIndex = 14;
@@ -204,7 +205,7 @@
             // 
             this.lblLegenda.AutoSize = true;
             this.lblLegenda.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLegenda.Location = new System.Drawing.Point(303, 354);
+            this.lblLegenda.Location = new System.Drawing.Point(340, 354);
             this.lblLegenda.Name = "lblLegenda";
             this.lblLegenda.Size = new System.Drawing.Size(64, 18);
             this.lblLegenda.TabIndex = 15;
@@ -214,7 +215,7 @@
             // 
             this.lblSlobodno.AutoSize = true;
             this.lblSlobodno.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSlobodno.Location = new System.Drawing.Point(362, 393);
+            this.lblSlobodno.Location = new System.Drawing.Point(399, 393);
             this.lblSlobodno.Name = "lblSlobodno";
             this.lblSlobodno.Size = new System.Drawing.Size(64, 18);
             this.lblSlobodno.TabIndex = 16;
@@ -224,7 +225,7 @@
             // 
             this.lblZauzeto.AutoSize = true;
             this.lblZauzeto.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblZauzeto.Location = new System.Drawing.Point(509, 393);
+            this.lblZauzeto.Location = new System.Drawing.Point(546, 393);
             this.lblZauzeto.Name = "lblZauzeto";
             this.lblZauzeto.Size = new System.Drawing.Size(56, 18);
             this.lblZauzeto.TabIndex = 17;
@@ -232,16 +233,19 @@
             // 
             // dgvTermini
             // 
+            this.dgvTermini.AllowUserToAddRows = false;
+            this.dgvTermini.AllowUserToDeleteRows = false;
             this.dgvTermini.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvTermini.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTermini.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Termin,
             this.Status});
-            this.dgvTermini.Location = new System.Drawing.Point(306, 34);
+            this.dgvTermini.Location = new System.Drawing.Point(343, 34);
             this.dgvTermini.Name = "dgvTermini";
+            this.dgvTermini.ReadOnly = true;
             this.dgvTermini.RowHeadersWidth = 51;
             this.dgvTermini.RowTemplate.Height = 24;
-            this.dgvTermini.Size = new System.Drawing.Size(306, 317);
+            this.dgvTermini.Size = new System.Drawing.Size(408, 317);
             this.dgvTermini.TabIndex = 18;
             // 
             // Termin
@@ -263,7 +267,7 @@
             // txtSlobodno
             // 
             this.txtSlobodno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.txtSlobodno.Location = new System.Drawing.Point(306, 375);
+            this.txtSlobodno.Location = new System.Drawing.Point(343, 375);
             this.txtSlobodno.Multiline = true;
             this.txtSlobodno.Name = "txtSlobodno";
             this.txtSlobodno.Size = new System.Drawing.Size(50, 50);
@@ -272,18 +276,26 @@
             // txtZauzeto
             // 
             this.txtZauzeto.BackColor = System.Drawing.Color.Red;
-            this.txtZauzeto.Location = new System.Drawing.Point(453, 375);
+            this.txtZauzeto.Location = new System.Drawing.Point(490, 375);
             this.txtZauzeto.Multiline = true;
             this.txtZauzeto.Name = "txtZauzeto";
             this.txtZauzeto.Size = new System.Drawing.Size(50, 50);
             this.txtZauzeto.TabIndex = 20;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(415, 456);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.TabIndex = 21;
             // 
             // FrmRezervacijaTermina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(1118, 554);
+            this.ClientSize = new System.Drawing.Size(1261, 554);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.txtZauzeto);
             this.Controls.Add(this.txtSlobodno);
             this.Controls.Add(this.dgvTermini);
@@ -340,5 +352,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.TextBox txtSlobodno;
         private System.Windows.Forms.TextBox txtZauzeto;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

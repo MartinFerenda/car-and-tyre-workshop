@@ -122,5 +122,31 @@ namespace PI_Projekt_Autokuca.Klase
                 return lokacije;
             }
         }
+        public static List<Rezervacije> DohvatiRezervacije(DateTime datum, Adrese adresa)
+        {
+            List<Rezervacije> vrati = new List<Rezervacije>();
+            List<Rezervacija> odabrane = new List<Rezervacija>();
+            using (var context = new PI2227_DBEntities())
+            {
+                var query = from r in context.Rezervacijas
+                            where r.Adresa == adresa.IDAdrese && r.DatumIVrijeme == datum
+                            select r;
+                odabrane = query.ToList();
+                foreach (Rezervacija rezervacija in odabrane)
+                {
+                    Rezervacije nova = new Rezervacije()
+                    {
+                        DatumIVrijeme = rezervacija.DatumIVrijeme,
+                        IDRezervacije = rezervacija.IdRezervacije,
+                        KrajRezervacije = rezervacija.KrajRezervacije,
+                        PocetakRezervacije = rezervacija.PocetakRezervacije,
+                        PredmetRezervacije = rezervacija.PredmetRezervacije,
+                        Status = rezervacija.Status,
+                    };
+                    vrati.Add(nova);
+                }
+                return vrati;
+            }
+        }
     }
 }
