@@ -22,6 +22,7 @@ namespace PI_Projekt_Autokuca
         {
             PopuniComboBoxeve();
             dgvMojeRezervacije.DataSource = RepozitorijAutokuca.DohvatiRezervacijeKorisnika();
+            UrediDataGridPrikaz();
         }
         private void PopuniComboBoxeve()
         {
@@ -74,6 +75,24 @@ namespace PI_Projekt_Autokuca
         {
             DateTime odabraniDatum = mcOdabirDatuma.SelectionRange.Start;
             Adrese trenutna = cmbLokacija.SelectedItem as Adrese;
+            List<Rezervacije> rezervacije = RepozitorijAutokuca.DohvatiRezervacije(odabraniDatum, trenutna);
+
+            //DODATI DATAGRID ISTO!!!
+
+            foreach (DataGridViewRow red in dgvTermini.Rows)
+            {
+                red.Cells[1].Style.BackColor = Color.Green;
+                int sati1 = int.Parse(red.Cells[0].Value.ToString());
+                TimeSpan zaDodati = new TimeSpan(sati1, 0, 0);
+                DateTime usporedba = odabraniDatum.Add(zaDodati);
+                foreach (Rezervacije rezervacija in rezervacije)
+                {
+                    if (DateTime.Compare(rezervacija.PocetakRezervacije, usporedba) == 0)
+                    {
+                        red.Cells[1].Style.BackColor = Color.Red;
+                    }
+                }
+            }
         }
 
         private void btnRezerviraj_Click(object sender, EventArgs e)
@@ -83,20 +102,35 @@ namespace PI_Projekt_Autokuca
             TimeSpan? odabraniSat = cmbSat.SelectedItem as TimeSpan?;
             TimeSpan zaDodati = new TimeSpan(int.Parse(odabraniSat.Value.TotalHours.ToString()), 0, 0);
             DateTime pocetak = odabraniDatum.Add(zaDodati);
-            Rezervacije nova = new Rezervacije()
-            {
-                DatumIVrijeme = odabraniDatum,
-                Korisnik = RepozitorijAutokuca.PrijavljeniKorisnik,
-                KrajRezervacije = pocetak.Add(trajanje),
-                PocetakRezervacije = pocetak,
-                Podruznica = cmbLokacija.SelectedItem as Adrese,
-                PredmetRezervacije = cmbPredmetRezervacije.SelectedItem.ToString(),
-                Status = "U postupku",
-                Vozilo = cmbVozilo.SelectedItem as Vozila
-            };
-            RepozitorijAutokuca.KreirajRezervaciju(nova);
-            dgvMojeRezervacije.DataSource = null;
-            dgvMojeRezervacije.DataSource = RepozitorijAutokuca.DohvatiRezervacijeKorisnika();
+            Adrese trenutna = cmbLokacija.SelectedItem as Adrese;
+
+            if (RepozitorijAutokuca.ProvjeriIspravnostRezervacije(odabraniDatum, pocetak, trenutna)) {
+                Rezervacije nova = new Rezervacije()
+                {
+                    DatumIVrijeme = odabraniDatum,
+                    Korisnik = RepozitorijAutokuca.PrijavljeniKorisnik,
+                    KrajRezervacije = pocetak.Add(trajanje),
+                    PocetakRezervacije = pocetak,
+                    Podruznica = trenutna,
+                    PredmetRezervacije = cmbPredmetRezervacije.SelectedItem.ToString(),
+                    Status = "U postupku",
+                    Vozilo = cmbVozilo.SelectedItem as Vozila
+                };
+                RepozitorijAutokuca.KreirajRezervaciju(nova);
+                dgvMojeRezervacije.DataSource = null;
+                dgvMojeRezervacije.DataSource = RepozitorijAutokuca.DohvatiRezervacijeKorisnika();
+                UrediDataGridPrikaz();
+            }
+        }
+        private void UrediDataGridPrikaz()
+        {
+            dgvMojeRezervacije.Columns[0].Visible = false;
+            dgvMojeRezervacije.Columns[2].HeaderText = "Datum";
+            dgvMojeRezervacije.Columns[3].HeaderText = "Predmet";
+            dgvMojeRezervacije.Columns[4].HeaderText = "Početak (sati)";
+            dgvMojeRezervacije.Columns[5].HeaderText = "Kraj (sati)";
+            dgvMojeRezervacije.Columns[6].Visible = false;
+            dgvMojeRezervacije.Columns[8].HeaderText = "Lokacija";
         }
     }
 }

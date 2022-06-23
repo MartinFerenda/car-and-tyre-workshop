@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using PI_Projekt_Autokuca.Baza;
 
 namespace PI_Projekt_Autokuca.Klase
@@ -193,6 +194,9 @@ namespace PI_Projekt_Autokuca.Klase
         {
             List<Rezervacije> vrati = new List<Rezervacije>();
             List<Rezervacija> odabrane = new List<Rezervacija>();
+            List<Vozila> vozilaKorisnika = DohvatiVozilaKorisnika();
+            List<Adrese> adrese = DohvatiLokacije();
+
             using (var context = new PI2227_DBEntities())
             {
                 var query = from r in context.Rezervacijas
@@ -201,16 +205,30 @@ namespace PI_Projekt_Autokuca.Klase
                 odabrane = query.ToList();
                 foreach (Rezervacija rezervacija in odabrane)
                 {
-                    Rezervacije nova = new Rezervacije()
+                    foreach (Vozila vozilo in vozilaKorisnika)
                     {
-                        DatumIVrijeme = rezervacija.DatumIVrijeme,
-                        IDRezervacije = rezervacija.IdRezervacije,
-                        KrajRezervacije = rezervacija.KrajRezervacije,
-                        PocetakRezervacije = rezervacija.PocetakRezervacije,
-                        PredmetRezervacije = rezervacija.PredmetRezervacije,
-                        Status = rezervacija.Status,
-                    };
-                    vrati.Add(nova);
+                        if (vozilo.IDVozila == rezervacija.Vozilo)
+                        {
+                            foreach (Adrese adresa in adrese)
+                            {
+                                if (adresa.IDAdrese == rezervacija.Adresa)
+                                {
+                                    Rezervacije nova = new Rezervacije()
+                                    {
+                                        DatumIVrijeme = rezervacija.DatumIVrijeme,
+                                        IDRezervacije = rezervacija.IdRezervacije,
+                                        KrajRezervacije = rezervacija.KrajRezervacije,
+                                        PocetakRezervacije = rezervacija.PocetakRezervacije,
+                                        PredmetRezervacije = rezervacija.PredmetRezervacije,
+                                        Status = rezervacija.Status,
+                                        Vozilo = vozilo,
+                                        Podruznica = adresa
+                                    };
+                                    vrati.Add(nova);
+                                }
+                            }
+                        }
+                    }
                 }
                 return vrati;
             }
@@ -232,6 +250,27 @@ namespace PI_Projekt_Autokuca.Klase
                 };
                 context.Rezervacijas.Add(novaRezervacijaBaza);
                 context.SaveChanges();
+            }
+        }
+        public static bool ProvjeriIspravnostRezervacije(DateTime datum, DateTime pocetak, Adrese odabranaLokacija)
+        {
+            if (datum.DayOfYear <= DateTime.Now.DayOfYear)
+            {
+                MessageBox.Show("Datum na koji želite rezervirati termin mora biti barem sutrašnji datum!");
+                return false;
+            }
+            else
+            {
+                List<Rezervacije> zaOdabraniDatum = DohvatiRezervacije(datum, odabranaLokacija);
+                foreach (Rezervacije rezervacija in zaOdabraniDatum)
+                {
+                    if (DateTime.Compare(rezervacija.PocetakRezervacije, pocetak) == 0)
+                    {
+                        MessageBox.Show("Taj termin je već zauzet!");
+                        return false;
+                    }
+                }
+                return true;
             }
         }
     }
