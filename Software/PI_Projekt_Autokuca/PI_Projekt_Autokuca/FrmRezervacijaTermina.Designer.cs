@@ -47,11 +47,10 @@
             this.lblSlobodno = new System.Windows.Forms.Label();
             this.lblZauzeto = new System.Windows.Forms.Label();
             this.dgvTermini = new System.Windows.Forms.DataGridView();
-            this.Termin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSlobodno = new System.Windows.Forms.TextBox();
             this.txtZauzeto = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Termin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMojeRezervacije)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTermini)).BeginInit();
             this.SuspendLayout();
@@ -79,7 +78,7 @@
             // btnOdustani
             // 
             this.btnOdustani.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOdustani.Location = new System.Drawing.Point(1141, 502);
+            this.btnOdustani.Location = new System.Drawing.Point(1165, 502);
             this.btnOdustani.Name = "btnOdustani";
             this.btnOdustani.Size = new System.Drawing.Size(105, 40);
             this.btnOdustani.TabIndex = 2;
@@ -127,7 +126,7 @@
             // 
             this.lblMojeRezervacije.AutoSize = true;
             this.lblMojeRezervacije.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMojeRezervacije.Location = new System.Drawing.Point(779, 13);
+            this.lblMojeRezervacije.Location = new System.Drawing.Point(803, 13);
             this.lblMojeRezervacije.Name = "lblMojeRezervacije";
             this.lblMojeRezervacije.Size = new System.Drawing.Size(116, 18);
             this.lblMojeRezervacije.TabIndex = 8;
@@ -137,7 +136,7 @@
             // 
             this.dgvMojeRezervacije.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvMojeRezervacije.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMojeRezervacije.Location = new System.Drawing.Point(782, 34);
+            this.dgvMojeRezervacije.Location = new System.Drawing.Point(806, 34);
             this.dgvMojeRezervacije.Name = "dgvMojeRezervacije";
             this.dgvMojeRezervacije.RowHeadersWidth = 51;
             this.dgvMojeRezervacije.RowTemplate.Height = 24;
@@ -245,24 +244,8 @@
             this.dgvTermini.ReadOnly = true;
             this.dgvTermini.RowHeadersWidth = 51;
             this.dgvTermini.RowTemplate.Height = 24;
-            this.dgvTermini.Size = new System.Drawing.Size(408, 317);
+            this.dgvTermini.Size = new System.Drawing.Size(431, 317);
             this.dgvTermini.TabIndex = 18;
-            // 
-            // Termin
-            // 
-            this.Termin.HeaderText = "Termin";
-            this.Termin.MinimumWidth = 6;
-            this.Termin.Name = "Termin";
-            this.Termin.ReadOnly = true;
-            this.Termin.Width = 125;
-            // 
-            // Status
-            // 
-            this.Status.HeaderText = "Slobodno/Zauzeto";
-            this.Status.MinimumWidth = 6;
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            this.Status.Width = 125;
             // 
             // txtSlobodno
             // 
@@ -282,20 +265,28 @@
             this.txtZauzeto.Size = new System.Drawing.Size(50, 50);
             this.txtZauzeto.TabIndex = 20;
             // 
-            // textBox1
+            // Termin
             // 
-            this.textBox1.Location = new System.Drawing.Point(415, 456);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 21;
+            this.Termin.HeaderText = "Termin (sati)";
+            this.Termin.MinimumWidth = 6;
+            this.Termin.Name = "Termin";
+            this.Termin.ReadOnly = true;
+            this.Termin.Width = 125;
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "Slobodno/Zauzeto";
+            this.Status.MinimumWidth = 6;
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            this.Status.Width = 125;
             // 
             // FrmRezervacijaTermina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(1261, 554);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(1282, 554);
             this.Controls.Add(this.txtZauzeto);
             this.Controls.Add(this.txtSlobodno);
             this.Controls.Add(this.dgvTermini);
@@ -348,10 +339,9 @@
         private System.Windows.Forms.Label lblSlobodno;
         private System.Windows.Forms.Label lblZauzeto;
         private System.Windows.Forms.DataGridView dgvTermini;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Termin;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.TextBox txtSlobodno;
         private System.Windows.Forms.TextBox txtZauzeto;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Termin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
     }
 }

@@ -16,5 +16,10 @@ namespace PI_Projekt_Autokuca
         {
             InitializeComponent();
         }
+
+        private void Proba_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

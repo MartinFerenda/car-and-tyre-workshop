@@ -177,6 +177,12 @@
     <Compile Include="Klase\VrsteGoriva.cs" />
     <Compile Include="Klase\VrsteVozila.cs" />
     <Compile Include="Klase\Zaposlenici.cs" />
+    <Compile Include="PrijavaPomocna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrijavaPomocna.Designer.cs">
+      <DependentUpon>PrijavaPomocna.cs</DependentUpon>
+    </Compile>
     <Compile Include="Proba.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSkladisteIEvidencija.resx">
       <DependentUpon>FrmSkladisteIEvidencija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrijavaPomocna.resx">
+      <DependentUpon>PrijavaPomocna.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Proba.resx">
       <DependentUpon>Proba.cs</DependentUpon>

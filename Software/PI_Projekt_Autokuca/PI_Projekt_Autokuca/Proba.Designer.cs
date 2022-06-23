@@ -313,6 +313,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Proba";
             this.Text = "Proba";
+            this.Load += new System.EventHandler(this.Proba_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTermini)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMojeRezervacije)).EndInit();
             this.ResumeLayout(false);

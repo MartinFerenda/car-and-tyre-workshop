@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PI_Projekt_Autokuca.Klase;
 
 namespace PI_Projekt_Autokuca
 {
@@ -19,7 +20,7 @@ namespace PI_Projekt_Autokuca
 
         private void FrmGlavniIzbornik_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnPrikazLokacijaServisa_Click(object sender, EventArgs e)
@@ -50,8 +51,11 @@ namespace PI_Projekt_Autokuca
 
         private void btnRezervacijaTermina_Click(object sender, EventArgs e)
         {
-            FrmRezervacijaTermina form = new FrmRezervacijaTermina();
-            form.ShowDialog();
+            if (RepozitorijAutokuca.PrijavljeniKorisnik != null && RepozitorijAutokuca.PrijavljeniKorisnik.Uloga != Uloge.NeregistriraniKorisnik)
+            {
+                FrmRezervacijaTermina form = new FrmRezervacijaTermina();
+                form.ShowDialog();
+            }
         }
 
         private void btnZamjenaGuma_Click(object sender, EventArgs e)
@@ -77,7 +81,25 @@ namespace PI_Projekt_Autokuca
 
         private void btnOdjava_Click(object sender, EventArgs e)
         {
-
+            RepozitorijAutokuca.PrijavljeniKorisnik = null;
+            PrijavaPomocna form = new PrijavaPomocna();
+            form.ShowDialog();
+            Osvjezi();
+        }
+        private void Osvjezi() 
+        {
+            if (RepozitorijAutokuca.PrijavljeniKorisnik != null)
+            {
+                btnOdjava.Text = "Odjava";
+                if (RepozitorijAutokuca.PrijavljeniKorisnik.Uloga == Uloge.Zaposlenik || RepozitorijAutokuca.PrijavljeniKorisnik.Uloga == Uloge.Administrator)
+                {
+                    gboxSkladiste.Visible = true;
+                }
+                else
+                {
+                    gboxSkladiste.Visible = false;
+                }
+            }
         }
     }
 }

@@ -21,6 +21,7 @@ namespace PI_Projekt_Autokuca
         private void FrmRezervacijaTermina_Load(object sender, EventArgs e)
         {
             PopuniComboBoxeve();
+            dgvMojeRezervacije.DataSource = RepozitorijAutokuca.DohvatiRezervacijeKorisnika();
         }
         private void PopuniComboBoxeve()
         {
@@ -63,7 +64,6 @@ namespace PI_Projekt_Autokuca
                 {
                     if (DateTime.Compare(rezervacija.PocetakRezervacije, usporedba) == 0)
                     {
-                        textBox1.Text = "ima";
                         red.Cells[1].Style.BackColor = Color.Red;
                     }
                 }
@@ -78,7 +78,25 @@ namespace PI_Projekt_Autokuca
 
         private void btnRezerviraj_Click(object sender, EventArgs e)
         {
-            
+            DateTime odabraniDatum = mcOdabirDatuma.SelectionRange.Start;
+            TimeSpan trajanje = new TimeSpan(1, 0, 0);
+            TimeSpan? odabraniSat = cmbSat.SelectedItem as TimeSpan?;
+            TimeSpan zaDodati = new TimeSpan(int.Parse(odabraniSat.Value.TotalHours.ToString()), 0, 0);
+            DateTime pocetak = odabraniDatum.Add(zaDodati);
+            Rezervacije nova = new Rezervacije()
+            {
+                DatumIVrijeme = odabraniDatum,
+                Korisnik = RepozitorijAutokuca.PrijavljeniKorisnik,
+                KrajRezervacije = pocetak.Add(trajanje),
+                PocetakRezervacije = pocetak,
+                Podruznica = cmbLokacija.SelectedItem as Adrese,
+                PredmetRezervacije = cmbPredmetRezervacije.SelectedItem.ToString(),
+                Status = "U postupku",
+                Vozilo = cmbVozilo.SelectedItem as Vozila
+            };
+            RepozitorijAutokuca.KreirajRezervaciju(nova);
+            dgvMojeRezervacije.DataSource = null;
+            dgvMojeRezervacije.DataSource = RepozitorijAutokuca.DohvatiRezervacijeKorisnika();
         }
     }
 }

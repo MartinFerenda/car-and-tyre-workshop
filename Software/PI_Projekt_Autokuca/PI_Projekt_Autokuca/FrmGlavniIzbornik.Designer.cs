@@ -100,7 +100,7 @@
             this.btnOdjava.Name = "btnOdjava";
             this.btnOdjava.Size = new System.Drawing.Size(107, 42);
             this.btnOdjava.TabIndex = 4;
-            this.btnOdjava.Text = "Odjava";
+            this.btnOdjava.Text = "Prijava";
             this.btnOdjava.UseVisualStyleBackColor = true;
             this.btnOdjava.Click += new System.EventHandler(this.btnOdjava_Click);
             // 

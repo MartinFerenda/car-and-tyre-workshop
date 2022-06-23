@@ -11,30 +11,71 @@ namespace PI_Projekt_Autokuca.Klase
     {
         public static Korisnici PrijavljeniKorisnik { get; set; }
 
-        public static void PrijaviKorisnika()
+        public static void PrijaviKorisnika(string korisnickoIme, string lozinka)
         {
-
+            if (korisnickoIme == "mzidaric" && lozinka == "sudo123")
+            {
+                Korisnici prijavljen = new Korisnici()
+                {
+                    IDKorisnik = 1,
+                    Uloga = Uloge.NeregistriraniKorisnik
+                };
+                PrijavljeniKorisnik = prijavljen;
+                return;
+            }
+            if (korisnickoIme == "tstancin" && lozinka == "v1do123")
+            {
+                Korisnici prijavljen = new Korisnici()
+                {
+                    IDKorisnik = 2,
+                    Uloga = Uloge.RegistriraniKorisnik
+                };
+                PrijavljeniKorisnik = prijavljen;
+                return;
+            }
+            if (korisnickoIme == "nzugec" && lozinka == "iinproj3kt")
+            {
+                Korisnici prijavljen = new Korisnici()
+                {
+                    IDKorisnik = 3,
+                    Uloga = Uloge.Zaposlenik
+                };
+                PrijavljeniKorisnik = prijavljen;
+                return;
+            }
+            if (korisnickoIme == "mferenda" && lozinka == "mf3r3nda")
+            {
+                Korisnici prijavljen = new Korisnici()
+                {
+                    IDKorisnik = 4,
+                    Uloga = Uloge.Administrator
+                };
+                PrijavljeniKorisnik = prijavljen;
+                return;
+            }
         }
         public static List<Vozila> DohvatiVozilaKorisnika()
         {
             List<Vozila> vozila = new List<Vozila>();
             foreach (Vozilo vozilo in DohvatiSvaVozila())
             {
-                Vozila novo = new Vozila()
-                {
-                    Boja = vozilo.Boja,
-                    BrojPrijedenihKilometara = vozilo.BrojPrijedenihKilometara,
-                    GodinaProizvodnje = vozilo.GodinaProizvodnje,
-                    Gorivo = DohvatiGorivo(vozilo),
-                    IDVozila = vozilo.IdVozila,
-                    Marka = DohvatiMarku(vozilo),
-                    RegistarskaOznaka = vozilo.RegistraskaOznaka,
-                    SnagaMotora = vozilo.SnagaMotora,
-                    Status = vozilo.Status,
-                    StupanjMjenjaca = vozilo.StupanjMjenjaca,
-                    Vrsta = DohvatiVrstu(vozilo)
-                };
-                vozila.Add(novo);
+                if (vozilo.Vlasnik == PrijavljeniKorisnik.IDKorisnik) {
+                    Vozila novo = new Vozila()
+                    {
+                        Boja = vozilo.Boja,
+                        BrojPrijedenihKilometara = vozilo.BrojPrijedenihKilometara,
+                        GodinaProizvodnje = vozilo.GodinaProizvodnje,
+                        Gorivo = DohvatiGorivo(vozilo),
+                        IDVozila = vozilo.IdVozila,
+                        Marka = DohvatiMarku(vozilo),
+                        RegistarskaOznaka = vozilo.RegistraskaOznaka,
+                        SnagaMotora = vozilo.SnagaMotora,
+                        Status = vozilo.Status,
+                        StupanjMjenjaca = vozilo.StupanjMjenjaca,
+                        Vrsta = DohvatiVrstu(vozilo)
+                    };
+                    vozila.Add(novo);
+                }
             }
             return vozila;
         }
@@ -146,6 +187,51 @@ namespace PI_Projekt_Autokuca.Klase
                     vrati.Add(nova);
                 }
                 return vrati;
+            }
+        }
+        public static List<Rezervacije> DohvatiRezervacijeKorisnika() 
+        {
+            List<Rezervacije> vrati = new List<Rezervacije>();
+            List<Rezervacija> odabrane = new List<Rezervacija>();
+            using (var context = new PI2227_DBEntities())
+            {
+                var query = from r in context.Rezervacijas
+                            where r.Korisnik == PrijavljeniKorisnik.IDKorisnik
+                            select r;
+                odabrane = query.ToList();
+                foreach (Rezervacija rezervacija in odabrane)
+                {
+                    Rezervacije nova = new Rezervacije()
+                    {
+                        DatumIVrijeme = rezervacija.DatumIVrijeme,
+                        IDRezervacije = rezervacija.IdRezervacije,
+                        KrajRezervacije = rezervacija.KrajRezervacije,
+                        PocetakRezervacije = rezervacija.PocetakRezervacije,
+                        PredmetRezervacije = rezervacija.PredmetRezervacije,
+                        Status = rezervacija.Status,
+                    };
+                    vrati.Add(nova);
+                }
+                return vrati;
+            }
+        }
+        public static void KreirajRezervaciju(Rezervacije novaRezervacija) 
+        {
+            using (var context = new PI2227_DBEntities())
+            {
+                Rezervacija novaRezervacijaBaza = new Rezervacija()
+                {
+                    Adresa = novaRezervacija.Podruznica.IDAdrese,
+                    DatumIVrijeme = novaRezervacija.DatumIVrijeme,
+                    Korisnik = PrijavljeniKorisnik.IDKorisnik,
+                    KrajRezervacije = novaRezervacija.KrajRezervacije,
+                    PocetakRezervacije = novaRezervacija.PocetakRezervacije,
+                    PredmetRezervacije = novaRezervacija.PredmetRezervacije,
+                    Status = novaRezervacija.Status,
+                    Vozilo = novaRezervacija.Vozilo.IDVozila   
+                };
+                context.Rezervacijas.Add(novaRezervacijaBaza);
+                context.SaveChanges();
             }
         }
     }
