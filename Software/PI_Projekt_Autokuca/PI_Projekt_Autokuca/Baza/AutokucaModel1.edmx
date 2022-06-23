@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="PI2227_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="PI2227_DBModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Adresa">
           <Key>
             <PropertyRef Name="IdAdrese" />
@@ -614,7 +614,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="PI2227_DBModelStoreContainer">
+        <EntityContainer Name="PI2227_DBModel1StoreContainer">
           <EntitySet Name="Adresa" EntityType="Self.Adresa" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AutomobilskiDio" EntityType="Self.AutomobilskiDio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Guma" EntityType="Self.Guma" Schema="dbo" store:Type="Tables" />
@@ -762,27 +762,28 @@
             <End Role="Zaposlenik" EntitySet="Zaposlenik" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="PI2227_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="PI2227_DBModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Adresa">
           <Key>
             <PropertyRef Name="IdAdrese" />
           </Key>
-          <Property Name="IdAdrese" Type="Int32" Nullable="false" />
+          <Property Name="IdAdrese" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Broj" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Ulica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Mjesto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="PostanskiBroj" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NazivPodruznice" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="OpisPodruznice" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="RadnoVrijemeOd" Type="Time" Precision="7" />
           <Property Name="RadnoVrijemeDo" Type="Time" Precision="7" />
           <NavigationProperty Name="Korisniks" Relationship="Self.FK_Korisnik_Adresa" FromRole="Adresa" ToRole="Korisnik" />
+          <NavigationProperty Name="Rezervacijas" Relationship="Self.FK_Rezervacija_Adresa" FromRole="Adresa" ToRole="Rezervacija" />
           <NavigationProperty Name="Zaposleniks" Relationship="Self.FK_Zaposlenik_Adresa" FromRole="Adresa" ToRole="Zaposlenik" />
           <NavigationProperty Name="Zaposleniks1" Relationship="Self.FK_Zaposlenik_Adresa1" FromRole="Adresa" ToRole="Zaposlenik" />
-          <NavigationProperty Name="Rezervacijas" Relationship="PI2227_DBModel.FK_Rezervacija_Adresa" FromRole="Adresa" ToRole="Rezervacija" />
-          <Property Name="NazivPodruznice" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="AutomobilskiDio">
           <Key>
@@ -802,7 +803,7 @@
           <Key>
             <PropertyRef Name="IdGume" />
           </Key>
-          <Property Name="IdGume" Type="Int32" Nullable="false" />
+          <Property Name="IdGume" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SifraGume" Type="Int32" Nullable="false" />
           <Property Name="Sirina" Type="Int32" Nullable="false" />
           <Property Name="Visina" Type="Int32" Nullable="false" />
@@ -820,7 +821,7 @@
           <Key>
             <PropertyRef Name="IdKorisnika" />
           </Key>
-          <Property Name="IdKorisnika" Type="Int32" Nullable="false" />
+          <Property Name="IdKorisnika" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Ime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Prezime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Kontakt" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
@@ -841,7 +842,7 @@
           <Key>
             <PropertyRef Name="IdMarke" />
           </Key>
-          <Property Name="IdMarke" Type="Int32" Nullable="false" />
+          <Property Name="IdMarke" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NazivMarkeIModela" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Voziloes" Relationship="Self.FK_Vozilo_MarkaVozila" FromRole="MarkaVozila" ToRole="Vozilo" />
         </EntityType>
@@ -849,7 +850,7 @@
           <Key>
             <PropertyRef Name="IdNacinPlacanja" />
           </Key>
-          <Property Name="IdNacinPlacanja" Type="Int32" Nullable="false" />
+          <Property Name="IdNacinPlacanja" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Naziv" Type="Binary" MaxLength="50" FixedLength="false" Nullable="false" />
           <NavigationProperty Name="Racuns" Relationship="Self.FK_Racun_NacinPlacanja" FromRole="NacinPlacanja" ToRole="Racun" />
         </EntityType>
@@ -857,7 +858,7 @@
           <Key>
             <PropertyRef Name="IdPranja" />
           </Key>
-          <Property Name="IdPranja" Type="Int32" Nullable="false" />
+          <Property Name="IdPranja" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DatumIVrijeme" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Vozilo" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Vozilo1" Relationship="Self.FK_PranjeVozila_Vozilo" FromRole="PranjeVozila" ToRole="Vozilo" />
@@ -866,7 +867,7 @@
           <Key>
             <PropertyRef Name="IdPrijave" />
           </Key>
-          <Property Name="IdPrijave" Type="Int32" Nullable="false" />
+          <Property Name="IdPrijave" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DatumIVrijeme" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Korisnik" Type="Int32" Nullable="false" />
@@ -878,7 +879,7 @@
           <Key>
             <PropertyRef Name="IdProizvodaca" />
           </Key>
-          <Property Name="IdProizvodaca" Type="Int32" Nullable="false" />
+          <Property Name="IdProizvodaca" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Naziv" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Kontakt" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="AutomobilskiDios" Relationship="Self.FK_AutomobilskiDio_Proizvodac" FromRole="Proizvodac" ToRole="AutomobilskiDio" />
@@ -888,7 +889,7 @@
           <Key>
             <PropertyRef Name="IdRacuna" />
           </Key>
-          <Property Name="IdRacuna" Type="Int32" Nullable="false" />
+          <Property Name="IdRacuna" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DatumIVrijeme" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Zaposlenik" Type="Int32" Nullable="false" />
           <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
@@ -908,7 +909,7 @@
           <Key>
             <PropertyRef Name="IdRezervacije" />
           </Key>
-          <Property Name="IdRezervacije" Type="Int32" Nullable="false" />
+          <Property Name="IdRezervacije" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DatumIVrijeme" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="PredmetRezervacije" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
@@ -916,16 +917,16 @@
           <Property Name="KrajRezervacije" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Korisnik" Type="Int32" Nullable="false" />
           <Property Name="Vozilo" Type="Int32" Nullable="false" />
+          <Property Name="Adresa" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Adresa1" Relationship="Self.FK_Rezervacija_Adresa" FromRole="Rezervacija" ToRole="Adresa" />
           <NavigationProperty Name="Korisnik1" Relationship="Self.FK_Rezervacija_Korisnik" FromRole="Rezervacija" ToRole="Korisnik" />
           <NavigationProperty Name="Vozilo1" Relationship="Self.FK_Rezervacija_Vozilo" FromRole="Rezervacija" ToRole="Vozilo" />
-          <Property Name="Adresa" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Adresa1" Relationship="PI2227_DBModel.FK_Rezervacija_Adresa" FromRole="Rezervacija" ToRole="Adresa" />
         </EntityType>
         <EntityType Name="Servi">
           <Key>
             <PropertyRef Name="IdServisa" />
           </Key>
-          <Property Name="IdServisa" Type="Int32" Nullable="false" />
+          <Property Name="IdServisa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="DatumIVrijeme" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="SatiRada" Type="Int32" Nullable="false" />
@@ -986,7 +987,7 @@
           <Key>
             <PropertyRef Name="IdVoznje" />
           </Key>
-          <Property Name="IdVoznje" Type="Int32" Nullable="false" />
+          <Property Name="IdVoznje" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Opis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="DatumIVrijeme" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Vozilo" Type="Int32" Nullable="false" />
@@ -998,7 +999,7 @@
           <Key>
             <PropertyRef Name="IdUloge" />
           </Key>
-          <Property Name="IdUloge" Type="Int32" Nullable="false" />
+          <Property Name="IdUloge" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NazivUloge" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Korisniks" Relationship="Self.FK_Korisnik_UlogaKorisnika" FromRole="UlogaKorisnika" ToRole="Korisnik" />
         </EntityType>
@@ -1036,7 +1037,7 @@
           <Key>
             <PropertyRef Name="IdGoriva" />
           </Key>
-          <Property Name="IdGoriva" Type="Int32" Nullable="false" />
+          <Property Name="IdGoriva" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Naziv" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Voziloes" Relationship="Self.FK_Vozilo_VrstaGoriva" FromRole="VrstaGoriva" ToRole="Vozilo" />
         </EntityType>
@@ -1044,7 +1045,7 @@
           <Key>
             <PropertyRef Name="IdVrste" />
           </Key>
-          <Property Name="IdVrste" Type="Int32" Nullable="false" />
+          <Property Name="IdVrste" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Naziv" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Voziloes" Relationship="Self.FK_Vozilo_VrstaVozila" FromRole="VrstaVozila" ToRole="Vozilo" />
         </EntityType>
@@ -1052,7 +1053,7 @@
           <Key>
             <PropertyRef Name="IdZaposlenika" />
           </Key>
-          <Property Name="IdZaposlenika" Type="Int32" Nullable="false" />
+          <Property Name="IdZaposlenika" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Ime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Prezime" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Kontakt" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -1073,6 +1074,18 @@
               <PropertyRef Name="IdAdrese" />
             </Principal>
             <Dependent Role="Korisnik">
+              <PropertyRef Name="Adresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rezervacija_Adresa">
+          <End Role="Adresa" Type="Self.Adresa" Multiplicity="1" />
+          <End Role="Rezervacija" Type="Self.Rezervacija" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adresa">
+              <PropertyRef Name="IdAdrese" />
+            </Principal>
+            <Dependent Role="Rezervacija">
               <PropertyRef Name="Adresa" />
             </Dependent>
           </ReferentialConstraint>
@@ -1222,7 +1235,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Vozilo_Korisnik">
-          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="1" />
+          <End Role="Korisnik" Type="Self.Korisnik" Multiplicity="0..1" />
           <End Role="Vozilo" Type="Self.Vozilo" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Korisnik">
@@ -1425,7 +1438,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="PI2227_DBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="PI2227_DBEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Adresas" EntityType="Self.Adresa" />
           <EntitySet Name="AutomobilskiDios" EntityType="Self.AutomobilskiDio" />
           <EntitySet Name="Gumas" EntityType="Self.Guma" />
@@ -1451,6 +1464,10 @@
           <AssociationSet Name="FK_Korisnik_Adresa" Association="Self.FK_Korisnik_Adresa">
             <End Role="Adresa" EntitySet="Adresas" />
             <End Role="Korisnik" EntitySet="Korisniks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rezervacija_Adresa" Association="Self.FK_Rezervacija_Adresa">
+            <End Role="Adresa" EntitySet="Adresas" />
+            <End Role="Rezervacija" EntitySet="Rezervacijas" />
           </AssociationSet>
           <AssociationSet Name="FK_Zaposlenik_Adresa" Association="Self.FK_Zaposlenik_Adresa">
             <End Role="Adresa" EntitySet="Adresas" />
@@ -1568,38 +1585,22 @@
             <End Role="VrstaVozila" EntitySet="VrstaVozilas" />
             <End Role="Vozilo" EntitySet="Voziloes" />
           </AssociationSet>
-          <AssociationSet Name="FK_Rezervacija_Adresa" Association="PI2227_DBModel.FK_Rezervacija_Adresa">
-            <End Role="Adresa" EntitySet="Adresas" />
-            <End Role="Rezervacija" EntitySet="Rezervacijas" />
-          </AssociationSet>
         </EntityContainer>
-        <Association Name="FK_Rezervacija_Adresa">
-          <End Type="PI2227_DBModel.Adresa" Role="Adresa" Multiplicity="1" />
-          <End Type="PI2227_DBModel.Rezervacija" Role="Rezervacija" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Adresa">
-              <PropertyRef Name="IdAdrese" />
-            </Principal>
-            <Dependent Role="Rezervacija">
-              <PropertyRef Name="Adresa" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PI2227_DBModelStoreContainer" CdmEntityContainer="PI2227_DBEntities">
+        <EntityContainerMapping StorageEntityContainer="PI2227_DBModel1StoreContainer" CdmEntityContainer="PI2227_DBEntities1">
           <EntitySetMapping Name="Adresas">
-            <EntityTypeMapping TypeName="PI2227_DBModel.Adresa">
+            <EntityTypeMapping TypeName="PI2227_DBModel1.Adresa">
               <MappingFragment StoreEntitySet="Adresa">
-                <ScalarProperty Name="NazivPodruznice" ColumnName="NazivPodruznice" />
                 <ScalarProperty Name="IdAdrese" ColumnName="IdAdrese" />
                 <ScalarProperty Name="Broj" ColumnName="Broj" />
                 <ScalarProperty Name="Ulica" ColumnName="Ulica" />
                 <ScalarProperty Name="Mjesto" ColumnName="Mjesto" />
                 <ScalarProperty Name="PostanskiBroj" ColumnName="PostanskiBroj" />
+                <ScalarProperty Name="NazivPodruznice" ColumnName="NazivPodruznice" />
                 <ScalarProperty Name="OpisPodruznice" ColumnName="OpisPodruznice" />
                 <ScalarProperty Name="RadnoVrijemeOd" ColumnName="RadnoVrijemeOd" />
                 <ScalarProperty Name="RadnoVrijemeDo" ColumnName="RadnoVrijemeDo" />
@@ -1607,7 +1608,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AutomobilskiDios">
-            <EntityTypeMapping TypeName="PI2227_DBModel.AutomobilskiDio">
+            <EntityTypeMapping TypeName="PI2227_DBModel1.AutomobilskiDio">
               <MappingFragment StoreEntitySet="AutomobilskiDio">
                 <ScalarProperty Name="IdDijela" ColumnName="IdDijela" />
                 <ScalarProperty Name="Naziv" ColumnName="Naziv" />
@@ -1620,7 +1621,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Gumas">
-            <EntityTypeMapping TypeName="PI2227_DBModel.Guma">
+            <EntityTypeMapping TypeName="PI2227_DBModel1.Guma">
               <MappingFragment StoreEntitySet="Guma">
                 <ScalarProperty Name="IdGume" ColumnName="IdGume" />
                 <ScalarProperty Name="SifraGume" ColumnName="SifraGume" />
@@ -1636,7 +1637,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Korisniks">
-            <EntityTypeMapping TypeName="PI2227_DBModel.Korisnik">
+            <EntityTypeMapping TypeName="PI2227_DBModel1.Korisnik">
               <MappingFragment StoreEntitySet="Korisnik">
                 <ScalarProperty Name="IdKorisnika" ColumnName="IdKorisnika" />
                 <ScalarProperty Name="Ime" ColumnName="Ime" />
@@ -1650,7 +1651,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MarkaVozilas">
-            <EntityTypeMapping TypeName="PI2227_DBModel.MarkaVozila">
+            <EntityTypeMapping TypeName="PI2227_DBModel1.MarkaVozila">
               <MappingFragment StoreEntitySet="MarkaVozila">
                 <ScalarProperty Name="IdMarke" ColumnName="IdMarke" />
                 <ScalarProperty Name="NazivMarkeIModela" ColumnName="NazivMarkeIModela" />
@@ -1658,7 +1659,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NacinPlacanjas">
-            <EntityTypeMapping TypeName="PI2227_DBModel.NacinPlacanja">
+            <EntityTypeMapping TypeName="PI2227_DBModel1.NacinPlacanja">
               <MappingFragment StoreEntitySet="NacinPlacanja">
                 <ScalarProperty Name="IdNacinPlacanja" ColumnName="IdNacinPlacanja" />
                 <ScalarProperty Name="Naziv" ColumnName="Naziv" />
@@ -1666,7 +1667,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PranjeVozilas">
-            <EntityTypeMapping TypeName="PI2227_DBModel.PranjeVozila">
+            <EntityTypeMapping TypeName="PI2227_DBModel1.PranjeVozila">
               <MappingFragment StoreEntitySet="PranjeVozila">
                 <ScalarProperty Name="IdPranja" ColumnName="IdPranja" />
                 <ScalarProperty Name="DatumIVrijeme" ColumnName="DatumIVrijeme" />
@@ -1675,7 +1676,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PrijavaKvaras">
-            <EntityTypeMapping TypeName="PI2227_DBModel.PrijavaKvara">
+            <EntityTypeMapping TypeName="PI2227_DBModel1.PrijavaKvara">
               <MappingFragment StoreEntitySet="PrijavaKvara">
                 <ScalarProperty Name="IdPrijave" ColumnName="IdPrijave" />
                 <ScalarProperty Name="Opis" ColumnName="Opis" />
@@ -1686,7 +1687,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Proizvodacs">
-            <EntityTypeMapping TypeName="PI2227_DBModel.Proizvodac">
+            <EntityTypeMapping TypeName="PI2227_DBModel1.Proizvodac">
               <MappingFragment StoreEntitySet="Proizvodac">
                 <ScalarProperty Name="IdProizvodaca" ColumnName="IdProizvodaca" />
                 <ScalarProperty Name="Naziv" ColumnName="Naziv" />
@@ -1695,7 +1696,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Racuns">
-            <EntityTypeMapping TypeName="PI2227_DBModel.Racun">
+            <EntityTypeMapping TypeName="PI2227_DBModel1.Racun">
               <MappingFragment StoreEntitySet="Racun">
                 <ScalarProperty Name="IdRacuna" ColumnName="IdRacuna" />
                 <ScalarProperty Name="DatumIVrijeme" ColumnName="DatumIVrijeme" />
@@ -1709,9 +1710,8 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Rezervacijas">
-            <EntityTypeMapping TypeName="PI2227_DBModel.Rezervacija">
+            <EntityTypeMapping TypeName="PI2227_DBModel1.Rezervacija">
               <MappingFragment StoreEntitySet="Rezervacija">
-                <ScalarProperty Name="Adresa" ColumnName="Adresa" />
                 <ScalarProperty Name="IdRezervacije" ColumnName="IdRezervacije" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="DatumIVrijeme" ColumnName="DatumIVrijeme" />
@@ -1720,11 +1720,12 @@
                 <ScalarProperty Name="KrajRezervacije" ColumnName="KrajRezervacije" />
                 <ScalarProperty Name="Korisnik" ColumnName="Korisnik" />
                 <ScalarProperty Name="Vozilo" ColumnName="Vozilo" />
+                <ScalarProperty Name="Adresa" ColumnName="Adresa" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Servis">
-            <EntityTypeMapping TypeName="PI2227_DBModel.Servi">
+            <EntityTypeMapping TypeName="PI2227_DBModel1.Servi">
               <MappingFragment StoreEntitySet="Servis">
                 <ScalarProperty Name="IdServisa" ColumnName="IdServisa" />
                 <ScalarProperty Name="Opis" ColumnName="Opis" />
@@ -1737,7 +1738,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="StavkaRacunaAutomobilskiDios">
-            <EntityTypeMapping TypeName="PI2227_DBModel.StavkaRacunaAutomobilskiDio">
+            <EntityTypeMapping TypeName="PI2227_DBModel1.StavkaRacunaAutomobilskiDio">
               <MappingFragment StoreEntitySet="StavkaRacunaAutomobilskiDio">
                 <ScalarProperty Name="AutomobilskiDio" ColumnName="AutomobilskiDio" />
                 <ScalarProperty Name="Racun" ColumnName="Racun" />
@@ -1747,7 +1748,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="StavkaRacunaGumas">
-            <EntityTypeMapping TypeName="PI2227_DBModel.StavkaRacunaGuma">
+            <EntityTypeMapping TypeName="PI2227_DBModel1.StavkaRacunaGuma">
               <MappingFragment StoreEntitySet="StavkaRacunaGuma">
                 <ScalarProperty Name="Guma" ColumnName="Guma" />
                 <ScalarProperty Name="Racun" ColumnName="Racun" />
@@ -1757,7 +1758,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="StavkaRacunaVoziloes">
-            <EntityTypeMapping TypeName="PI2227_DBModel.StavkaRacunaVozilo">
+            <EntityTypeMapping TypeName="PI2227_DBModel1.StavkaRacunaVozilo">
               <MappingFragment StoreEntitySet="StavkaRacunaVozilo">
                 <ScalarProperty Name="Vozilo" ColumnName="Vozilo" />
                 <ScalarProperty Name="Racun" ColumnName="Racun" />
@@ -1767,7 +1768,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="PI2227_DBModel.sysdiagram">
+            <EntityTypeMapping TypeName="PI2227_DBModel1.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -1778,7 +1779,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TestVoznjas">
-            <EntityTypeMapping TypeName="PI2227_DBModel.TestVoznja">
+            <EntityTypeMapping TypeName="PI2227_DBModel1.TestVoznja">
               <MappingFragment StoreEntitySet="TestVoznja">
                 <ScalarProperty Name="IdVoznje" ColumnName="IdVoznje" />
                 <ScalarProperty Name="Opis" ColumnName="Opis" />
@@ -1789,7 +1790,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UlogaKorisnikas">
-            <EntityTypeMapping TypeName="PI2227_DBModel.UlogaKorisnika">
+            <EntityTypeMapping TypeName="PI2227_DBModel1.UlogaKorisnika">
               <MappingFragment StoreEntitySet="UlogaKorisnika">
                 <ScalarProperty Name="IdUloge" ColumnName="IdUloge" />
                 <ScalarProperty Name="NazivUloge" ColumnName="NazivUloge" />
@@ -1797,7 +1798,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Voziloes">
-            <EntityTypeMapping TypeName="PI2227_DBModel.Vozilo">
+            <EntityTypeMapping TypeName="PI2227_DBModel1.Vozilo">
               <MappingFragment StoreEntitySet="Vozilo">
                 <ScalarProperty Name="IdVozila" ColumnName="IdVozila" />
                 <ScalarProperty Name="RegistraskaOznaka" ColumnName="RegistraskaOznaka" />
@@ -1818,7 +1819,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="VrstaGorivas">
-            <EntityTypeMapping TypeName="PI2227_DBModel.VrstaGoriva">
+            <EntityTypeMapping TypeName="PI2227_DBModel1.VrstaGoriva">
               <MappingFragment StoreEntitySet="VrstaGoriva">
                 <ScalarProperty Name="IdGoriva" ColumnName="IdGoriva" />
                 <ScalarProperty Name="Naziv" ColumnName="Naziv" />
@@ -1826,7 +1827,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="VrstaVozilas">
-            <EntityTypeMapping TypeName="PI2227_DBModel.VrstaVozila">
+            <EntityTypeMapping TypeName="PI2227_DBModel1.VrstaVozila">
               <MappingFragment StoreEntitySet="VrstaVozila">
                 <ScalarProperty Name="IdVrste" ColumnName="IdVrste" />
                 <ScalarProperty Name="Naziv" ColumnName="Naziv" />
@@ -1834,7 +1835,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Zaposleniks">
-            <EntityTypeMapping TypeName="PI2227_DBModel.Zaposlenik">
+            <EntityTypeMapping TypeName="PI2227_DBModel1.Zaposlenik">
               <MappingFragment StoreEntitySet="Zaposlenik">
                 <ScalarProperty Name="IdZaposlenika" ColumnName="IdZaposlenika" />
                 <ScalarProperty Name="Ime" ColumnName="Ime" />

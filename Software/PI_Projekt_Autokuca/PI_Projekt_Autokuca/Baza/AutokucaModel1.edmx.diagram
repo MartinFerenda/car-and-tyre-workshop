@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7704814e7aca4f1aacce9ff1f4afc506" Name="Diagram1">
+        <EntityTypeShape EntityType="PI2227_DBModel1.Adresa" Width="1.5" PointX="0.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PI2227_DBModel1.AutomobilskiDio" Width="1.5" PointX="8.25" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PI2227_DBModel1.Guma" Width="1.5" PointX="5.25" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PI2227_DBModel1.Korisnik" Width="1.5" PointX="3" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PI2227_DBModel1.MarkaVozila" Width="1.5" PointX="6" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PI2227_DBModel1.NacinPlacanja" Width="1.5" PointX="3" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PI2227_DBModel1.PranjeVozila" Width="1.5" PointX="10.5" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PI2227_DBModel1.PrijavaKvara" Width="1.5" PointX="8.25" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PI2227_DBModel1.Proizvodac" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PI2227_DBModel1.Racun" Width="1.5" PointX="5.25" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PI2227_DBModel1.Rezervacija" Width="1.5" PointX="8.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PI2227_DBModel1.Servi" Width="1.5" PointX="13.5" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="PI2227_DBModel1.StavkaRacunaAutomobilskiDio" Width="1.5" PointX="10.5" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PI2227_DBModel1.StavkaRacunaGuma" Width="1.5" PointX="10.5" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PI2227_DBModel1.StavkaRacunaVozilo" Width="1.5" PointX="13.5" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PI2227_DBModel1.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PI2227_DBModel1.TestVoznja" Width="1.5" PointX="5.25" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PI2227_DBModel1.UlogaKorisnika" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PI2227_DBModel1.Vozilo" Width="1.5" PointX="8.25" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PI2227_DBModel1.VrstaGoriva" Width="1.5" PointX="6" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PI2227_DBModel1.VrstaVozila" Width="1.5" PointX="6" PointY="31" IsExpanded="true" />
+        <EntityTypeShape EntityType="PI2227_DBModel1.Zaposlenik" Width="1.5" PointX="3" PointY="20.625" IsExpanded="true" />
+        <AssociationConnector Association="PI2227_DBModel1.FK_Korisnik_Adresa" ManuallyRouted="false" />
+        <AssociationConnector Association="PI2227_DBModel1.FK_Rezervacija_Adresa" ManuallyRouted="false" />
+        <AssociationConnector Association="PI2227_DBModel1.FK_Zaposlenik_Adresa" ManuallyRouted="false" />
+        <AssociationConnector Association="PI2227_DBModel1.FK_Zaposlenik_Adresa1" ManuallyRouted="false" />
+        <AssociationConnector Association="PI2227_DBModel1.FK_AutomobilskiDio_Proizvodac" ManuallyRouted="false" />
+        <AssociationConnector Association="PI2227_DBModel1.FK_StavkaRacunaAutomobilskiDio_AutomobilskiDio" ManuallyRouted="false" />
+        <AssociationConnector Association="PI2227_DBModel1.FK_Guma_Korisnik" ManuallyRouted="false" />
+        <AssociationConnector Association="PI2227_DBModel1.FK_Guma_Proizvodac" ManuallyRouted="false" />
+        <AssociationConnector Association="PI2227_DBModel1.FK_StavkaRacunaGuma_Guma" ManuallyRouted="false" />
+        <AssociationConnector Association="PI2227_DBModel1.FK_Korisnik_UlogaKorisnika" ManuallyRouted="false" />
+        <AssociationConnector Association="PI2227_DBModel1.FK_PrijavaKvara_Korisnik" ManuallyRouted="false" />
+        <AssociationConnector Association="PI2227_DBModel1.FK_Racun_Korisnik" ManuallyRouted="false" />
+        <AssociationConnector Association="PI2227_DBModel1.FK_Rezervacija_Korisnik" ManuallyRouted="false" />
+        <AssociationConnector Association="PI2227_DBModel1.FK_TestVoznja_Korisnik" ManuallyRouted="false" />
+        <AssociationConnector Association="PI2227_DBModel1.FK_Vozilo_Korisnik" ManuallyRouted="false" />
+        <AssociationConnector Association="PI2227_DBModel1.FK_Vozilo_MarkaVozila" ManuallyRouted="false" />
+        <AssociationConnector Association="PI2227_DBModel1.FK_Racun_NacinPlacanja" ManuallyRouted="false" />
+        <AssociationConnector Association="PI2227_DBModel1.FK_PranjeVozila_Vozilo" ManuallyRouted="false" />
+        <AssociationConnector Association="PI2227_DBModel1.FK_PrijavaKvara_Vozilo" ManuallyRouted="false" />
+        <AssociationConnector Association="PI2227_DBModel1.FK_Racun_Servis" ManuallyRouted="false" />
+        <AssociationConnector Association="PI2227_DBModel1.FK_Racun_Zaposlenik" ManuallyRouted="false" />
+        <AssociationConnector Association="PI2227_DBModel1.FK_StavkaRacunaAutomobilskiDio_Racun" ManuallyRouted="false" />
+        <AssociationConnector Association="PI2227_DBModel1.FK_StavkaRacunaGuma_Racun" ManuallyRouted="false" />
+        <AssociationConnector Association="PI2227_DBModel1.FK_StavkaRacunaVozilo_Racun" ManuallyRouted="false" />
+        <AssociationConnector Association="PI2227_DBModel1.FK_Rezervacija_Vozilo" ManuallyRouted="false" />
+        <AssociationConnector Association="PI2227_DBModel1.FK_Servis_Vozilo" ManuallyRouted="false" />
+        <AssociationConnector Association="PI2227_DBModel1.FK_Servis_Zaposlenik" ManuallyRouted="false" />
+        <AssociationConnector Association="PI2227_DBModel1.FK_StavkaRacunaVozilo_Vozilo" ManuallyRouted="false" />
+        <AssociationConnector Association="PI2227_DBModel1.FK_TestVoznja_Vozilo" ManuallyRouted="false" />
+        <AssociationConnector Association="PI2227_DBModel1.FK_Vozilo_VrstaGoriva" ManuallyRouted="false" />
+        <AssociationConnector Association="PI2227_DBModel1.FK_Vozilo_VrstaVozila" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -77,8 +77,6 @@ namespace PI_Projekt_Autokuca
             Adrese trenutna = cmbLokacija.SelectedItem as Adrese;
             List<Rezervacije> rezervacije = RepozitorijAutokuca.DohvatiRezervacije(odabraniDatum, trenutna);
 
-            //DODATI DATAGRID ISTO!!!
-
             foreach (DataGridViewRow red in dgvTermini.Rows)
             {
                 red.Cells[1].Style.BackColor = Color.Green;

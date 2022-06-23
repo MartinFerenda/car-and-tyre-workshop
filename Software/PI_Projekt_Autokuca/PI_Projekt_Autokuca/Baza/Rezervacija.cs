@@ -24,8 +24,8 @@ namespace PI_Projekt_Autokuca.Baza
         public int Vozilo { get; set; }
         public int Adresa { get; set; }
     
+        public virtual Adresa Adresa1 { get; set; }
         public virtual Korisnik Korisnik1 { get; set; }
         public virtual Vozilo Vozilo1 { get; set; }
-        public virtual Adresa Adresa1 { get; set; }
     }
 }

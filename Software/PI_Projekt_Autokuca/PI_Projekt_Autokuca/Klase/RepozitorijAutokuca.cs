@@ -82,14 +82,14 @@ namespace PI_Projekt_Autokuca.Klase
         }
         public static List<Vozilo> DohvatiSvaVozila()
         {
-            using (var context = new PI2227_DBEntities())
+            using (var context = new PI2227_DBEntities1())
             {
                 return context.Voziloes.ToList();
             }
         }
         public static VrsteGoriva DohvatiGorivo(Vozilo vozilo)
         {
-            using (var context = new PI2227_DBEntities())
+            using (var context = new PI2227_DBEntities1())
             {
                 context.Voziloes.Attach(vozilo);
                 VrsteGoriva novo = new VrsteGoriva()
@@ -102,7 +102,7 @@ namespace PI_Projekt_Autokuca.Klase
         }
         public static Marke DohvatiMarku(Vozilo vozilo)
         {
-            using (var context = new PI2227_DBEntities())
+            using (var context = new PI2227_DBEntities1())
             {
                 context.Voziloes.Attach(vozilo);
                 Marke novo = new Marke()
@@ -115,7 +115,7 @@ namespace PI_Projekt_Autokuca.Klase
         }
         public static VrsteVozila DohvatiVrstu(Vozilo vozilo)
         {
-            using (var context = new PI2227_DBEntities())
+            using (var context = new PI2227_DBEntities1())
             {
                 context.Voziloes.Attach(vozilo);
                 VrsteVozila novo = new VrsteVozila()
@@ -139,7 +139,7 @@ namespace PI_Projekt_Autokuca.Klase
         public static List<Adrese> DohvatiLokacije()
         {
             List<Adrese> lokacije = new List<Adrese>();
-            using (var context = new PI2227_DBEntities())
+            using (var context = new PI2227_DBEntities1())
             {
                 var query = from a in context.Adresas
                             where a.OpisPodruznice == "Servis"
@@ -168,7 +168,7 @@ namespace PI_Projekt_Autokuca.Klase
         {
             List<Rezervacije> vrati = new List<Rezervacije>();
             List<Rezervacija> odabrane = new List<Rezervacija>();
-            using (var context = new PI2227_DBEntities())
+            using (var context = new PI2227_DBEntities1())
             {
                 var query = from r in context.Rezervacijas
                             where r.Adresa == adresa.IDAdrese && r.DatumIVrijeme == datum
@@ -197,7 +197,7 @@ namespace PI_Projekt_Autokuca.Klase
             List<Vozila> vozilaKorisnika = DohvatiVozilaKorisnika();
             List<Adrese> adrese = DohvatiLokacije();
 
-            using (var context = new PI2227_DBEntities())
+            using (var context = new PI2227_DBEntities1())
             {
                 var query = from r in context.Rezervacijas
                             where r.Korisnik == PrijavljeniKorisnik.IDKorisnik
@@ -235,7 +235,7 @@ namespace PI_Projekt_Autokuca.Klase
         }
         public static void KreirajRezervaciju(Rezervacije novaRezervacija) 
         {
-            using (var context = new PI2227_DBEntities())
+            using (var context = new PI2227_DBEntities1())
             {
                 Rezervacija novaRezervacijaBaza = new Rezervacija()
                 {

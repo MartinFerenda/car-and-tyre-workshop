@@ -36,7 +36,7 @@ namespace PI_Projekt_Autokuca.Baza
         public string Boja { get; set; }
         public int BrojPrijedenihKilometara { get; set; }
         public int Marka { get; set; }
-        public int Vlasnik { get; set; }
+        public Nullable<int> Vlasnik { get; set; }
         public int Vrsta { get; set; }
         public int Gorivo { get; set; }
         public byte[] Fotografija { get; set; }
