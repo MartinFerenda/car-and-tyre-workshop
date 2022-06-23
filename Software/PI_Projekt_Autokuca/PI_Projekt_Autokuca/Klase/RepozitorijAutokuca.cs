@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PI_Projekt_Autokuca.Baza;
+using AdreseLib;
 
 namespace PI_Projekt_Autokuca.Klase
 {

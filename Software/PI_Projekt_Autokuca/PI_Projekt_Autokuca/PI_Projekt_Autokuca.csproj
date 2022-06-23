@@ -175,7 +175,6 @@
     <Compile Include="FrmSkladisteIEvidencija.Designer.cs">
       <DependentUpon>FrmSkladisteIEvidencija.cs</DependentUpon>
     </Compile>
-    <Compile Include="Klase\Adrese.cs" />
     <Compile Include="Klase\AutomobilskiDijelovi.cs" />
     <Compile Include="Klase\Gume.cs" />
     <Compile Include="Klase\Korisnici.cs" />
@@ -287,6 +286,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AdreseLib\AdreseLib.csproj">
+      <Project>{7be02e97-0bfd-4991-b08e-2d29def29bab}</Project>
+      <Name>AdreseLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

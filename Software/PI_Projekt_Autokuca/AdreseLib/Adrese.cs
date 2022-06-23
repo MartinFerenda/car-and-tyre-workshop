@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PI_Projekt_Autokuca.Klase
+namespace AdreseLib
 {
     public class Adrese
     {
@@ -18,6 +18,16 @@ namespace PI_Projekt_Autokuca.Klase
         public TimeSpan? RadnoVrijemeOd { get; set; }
         public TimeSpan? RadnoVrijemeDo { get; set; }
 
+        public Adrese()
+        {
+
+        }
+        public Adrese(string broj, string ulica, string mjesto)
+        {
+            Broj = broj;
+            Ulica = ulica;
+            Mjesto = mjesto;
+        }
         public override string ToString()
         {
             return NazivPodruznice + " " + Ulica + " " + Broj;
