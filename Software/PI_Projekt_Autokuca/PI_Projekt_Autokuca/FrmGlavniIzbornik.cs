@@ -53,7 +53,7 @@ namespace PI_Projekt_Autokuca
         {
             if (RepozitorijAutokuca.PrijavljeniKorisnik != null && RepozitorijAutokuca.PrijavljeniKorisnik.Uloga != Uloge.NeregistriraniKorisnik)
             {
-                FrmRezervacijaTermina form = new FrmRezervacijaTermina();
+                FrmIzborRezervacije form = new FrmIzborRezervacije();
                 form.ShowDialog();
             }
         }

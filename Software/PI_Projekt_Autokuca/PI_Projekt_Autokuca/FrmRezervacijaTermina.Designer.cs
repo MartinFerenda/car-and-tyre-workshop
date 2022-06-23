@@ -47,10 +47,10 @@
             this.lblSlobodno = new System.Windows.Forms.Label();
             this.lblZauzeto = new System.Windows.Forms.Label();
             this.dgvTermini = new System.Windows.Forms.DataGridView();
-            this.txtSlobodno = new System.Windows.Forms.TextBox();
-            this.txtZauzeto = new System.Windows.Forms.TextBox();
             this.Termin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtSlobodno = new System.Windows.Forms.TextBox();
+            this.txtZauzeto = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMojeRezervacije)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTermini)).BeginInit();
             this.SuspendLayout();
@@ -103,6 +103,7 @@
             this.cmbVozilo.Name = "cmbVozilo";
             this.cmbVozilo.Size = new System.Drawing.Size(301, 24);
             this.cmbVozilo.TabIndex = 4;
+            this.cmbVozilo.SelectedIndexChanged += new System.EventHandler(this.cmbVozilo_SelectedIndexChanged);
             // 
             // lblPredmetRezervacije
             // 
@@ -247,6 +248,22 @@
             this.dgvTermini.Size = new System.Drawing.Size(431, 317);
             this.dgvTermini.TabIndex = 18;
             // 
+            // Termin
+            // 
+            this.Termin.HeaderText = "Termin (sati)";
+            this.Termin.MinimumWidth = 6;
+            this.Termin.Name = "Termin";
+            this.Termin.ReadOnly = true;
+            this.Termin.Width = 125;
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "Slobodno/Zauzeto";
+            this.Status.MinimumWidth = 6;
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            this.Status.Width = 125;
+            // 
             // txtSlobodno
             // 
             this.txtSlobodno.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
@@ -264,22 +281,6 @@
             this.txtZauzeto.Name = "txtZauzeto";
             this.txtZauzeto.Size = new System.Drawing.Size(50, 50);
             this.txtZauzeto.TabIndex = 20;
-            // 
-            // Termin
-            // 
-            this.Termin.HeaderText = "Termin (sati)";
-            this.Termin.MinimumWidth = 6;
-            this.Termin.Name = "Termin";
-            this.Termin.ReadOnly = true;
-            this.Termin.Width = 125;
-            // 
-            // Status
-            // 
-            this.Status.HeaderText = "Slobodno/Zauzeto";
-            this.Status.MinimumWidth = 6;
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            this.Status.Width = 125;
             // 
             // FrmRezervacijaTermina
             // 

@@ -55,73 +55,91 @@ namespace PI_Projekt_Autokuca.Klase
                 return;
             }
         }
-        public static List<Vozila> DohvatiVozilaKorisnika()
+        public static List<Vozila> DohvatiVozila(bool probnaVoznja)
         {
             List<Vozila> vozila = new List<Vozila>();
-            foreach (Vozilo vozilo in DohvatiSvaVozila())
+            List<Vozilo> vozilos = new List<Vozilo>();
+            using (var context = new PI2227_DBEntities1())
             {
-                if (vozilo.Vlasnik == PrijavljeniKorisnik.IDKorisnik) {
+                if (probnaVoznja)
+                {
+                    var query = from v in context.Voziloes
+                                where v.Status == "Dostupno"
+                                select v;
+                    vozilos = query.ToList();
+                }
+                else
+                {
+                    var query = from v in context.Voziloes
+                                where v.Vlasnik == PrijavljeniKorisnik.IDKorisnik
+                                select v;
+                    vozilos = query.ToList();
+                }
+                foreach (Vozilo vozilo in vozilos)
+                {
                     Vozila novo = new Vozila()
                     {
                         Boja = vozilo.Boja,
                         BrojPrijedenihKilometara = vozilo.BrojPrijedenihKilometara,
                         GodinaProizvodnje = vozilo.GodinaProizvodnje,
-                        Gorivo = DohvatiGorivo(vozilo),
+                        Gorivo = DohvatiGorivo(vozilo.Gorivo),
                         IDVozila = vozilo.IdVozila,
-                        Marka = DohvatiMarku(vozilo),
+                        Marka = DohvatiMarku(vozilo.Marka),
                         RegistarskaOznaka = vozilo.RegistraskaOznaka,
                         SnagaMotora = vozilo.SnagaMotora,
                         Status = vozilo.Status,
                         StupanjMjenjaca = vozilo.StupanjMjenjaca,
-                        Vrsta = DohvatiVrstu(vozilo)
+                        Vrsta = DohvatiVrstu(vozilo.Vrsta)
                     };
                     vozila.Add(novo);
                 }
+                return vozila;
             }
-            return vozila;
         }
-        public static List<Vozilo> DohvatiSvaVozila()
+        public static VrsteGoriva DohvatiGorivo(int idGorivo)
         {
             using (var context = new PI2227_DBEntities1())
             {
-                return context.Voziloes.ToList();
-            }
-        }
-        public static VrsteGoriva DohvatiGorivo(Vozilo vozilo)
-        {
-            using (var context = new PI2227_DBEntities1())
-            {
-                context.Voziloes.Attach(vozilo);
+                var query = from g in context.VrstaGorivas
+                            where g.IdGoriva == idGorivo
+                            select g;
+                VrstaGoriva vrstaGoriva = query.First();
                 VrsteGoriva novo = new VrsteGoriva()
                 {
-                    IDGorivo = vozilo.Gorivo,
-                    Naziv = vozilo.VrstaGoriva.Naziv
+                    IDGorivo = vrstaGoriva.IdGoriva,
+                    Naziv = vrstaGoriva.Naziv
                 };
                 return novo;
             }
         }
-        public static Marke DohvatiMarku(Vozilo vozilo)
+        public static Marke DohvatiMarku(int marka)
         {
             using (var context = new PI2227_DBEntities1())
             {
-                context.Voziloes.Attach(vozilo);
+                var query = from m in context.MarkaVozilas
+                            where m.IdMarke == marka
+                            select m;
+                MarkaVozila trazena = query.First();
                 Marke novo = new Marke()
                 {
-                    IDMarke = vozilo.Marka,
-                    NazivMarkeIModel = vozilo.MarkaVozila.NazivMarkeIModela
+                    IDMarke = trazena.IdMarke,
+                    NazivMarkeIModel = trazena.NazivMarkeIModela
                 };
                 return novo;
             }
         }
-        public static VrsteVozila DohvatiVrstu(Vozilo vozilo)
+        public static VrsteVozila DohvatiVrstu(int idVrste)
         {
             using (var context = new PI2227_DBEntities1())
             {
-                context.Voziloes.Attach(vozilo);
+                var query = from v in context.VrstaVozilas
+                            where v.IdVrste == idVrste
+                            select v;
+                VrstaVozila trazena = query.First();
                 VrsteVozila novo = new VrsteVozila()
                 {
-                    IDVrsteVozila = vozilo.Vrsta,
-                    Naziv = vozilo.VrstaVozila.Naziv,
+                    IDVrsteVozila = trazena.IdVrste,
+                    Naziv = trazena.Naziv,
                 };
                 return novo;
             }
@@ -136,15 +154,26 @@ namespace PI_Projekt_Autokuca.Klase
             predmeti.Add("Ostalo");
             return predmeti;
         }
-        public static List<Adrese> DohvatiLokacije()
+        public static List<Adrese> DohvatiLokacije(bool probnaVoznja)
         {
             List<Adrese> lokacije = new List<Adrese>();
             using (var context = new PI2227_DBEntities1())
             {
-                var query = from a in context.Adresas
-                            where a.OpisPodruznice == "Servis"
-                            select a;
-                List<Adresa> adrese = query.ToList();
+                List<Adresa> adrese;
+                if (probnaVoznja)
+                {
+                    var query = from a in context.Adresas
+                                where a.OpisPodruznice == "Autosalon"
+                                select a;
+                    adrese = query.ToList();
+                }
+                else
+                {
+                    var query = from a in context.Adresas
+                                where a.OpisPodruznice == "Servis"
+                                select a;
+                    adrese = query.ToList();
+                }
                 foreach (Adresa adresa in adrese)
                 {
                     Adrese nova = new Adrese()
@@ -164,16 +193,26 @@ namespace PI_Projekt_Autokuca.Klase
                 return lokacije;
             }
         }
-        public static List<Rezervacije> DohvatiRezervacije(DateTime datum, Adrese adresa)
+        public static List<Rezervacije> DohvatiRezervacije(DateTime datum, Adrese adresa, Vozila vozilo)
         {
             List<Rezervacije> vrati = new List<Rezervacije>();
             List<Rezervacija> odabrane = new List<Rezervacija>();
             using (var context = new PI2227_DBEntities1())
             {
-                var query = from r in context.Rezervacijas
-                            where r.Adresa == adresa.IDAdrese && r.DatumIVrijeme == datum
-                            select r;
-                odabrane = query.ToList();
+                if (vozilo != null)
+                {
+                    var query = from r in context.Rezervacijas
+                                where r.Adresa == adresa.IDAdrese && r.DatumIVrijeme == datum && r.Vozilo == vozilo.IDVozila
+                                select r;
+                    odabrane = query.ToList();
+                }
+                else
+                {
+                    var query = from r in context.Rezervacijas
+                                where r.Adresa == adresa.IDAdrese && r.DatumIVrijeme == datum
+                                select r;
+                    odabrane = query.ToList();
+                }
                 foreach (Rezervacija rezervacija in odabrane)
                 {
                     Rezervacije nova = new Rezervacije()
@@ -190,19 +229,29 @@ namespace PI_Projekt_Autokuca.Klase
                 return vrati;
             }
         }
-        public static List<Rezervacije> DohvatiRezervacijeKorisnika() 
+        public static List<Rezervacije> DohvatiRezervacijeKorisnika(bool probnaVoznja) 
         {
             List<Rezervacije> vrati = new List<Rezervacije>();
             List<Rezervacija> odabrane = new List<Rezervacija>();
-            List<Vozila> vozilaKorisnika = DohvatiVozilaKorisnika();
-            List<Adrese> adrese = DohvatiLokacije();
+            List<Vozila> vozilaKorisnika = DohvatiVozila(probnaVoznja);
+            List<Adrese> adrese = DohvatiLokacije(probnaVoznja);
 
             using (var context = new PI2227_DBEntities1())
             {
-                var query = from r in context.Rezervacijas
-                            where r.Korisnik == PrijavljeniKorisnik.IDKorisnik
-                            select r;
-                odabrane = query.ToList();
+                if (probnaVoznja)
+                {
+                    var query = from r in context.Rezervacijas
+                                where r.Korisnik == PrijavljeniKorisnik.IDKorisnik && r.PredmetRezervacije == "Probna vožnja"
+                                select r;
+                    odabrane = query.ToList();
+                }
+                else
+                {
+                    var query = from r in context.Rezervacijas
+                                where r.Korisnik == PrijavljeniKorisnik.IDKorisnik && r.PredmetRezervacije != "Probna vožnja"
+                                select r;
+                    odabrane = query.ToList();
+                }
                 foreach (Rezervacija rezervacija in odabrane)
                 {
                     foreach (Vozila vozilo in vozilaKorisnika)
@@ -252,7 +301,7 @@ namespace PI_Projekt_Autokuca.Klase
                 context.SaveChanges();
             }
         }
-        public static bool ProvjeriIspravnostRezervacije(DateTime datum, DateTime pocetak, Adrese odabranaLokacija)
+        public static bool ProvjeriIspravnostRezervacije(DateTime datum, DateTime pocetak, Adrese odabranaLokacija, Vozila vozilo, bool probnaVoznja)
         {
             if (datum.DayOfYear <= DateTime.Now.DayOfYear)
             {
@@ -261,7 +310,15 @@ namespace PI_Projekt_Autokuca.Klase
             }
             else
             {
-                List<Rezervacije> zaOdabraniDatum = DohvatiRezervacije(datum, odabranaLokacija);
+                List<Rezervacije> zaOdabraniDatum;
+                if (probnaVoznja)
+                {
+                    zaOdabraniDatum = DohvatiRezervacije(datum, odabranaLokacija, vozilo);
+                }
+                else
+                {
+                    zaOdabraniDatum = DohvatiRezervacije(datum, odabranaLokacija, null);
+                }
                 foreach (Rezervacije rezervacija in zaOdabraniDatum)
                 {
                     if (DateTime.Compare(rezervacija.PocetakRezervacije, pocetak) == 0)

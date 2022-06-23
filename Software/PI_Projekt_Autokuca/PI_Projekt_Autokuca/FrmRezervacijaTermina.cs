@@ -13,22 +13,51 @@ namespace PI_Projekt_Autokuca
 {
     public partial class FrmRezervacijaTermina : Form
     {
+        public bool ProbnaVoznja { get; }
+
         public FrmRezervacijaTermina()
         {
             InitializeComponent();
         }
 
+        public FrmRezervacijaTermina(bool probnaVoznja)
+        {
+            InitializeComponent();
+            ProbnaVoznja = probnaVoznja;
+
+            //SREDITI PODATKE, CMB I OSTALO ZA REZERV. PROBNE VOŽNJE
+        }
+
         private void FrmRezervacijaTermina_Load(object sender, EventArgs e)
         {
             PopuniComboBoxeve();
-            dgvMojeRezervacije.DataSource = RepozitorijAutokuca.DohvatiRezervacijeKorisnika();
+            if (ProbnaVoznja)
+            {
+                dgvMojeRezervacije.DataSource = RepozitorijAutokuca.DohvatiRezervacijeKorisnika(ProbnaVoznja);
+                lblMojeRezervacije.Text = "Moje rezervacije termina probnih vožnji:";
+            }
+            else
+            {
+                dgvMojeRezervacije.DataSource = RepozitorijAutokuca.DohvatiRezervacijeKorisnika(false);
+                lblMojeRezervacije.Text = "Moje rezervacije termina servisa:";
+            }
             UrediDataGridPrikaz();
         }
         private void PopuniComboBoxeve()
         {
-            cmbVozilo.DataSource = RepozitorijAutokuca.DohvatiVozilaKorisnika();
-            cmbPredmetRezervacije.DataSource = RepozitorijAutokuca.DohvatiPredmeteRezervacije();
-            cmbLokacija.DataSource = RepozitorijAutokuca.DohvatiLokacije();
+            if (ProbnaVoznja)
+            {
+                cmbVozilo.DataSource = RepozitorijAutokuca.DohvatiVozila(ProbnaVoznja);
+                cmbPredmetRezervacije.Text = "Probna vožnja";
+                cmbPredmetRezervacije.Enabled = false;
+                cmbLokacija.DataSource = RepozitorijAutokuca.DohvatiLokacije(ProbnaVoznja);
+            }
+            else
+            {
+                cmbVozilo.DataSource = RepozitorijAutokuca.DohvatiVozila(false);
+                cmbPredmetRezervacije.DataSource = RepozitorijAutokuca.DohvatiPredmeteRezervacije();
+                cmbLokacija.DataSource = RepozitorijAutokuca.DohvatiLokacije(false);
+            }
         }
 
         private void btnOdustani_Click(object sender, EventArgs e)
@@ -45,9 +74,7 @@ namespace PI_Projekt_Autokuca
             TimeSpan? kraj = trenutna.RadnoVrijemeDo;
             int pocetakSat = int.Parse(pocetak.Value.TotalHours.ToString());
             int krajSat = int.Parse(kraj.Value.TotalHours.ToString());
-            //za data grid
-            DateTime odabraniDatum = mcOdabirDatuma.SelectionRange.Start;
-            List<Rezervacije> rezervacije = RepozitorijAutokuca.DohvatiRezervacije(odabraniDatum, trenutna);
+
             for (int i = pocetakSat; i < krajSat; i++)
             {
                 TimeSpan novi = new TimeSpan(i, 0, 0);
@@ -55,27 +82,28 @@ namespace PI_Projekt_Autokuca
                 this.dgvTermini.Rows.Add(i, "");
             }
             cmbSat.DataSource = sati;
-            foreach (DataGridViewRow red in dgvTermini.Rows)
-            {
-                red.Cells[1].Style.BackColor = Color.Green;
-                int sati1 = int.Parse(red.Cells[0].Value.ToString());
-                TimeSpan zaDodati = new TimeSpan(sati1, 0, 0);
-                DateTime usporedba = odabraniDatum.Add(zaDodati);
-                foreach (Rezervacije rezervacija in rezervacije)
-                {
-                    if (DateTime.Compare(rezervacija.PocetakRezervacije, usporedba) == 0)
-                    {
-                        red.Cells[1].Style.BackColor = Color.Red;
-                    }
-                }
-            }
+            OsvjeziDostupnostTermina();
         }
 
         private void mcOdabirDatuma_DateChanged(object sender, DateRangeEventArgs e)
         {
+            OsvjeziDostupnostTermina();
+        }
+        private void OsvjeziDostupnostTermina()
+        {
             DateTime odabraniDatum = mcOdabirDatuma.SelectionRange.Start;
             Adrese trenutna = cmbLokacija.SelectedItem as Adrese;
-            List<Rezervacije> rezervacije = RepozitorijAutokuca.DohvatiRezervacije(odabraniDatum, trenutna);
+            Vozila odabranoVozilo = cmbVozilo.SelectedItem as Vozila;
+            List<Rezervacije> rezervacije;
+
+            if (ProbnaVoznja)
+            {
+                rezervacije = RepozitorijAutokuca.DohvatiRezervacije(odabraniDatum, trenutna, odabranoVozilo);
+            }
+            else
+            {
+                rezervacije = RepozitorijAutokuca.DohvatiRezervacije(odabraniDatum, trenutna, null);
+            }
 
             foreach (DataGridViewRow red in dgvTermini.Rows)
             {
@@ -92,7 +120,6 @@ namespace PI_Projekt_Autokuca
                 }
             }
         }
-
         private void btnRezerviraj_Click(object sender, EventArgs e)
         {
             DateTime odabraniDatum = mcOdabirDatuma.SelectionRange.Start;
@@ -101,8 +128,18 @@ namespace PI_Projekt_Autokuca
             TimeSpan zaDodati = new TimeSpan(int.Parse(odabraniSat.Value.TotalHours.ToString()), 0, 0);
             DateTime pocetak = odabraniDatum.Add(zaDodati);
             Adrese trenutna = cmbLokacija.SelectedItem as Adrese;
+            Vozila vozilo = cmbVozilo.SelectedItem as Vozila;
 
-            if (RepozitorijAutokuca.ProvjeriIspravnostRezervacije(odabraniDatum, pocetak, trenutna)) {
+            if (RepozitorijAutokuca.ProvjeriIspravnostRezervacije(odabraniDatum, pocetak, trenutna, vozilo, ProbnaVoznja)) {
+                string predmetRezervacije = "";
+                if (ProbnaVoznja)
+                {
+                    predmetRezervacije = "Probna vožnja";
+                }
+                else
+                {
+                    predmetRezervacije = cmbPredmetRezervacije.SelectedItem.ToString();
+                }
                 Rezervacije nova = new Rezervacije()
                 {
                     DatumIVrijeme = odabraniDatum,
@@ -110,13 +147,20 @@ namespace PI_Projekt_Autokuca
                     KrajRezervacije = pocetak.Add(trajanje),
                     PocetakRezervacije = pocetak,
                     Podruznica = trenutna,
-                    PredmetRezervacije = cmbPredmetRezervacije.SelectedItem.ToString(),
+                    PredmetRezervacije = predmetRezervacije,
                     Status = "U postupku",
                     Vozilo = cmbVozilo.SelectedItem as Vozila
                 };
                 RepozitorijAutokuca.KreirajRezervaciju(nova);
                 dgvMojeRezervacije.DataSource = null;
-                dgvMojeRezervacije.DataSource = RepozitorijAutokuca.DohvatiRezervacijeKorisnika();
+                if (ProbnaVoznja)
+                {
+                    dgvMojeRezervacije.DataSource = RepozitorijAutokuca.DohvatiRezervacijeKorisnika(ProbnaVoznja);
+                }
+                else
+                {
+                    dgvMojeRezervacije.DataSource = RepozitorijAutokuca.DohvatiRezervacijeKorisnika(false);
+                }
                 UrediDataGridPrikaz();
             }
         }
@@ -129,6 +173,17 @@ namespace PI_Projekt_Autokuca
             dgvMojeRezervacije.Columns[5].HeaderText = "Kraj (sati)";
             dgvMojeRezervacije.Columns[6].Visible = false;
             dgvMojeRezervacije.Columns[8].HeaderText = "Lokacija";
+        }
+
+        private void cmbVozilo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ProbnaVoznja)
+            {
+                if (dgvTermini.Rows.Count > 0)
+                {
+                    OsvjeziDostupnostTermina();
+                }
+            }
         }
     }
 }
