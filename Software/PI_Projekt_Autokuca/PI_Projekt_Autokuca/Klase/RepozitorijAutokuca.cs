@@ -363,5 +363,55 @@ namespace PI_Projekt_Autokuca.Klase
             };
             return nova;
         }
+        public static void KreirajLokaciju(Adrese nova)
+        {
+            using (var context = new PI2227_DBEntities1())
+            {
+                Adresa adresa = new Adresa()
+                {
+                    Broj = nova.Broj,
+                    Mjesto = nova.Mjesto,
+                    NazivPodruznice = nova.NazivPodruznice,
+                    OpisPodruznice = nova.OpisPodruznice,
+                    PostanskiBroj = nova.PostanskiBroj,
+                    RadnoVrijemeDo = nova.RadnoVrijemeDo,
+                    RadnoVrijemeOd = nova.RadnoVrijemeOd,
+                    Ulica = nova.Ulica
+                };
+                context.Adresas.Add(adresa);
+                context.SaveChanges();
+            }
+        }
+        public static void AzurirajLokaciju(int sifra, string broj, string mjesto, string naziv, string opis, string postanskiBroj, TimeSpan rvrijemeOd, TimeSpan rvrijemeDo, string ulica)
+        {
+            using (var context = new PI2227_DBEntities1())
+            {
+                var query = from a in context.Adresas
+                            where a.IdAdrese == sifra
+                            select a;
+                Adresa trazena = query.First();
+                trazena.Broj = broj;
+                trazena.Mjesto = mjesto;
+                trazena.NazivPodruznice = naziv;
+                trazena.OpisPodruznice = opis;
+                trazena.PostanskiBroj = postanskiBroj;
+                trazena.RadnoVrijemeDo = rvrijemeDo;
+                trazena.RadnoVrijemeOd = rvrijemeOd;
+                trazena.Ulica = ulica;
+                context.SaveChanges();
+            }
+        }
+        public static void ObrisiLokaciju(Adrese odabrana)
+        {
+            using (var context = new PI2227_DBEntities1())
+            {
+                var query = from a in context.Adresas
+                            where a.IdAdrese == odabrana.IDAdrese
+                            select a;
+                Adresa trazena = query.First();
+                context.Adresas.Remove(trazena);
+                context.SaveChanges();
+            }
+        }
     }
 }

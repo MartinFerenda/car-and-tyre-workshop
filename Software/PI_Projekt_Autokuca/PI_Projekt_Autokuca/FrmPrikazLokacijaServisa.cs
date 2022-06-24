@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PI_Projekt_Autokuca.Klase;
 using AdreseLib;
+using PI_Projekt_Autokuca.Iznimke;
 
 namespace PI_Projekt_Autokuca
 {
@@ -57,6 +58,7 @@ namespace PI_Projekt_Autokuca
             string pretraga = txtPretraga.Text.ToLower();
             dgvLokacije.DataSource = null;
             dgvLokacije.DataSource = RepozitorijAutokuca.DohvatiLokacijeServisa(pretraga);
+            OsvjeziDataGridPrikaz();
         }
 
         private void btnOdustani_Click(object sender, EventArgs e)
@@ -66,9 +68,82 @@ namespace PI_Projekt_Autokuca
 
         private void btnRezerviraj_Click(object sender, EventArgs e)
         {
-            Adrese odabrana = dgvLokacije.CurrentRow.DataBoundItem as Adrese;
-            FrmRezervacijaTermina form = new FrmRezervacijaTermina(odabrana);
+            try
+            {
+                if (dgvLokacije.CurrentRow != null)
+                {
+                    Adrese odabrana = dgvLokacije.CurrentRow.DataBoundItem as Adrese;
+                    FrmRezervacijaTermina form = new FrmRezervacijaTermina(odabrana);
+                    form.ShowDialog();
+                }
+                else
+                {
+                    throw new LocationNotSelectedException("Nije odabrana lokacija!");
+                }
+            }
+            catch (LocationNotSelectedException iznimkaLokacije)
+            {
+                MessageBox.Show(iznimkaLokacije.Obavijest);
+            }
+        }
+
+        private void btnNovaLokacija_Click(object sender, EventArgs e)
+        {
+            FrmDodajAzurirajLokaciju form = new FrmDodajAzurirajLokaciju();
             form.ShowDialog();
+            OsvjeziPodatke();
+            OsvjeziDataGridPrikaz();
+        }
+
+        private void btnAzuriraj_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvLokacije.CurrentRow != null)
+                {
+                    Adrese odabrana = dgvLokacije.CurrentRow.DataBoundItem as Adrese;
+                    FrmDodajAzurirajLokaciju form = new FrmDodajAzurirajLokaciju(true, odabrana);
+                    form.ShowDialog();
+                }
+                else
+                {
+                    throw new LocationNotSelectedException("Nije odabrana lokacija!");
+                }
+            }
+            catch (LocationNotSelectedException iznimkaLokacije)
+            {
+                MessageBox.Show(iznimkaLokacije.Obavijest);
+            }
+
+            OsvjeziPodatke();
+            OsvjeziDataGridPrikaz();
+        }
+
+        private void btnIzbrisi_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvLokacije.CurrentRow != null)
+                {
+                    Adrese odabrana = dgvLokacije.CurrentRow.DataBoundItem as Adrese;
+                    RepozitorijAutokuca.ObrisiLokaciju(odabrana);
+                }
+                else
+                {
+                    throw new LocationNotSelectedException("Nije odabrana lokacija!");
+                }
+            }
+            catch (LocationNotSelectedException iznimkaLokacije)
+            {
+                MessageBox.Show(iznimkaLokacije.Obavijest);
+            }
+            OsvjeziPodatke();
+            OsvjeziDataGridPrikaz();
+        }
+        private void OsvjeziPodatke()
+        {
+            dgvLokacije.DataSource = null;
+            dgvLokacije.DataSource = RepozitorijAutokuca.DohvatiLokacijeServisa();
         }
     }
 }

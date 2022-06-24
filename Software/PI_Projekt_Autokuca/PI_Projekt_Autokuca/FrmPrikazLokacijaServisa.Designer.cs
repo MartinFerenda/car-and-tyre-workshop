@@ -83,6 +83,7 @@
             this.btnNovaLokacija.TabIndex = 3;
             this.btnNovaLokacija.Text = "Dodaj novu lokaciju";
             this.btnNovaLokacija.UseVisualStyleBackColor = true;
+            this.btnNovaLokacija.Click += new System.EventHandler(this.btnNovaLokacija_Click);
             // 
             // btnAzuriraj
             // 
@@ -92,6 +93,7 @@
             this.btnAzuriraj.TabIndex = 4;
             this.btnAzuriraj.Text = "Ažuriraj lokaciju";
             this.btnAzuriraj.UseVisualStyleBackColor = true;
+            this.btnAzuriraj.Click += new System.EventHandler(this.btnAzuriraj_Click);
             // 
             // btnIzbrisi
             // 
@@ -101,6 +103,7 @@
             this.btnIzbrisi.TabIndex = 5;
             this.btnIzbrisi.Text = "Izbriši lokaciju";
             this.btnIzbrisi.UseVisualStyleBackColor = true;
+            this.btnIzbrisi.Click += new System.EventHandler(this.btnIzbrisi_Click);
             // 
             // lblPretraga
             // 
