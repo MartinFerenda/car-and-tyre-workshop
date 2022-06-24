@@ -15,18 +15,19 @@ namespace PI_Projekt_Autokuca
     public partial class FrmRezervacijaTermina : Form
     {
         public bool ProbnaVoznja { get; }
+        public Adrese OdabranaLokacija { get; set; }
 
-        public FrmRezervacijaTermina()
+        public FrmRezervacijaTermina(Adrese odabranaLokacija = null)
         {
             InitializeComponent();
+            OdabranaLokacija = odabranaLokacija;
         }
 
         public FrmRezervacijaTermina(bool probnaVoznja)
         {
             InitializeComponent();
             ProbnaVoznja = probnaVoznja;
-
-            //SREDITI PODATKE, CMB I OSTALO ZA REZERV. PROBNE VOŽNJE
+            
         }
 
         private void FrmRezervacijaTermina_Load(object sender, EventArgs e)
@@ -58,6 +59,10 @@ namespace PI_Projekt_Autokuca
                 cmbVozilo.DataSource = RepozitorijAutokuca.DohvatiVozila(false);
                 cmbPredmetRezervacije.DataSource = RepozitorijAutokuca.DohvatiPredmeteRezervacije();
                 cmbLokacija.DataSource = RepozitorijAutokuca.DohvatiLokacije(false);
+                if (OdabranaLokacija != null)
+                {
+                    cmbLokacija.Text = OdabranaLokacija.ToString();
+                }
             }
         }
 

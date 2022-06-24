@@ -20,7 +20,7 @@ namespace PI_Projekt_Autokuca
 
         private void FrmGlavniIzbornik_Load(object sender, EventArgs e)
         {
-            
+            RepozitorijAutokuca.PrijavljeniKorisnik = null;
         }
 
         private void btnPrikazLokacijaServisa_Click(object sender, EventArgs e)

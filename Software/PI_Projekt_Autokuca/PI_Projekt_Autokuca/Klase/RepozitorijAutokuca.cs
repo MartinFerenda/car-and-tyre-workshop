@@ -177,19 +177,7 @@ namespace PI_Projekt_Autokuca.Klase
                 }
                 foreach (Adresa adresa in adrese)
                 {
-                    Adrese nova = new Adrese()
-                    {
-                        Broj = adresa.Broj,
-                        IDAdrese = adresa.IdAdrese,
-                        Mjesto = adresa.Mjesto,
-                        NazivPodruznice = adresa.NazivPodruznice,
-                        OpisPodruznice = adresa.OpisPodruznice,
-                        PostanskiBroj = adresa.PostanskiBroj,
-                        RadnoVrijemeDo = adresa.RadnoVrijemeDo,
-                        RadnoVrijemeOd = adresa.RadnoVrijemeOd,
-                        Ulica = adresa.Ulica
-                    };
-                    lokacije.Add(nova);
+                    lokacije.Add(NovaAdresa(adresa));
                 }
                 return lokacije;
             }
@@ -330,6 +318,50 @@ namespace PI_Projekt_Autokuca.Klase
                 }
                 return true;
             }
+        }
+        public static List<Adrese> DohvatiLokacijeServisa(string naziv = "")
+        {
+            List<Adrese> adrese = new List<Adrese>();
+            List<Adresa> adreseIzBaze = new List<Adresa>();
+            using (var context = new PI2227_DBEntities1())
+            {
+                var query = from a in context.Adresas
+                            where a.OpisPodruznice == "Servis"
+                            select a;
+                adreseIzBaze = query.ToList();
+                foreach (Adresa adresa in adreseIzBaze)
+                {
+                    if (naziv == "")
+                    {
+                        adrese.Add(NovaAdresa(adresa));
+                    }
+                    else
+                    {
+                        if (adresa.NazivPodruznice.ToLower().Contains(naziv))
+                        {
+                            adrese.Add(NovaAdresa(adresa));
+                        }
+                    }
+                }
+                return adrese;
+            }
+            
+        }
+        private static Adrese NovaAdresa(Adresa adresa)
+        {
+            Adrese nova = new Adrese()
+            {
+                Broj = adresa.Broj,
+                IDAdrese = adresa.IdAdrese,
+                Mjesto = adresa.Mjesto,
+                NazivPodruznice = adresa.NazivPodruznice,
+                OpisPodruznice = adresa.OpisPodruznice,
+                PostanskiBroj = adresa.PostanskiBroj,
+                RadnoVrijemeDo = adresa.RadnoVrijemeDo,
+                RadnoVrijemeOd = adresa.RadnoVrijemeOd,
+                Ulica = adresa.Ulica
+            };
+            return nova;
         }
     }
 }
