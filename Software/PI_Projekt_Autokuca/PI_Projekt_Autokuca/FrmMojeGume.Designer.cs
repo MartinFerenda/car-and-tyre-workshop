@@ -35,18 +35,21 @@
             // 
             // dgvMojeGume
             // 
+            this.dgvMojeGume.AllowUserToAddRows = false;
+            this.dgvMojeGume.AllowUserToDeleteRows = false;
             this.dgvMojeGume.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvMojeGume.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMojeGume.Location = new System.Drawing.Point(13, 13);
             this.dgvMojeGume.Name = "dgvMojeGume";
+            this.dgvMojeGume.ReadOnly = true;
             this.dgvMojeGume.RowHeadersWidth = 51;
             this.dgvMojeGume.RowTemplate.Height = 24;
-            this.dgvMojeGume.Size = new System.Drawing.Size(568, 294);
+            this.dgvMojeGume.Size = new System.Drawing.Size(925, 294);
             this.dgvMojeGume.TabIndex = 0;
             // 
             // btnZatvori
             // 
-            this.btnZatvori.Location = new System.Drawing.Point(474, 324);
+            this.btnZatvori.Location = new System.Drawing.Point(831, 313);
             this.btnZatvori.Name = "btnZatvori";
             this.btnZatvori.Size = new System.Drawing.Size(107, 42);
             this.btnZatvori.TabIndex = 1;
@@ -59,7 +62,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(596, 383);
+            this.ClientSize = new System.Drawing.Size(954, 369);
             this.Controls.Add(this.btnZatvori);
             this.Controls.Add(this.dgvMojeGume);
             this.Name = "FrmMojeGume";

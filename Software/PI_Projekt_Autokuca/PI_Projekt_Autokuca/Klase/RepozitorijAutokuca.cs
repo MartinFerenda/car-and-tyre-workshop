@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PI_Projekt_Autokuca.Baza;
 using AdreseLib;
+using SkladisteLib;
 
 namespace PI_Projekt_Autokuca.Klase
 {
@@ -413,6 +414,43 @@ namespace PI_Projekt_Autokuca.Klase
                 Adresa trazena = query.First();
                 context.Adresas.Remove(trazena);
                 context.SaveChanges();
+            }
+        }
+        public static List<Gume> DohvatiGume(Korisnici prijavljeniKorisnik)
+        {
+            List<Gume> gume = new List<Gume>();
+            using (var context = new PI2227_DBEntitiesAutokuca())
+            {
+                var query = from g in context.Gumas
+                            where g.Korisnik == prijavljeniKorisnik.IDKorisnik
+                            select g;
+                List<Guma> gumas = query.ToList();
+                foreach (Guma guma in gumas)
+                {
+                    Gume nova = new Gume()
+                    {
+                        KolicinaNaSkladistu = guma.KolicinaNaSkladistu,
+                        Proizvodac = DohvatiProizvodaca(guma.Proizvodac),
+                        Promjer = guma.Promjer,
+                        SifraGume = guma.SifraGume,
+                        Sirina = guma.Sirina,
+                        Visina = guma.Visina
+                    };
+                    gume.Add(nova);
+                }
+                return gume;
+            }
+        }
+        public static Proizvodaci DohvatiProizvodaca(int idProizvodaca)
+        {
+            using (var context = new PI2227_DBEntitiesAutokuca())
+            {
+                var query = from p in context.Proizvodacs
+                            where p.IdProizvodaca == idProizvodaca
+                            select p;
+                Proizvodac odabrani = query.FirstOrDefault();
+                Proizvodaci proizGuma = new Proizvodaci(idProizvodaca, odabrani.Naziv, odabrani.Kontakt);
+                return proizGuma;
             }
         }
     }
