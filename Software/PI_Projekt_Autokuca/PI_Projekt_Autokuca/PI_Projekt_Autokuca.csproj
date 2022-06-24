@@ -182,12 +182,9 @@
       <DependentUpon>FrmSkladisteIEvidencija.cs</DependentUpon>
     </Compile>
     <Compile Include="Iznimke\LocationNotSelectedException.cs" />
-    <Compile Include="Klase\AutomobilskiDijelovi.cs" />
-    <Compile Include="Klase\Gume.cs" />
     <Compile Include="Klase\Korisnici.cs" />
     <Compile Include="Klase\Marke.cs" />
     <Compile Include="Klase\NaciniPlacanja.cs" />
-    <Compile Include="Klase\Proizvodaci.cs" />
     <Compile Include="Klase\Racuni.cs" />
     <Compile Include="Klase\RepozitorijAutokuca.cs" />
     <Compile Include="Klase\Rezervacije.cs" />
@@ -301,6 +298,10 @@
     <ProjectReference Include="..\AdreseLib\AdreseLib.csproj">
       <Project>{7be02e97-0bfd-4991-b08e-2d29def29bab}</Project>
       <Name>AdreseLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SkladisteLib\SkladisteLib.csproj">
+      <Project>{95d031da-5bab-440b-bad6-9281abfdc0bb}</Project>
+      <Name>SkladisteLib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

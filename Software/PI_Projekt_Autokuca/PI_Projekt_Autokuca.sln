@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PI_Projekt_Autokuca", "PI_P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdreseLib", "AdreseLib\AdreseLib.csproj", "{7BE02E97-0BFD-4991-B08E-2D29DEF29BAB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkladisteLib", "SkladisteLib\SkladisteLib.csproj", "{95D031DA-5BAB-440B-BAD6-9281ABFDC0BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7BE02E97-0BFD-4991-B08E-2D29DEF29BAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BE02E97-0BFD-4991-B08E-2D29DEF29BAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BE02E97-0BFD-4991-B08E-2D29DEF29BAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95D031DA-5BAB-440B-BAD6-9281ABFDC0BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95D031DA-5BAB-440B-BAD6-9281ABFDC0BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95D031DA-5BAB-440B-BAD6-9281ABFDC0BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95D031DA-5BAB-440B-BAD6-9281ABFDC0BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

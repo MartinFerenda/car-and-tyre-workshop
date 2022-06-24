@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PI_Projekt_Autokuca.Klase
+namespace SkladisteLib
 {
     public class Gume
     {
@@ -16,8 +16,7 @@ namespace PI_Projekt_Autokuca.Klase
         public decimal NabavnaCijena { get; set; }
         public decimal ProdajnaCijena { get; set; }
         public int KolicinaNaSkladistu { get; set; }
-        public Korisnici Korisnik { get; set; }
+        public int Korisnik { get; set; }
         public Proizvodaci Proizvodac { get; set; }
-
     }
 }
