@@ -21,6 +21,7 @@ namespace PI_Projekt_Autokuca
         private void FrmGlavniIzbornik_Load(object sender, EventArgs e)
         {
             RepozitorijAutokuca.PrijavljeniKorisnik = null;
+            Osvjezi();
         }
 
         private void btnPrikazLokacijaServisa_Click(object sender, EventArgs e)
@@ -70,8 +71,16 @@ namespace PI_Projekt_Autokuca
 
         private void btnSkladisteIEvidencija_Click(object sender, EventArgs e)
         {
-            FrmSkladisteIEvidencija form = new FrmSkladisteIEvidencija();
-            form.ShowDialog();
+            if (RepozitorijAutokuca.PrijavljeniKorisnik.Uloga == Uloge.Administrator || RepozitorijAutokuca.PrijavljeniKorisnik.Uloga == Uloge.Zaposlenik)
+            {
+                FrmSkladisteIEvidencija form = new FrmSkladisteIEvidencija();
+                form.ShowDialog();
+            }
+            else
+            {
+                FrmMojeGume form = new FrmMojeGume();
+                form.ShowDialog();
+            }
         }
 
         private void btnMojRacun_Click(object sender, EventArgs e)
@@ -91,14 +100,22 @@ namespace PI_Projekt_Autokuca
             if (RepozitorijAutokuca.PrijavljeniKorisnik != null)
             {
                 btnOdjava.Text = "Odjava";
-                if (RepozitorijAutokuca.PrijavljeniKorisnik.Uloga == Uloge.Zaposlenik || RepozitorijAutokuca.PrijavljeniKorisnik.Uloga == Uloge.Administrator)
+                if (RepozitorijAutokuca.PrijavljeniKorisnik.Uloga != Uloge.NeregistriraniKorisnik)
                 {
                     gboxSkladiste.Visible = true;
-                }
-                else
-                {
-                    gboxSkladiste.Visible = false;
-                }
+                    if (RepozitorijAutokuca.PrijavljeniKorisnik.Uloga == Uloge.Administrator || RepozitorijAutokuca.PrijavljeniKorisnik.Uloga == Uloge.Zaposlenik)
+                    {
+                        btnSkladisteIEvidencija.Text = "Skladište i evidencija";
+                    }
+                    else
+                    {
+                        btnSkladisteIEvidencija.Text = "Moje gume";
+                    }
+                }  
+            }
+            else
+            {
+                gboxSkladiste.Visible = false;
             }
         }
     }

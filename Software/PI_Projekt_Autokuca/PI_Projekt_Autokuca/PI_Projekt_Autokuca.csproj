@@ -56,7 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Baza\Adresa.cs">
-      <DependentUpon>AutokucaModel1.tt</DependentUpon>
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Baza\AutokucaModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -73,83 +73,68 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AutokucaModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Baza\AutokucaModel1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AutokucaModel1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Baza\AutokucaModel1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AutokucaModel1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Baza\AutokucaModel1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AutokucaModel1.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Baza\AutomobilskiDio.cs">
-      <DependentUpon>AutokucaModel1.tt</DependentUpon>
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Baza\Guma.cs">
-      <DependentUpon>AutokucaModel1.tt</DependentUpon>
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Baza\Korisnik.cs">
-      <DependentUpon>AutokucaModel1.tt</DependentUpon>
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Baza\MarkaVozila.cs">
-      <DependentUpon>AutokucaModel1.tt</DependentUpon>
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Baza\NacinPlacanja.cs">
-      <DependentUpon>AutokucaModel1.tt</DependentUpon>
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Baza\PranjeVozila.cs">
-      <DependentUpon>AutokucaModel1.tt</DependentUpon>
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Baza\PrijavaKvara.cs">
-      <DependentUpon>AutokucaModel1.tt</DependentUpon>
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Baza\Proizvodac.cs">
-      <DependentUpon>AutokucaModel1.tt</DependentUpon>
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Baza\Racun.cs">
-      <DependentUpon>AutokucaModel1.tt</DependentUpon>
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Baza\Rezervacija.cs">
-      <DependentUpon>AutokucaModel1.tt</DependentUpon>
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Baza\Servi.cs">
-      <DependentUpon>AutokucaModel1.tt</DependentUpon>
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Baza\StavkaRacunaAutomobilskiDio.cs">
-      <DependentUpon>AutokucaModel1.tt</DependentUpon>
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Baza\StavkaRacunaGuma.cs">
-      <DependentUpon>AutokucaModel1.tt</DependentUpon>
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Baza\StavkaRacunaVozilo.cs">
-      <DependentUpon>AutokucaModel1.tt</DependentUpon>
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Baza\sysdiagram.cs">
-      <DependentUpon>AutokucaModel1.tt</DependentUpon>
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Baza\TestVoznja.cs">
-      <DependentUpon>AutokucaModel1.tt</DependentUpon>
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Baza\UlogaKorisnika.cs">
-      <DependentUpon>AutokucaModel1.tt</DependentUpon>
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Baza\Vozilo.cs">
-      <DependentUpon>AutokucaModel1.tt</DependentUpon>
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Baza\VrstaGoriva.cs">
-      <DependentUpon>AutokucaModel1.tt</DependentUpon>
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Baza\VrstaVozila.cs">
-      <DependentUpon>AutokucaModel1.tt</DependentUpon>
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Baza\Zaposlenik.cs">
-      <DependentUpon>AutokucaModel1.tt</DependentUpon>
+      <DependentUpon>AutokucaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="FrmDodajAzurirajLokaciju.cs">
       <SubType>Form</SubType>
@@ -162,6 +147,12 @@
     </Compile>
     <Compile Include="FrmGlavniIzbornik.Designer.cs">
       <DependentUpon>FrmGlavniIzbornik.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMojeGume.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMojeGume.Designer.cs">
+      <DependentUpon>FrmMojeGume.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmPrikazLokacijaServisa.cs">
       <SubType>Form</SubType>
@@ -215,6 +206,9 @@
     <EmbeddedResource Include="FrmGlavniIzbornik.resx">
       <DependentUpon>FrmGlavniIzbornik.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmMojeGume.resx">
+      <DependentUpon>FrmMojeGume.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmPrikazLokacijaServisa.resx">
       <DependentUpon>FrmPrikazLokacijaServisa.cs</DependentUpon>
     </EmbeddedResource>
@@ -247,13 +241,6 @@
     <None Include="Baza\AutokucaModel.edmx.diagram">
       <DependentUpon>AutokucaModel.edmx</DependentUpon>
     </None>
-    <EntityDeploy Include="Baza\AutokucaModel1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AutokucaModel1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Baza\AutokucaModel1.edmx.diagram">
-      <DependentUpon>AutokucaModel1.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -269,26 +256,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Baza\AutokucaModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>AutokucaModel.Context.cs</LastGenOutput>
-      <DependentUpon>AutokucaModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Baza\AutokucaModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AutokucaModel.edmx</DependentUpon>
-      <LastGenOutput>AutokucaModel.cs</LastGenOutput>
-    </Content>
-    <Content Include="Baza\AutokucaModel1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AutokucaModel1.edmx</DependentUpon>
-      <LastGenOutput>AutokucaModel1.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Baza\AutokucaModel1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AutokucaModel1.edmx</DependentUpon>
-      <LastGenOutput>AutokucaModel1.cs</LastGenOutput>
-    </Content>
     <None Include="Resources\naslovna.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -303,6 +270,18 @@
       <Project>{95d031da-5bab-440b-bad6-9281abfdc0bb}</Project>
       <Name>SkladisteLib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Baza\AutokucaModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AutokucaModel.edmx</DependentUpon>
+      <LastGenOutput>AutokucaModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Baza\AutokucaModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AutokucaModel.edmx</DependentUpon>
+      <LastGenOutput>AutokucaModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

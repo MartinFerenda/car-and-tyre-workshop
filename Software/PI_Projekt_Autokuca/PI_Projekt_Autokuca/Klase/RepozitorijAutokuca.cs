@@ -60,7 +60,7 @@ namespace PI_Projekt_Autokuca.Klase
         {
             List<Vozila> vozila = new List<Vozila>();
             List<Vozilo> vozilos = new List<Vozilo>();
-            using (var context = new PI2227_DBEntities1())
+            using (var context = new PI2227_DBEntitiesAutokuca())
             {
                 if (probnaVoznja)
                 {
@@ -99,7 +99,7 @@ namespace PI_Projekt_Autokuca.Klase
         }
         public static VrsteGoriva DohvatiGorivo(int idGorivo)
         {
-            using (var context = new PI2227_DBEntities1())
+            using (var context = new PI2227_DBEntitiesAutokuca())
             {
                 var query = from g in context.VrstaGorivas
                             where g.IdGoriva == idGorivo
@@ -115,7 +115,7 @@ namespace PI_Projekt_Autokuca.Klase
         }
         public static Marke DohvatiMarku(int marka)
         {
-            using (var context = new PI2227_DBEntities1())
+            using (var context = new PI2227_DBEntitiesAutokuca())
             {
                 var query = from m in context.MarkaVozilas
                             where m.IdMarke == marka
@@ -131,7 +131,7 @@ namespace PI_Projekt_Autokuca.Klase
         }
         public static VrsteVozila DohvatiVrstu(int idVrste)
         {
-            using (var context = new PI2227_DBEntities1())
+            using (var context = new PI2227_DBEntitiesAutokuca())
             {
                 var query = from v in context.VrstaVozilas
                             where v.IdVrste == idVrste
@@ -147,18 +147,20 @@ namespace PI_Projekt_Autokuca.Klase
         }
         public static List<string> DohvatiPredmeteRezervacije()
         {
-            List<string> predmeti = new List<string>();
-            predmeti.Add("Redovan servis");
-            predmeti.Add("Dodatna oprema");
-            predmeti.Add("Popravak limarije");
-            predmeti.Add("Vjetrobransko staklo");
-            predmeti.Add("Ostalo");
+            List<string> predmeti = new List<string>
+            {
+                "Redovan servis",
+                "Dodatna oprema",
+                "Popravak limarije",
+                "Vjetrobransko staklo",
+                "Ostalo"
+            };
             return predmeti;
         }
         public static List<Adrese> DohvatiLokacije(bool probnaVoznja)
         {
             List<Adrese> lokacije = new List<Adrese>();
-            using (var context = new PI2227_DBEntities1())
+            using (var context = new PI2227_DBEntitiesAutokuca())
             {
                 List<Adresa> adrese;
                 if (probnaVoznja)
@@ -186,7 +188,7 @@ namespace PI_Projekt_Autokuca.Klase
         {
             List<Rezervacije> vrati = new List<Rezervacije>();
             List<Rezervacija> odabrane = new List<Rezervacija>();
-            using (var context = new PI2227_DBEntities1())
+            using (var context = new PI2227_DBEntitiesAutokuca())
             {
                 if (vozilo != null)
                 {
@@ -225,7 +227,7 @@ namespace PI_Projekt_Autokuca.Klase
             List<Vozila> vozilaKorisnika = DohvatiVozila(probnaVoznja);
             List<Adrese> adrese = DohvatiLokacije(probnaVoznja);
 
-            using (var context = new PI2227_DBEntities1())
+            using (var context = new PI2227_DBEntitiesAutokuca())
             {
                 if (probnaVoznja)
                 {
@@ -273,7 +275,7 @@ namespace PI_Projekt_Autokuca.Klase
         }
         public static void KreirajRezervaciju(Rezervacije novaRezervacija) 
         {
-            using (var context = new PI2227_DBEntities1())
+            using (var context = new PI2227_DBEntitiesAutokuca())
             {
                 Rezervacija novaRezervacijaBaza = new Rezervacija()
                 {
@@ -323,7 +325,7 @@ namespace PI_Projekt_Autokuca.Klase
         {
             List<Adrese> adrese = new List<Adrese>();
             List<Adresa> adreseIzBaze = new List<Adresa>();
-            using (var context = new PI2227_DBEntities1())
+            using (var context = new PI2227_DBEntitiesAutokuca())
             {
                 var query = from a in context.Adresas
                             where a.OpisPodruznice == "Servis"
@@ -365,7 +367,7 @@ namespace PI_Projekt_Autokuca.Klase
         }
         public static void KreirajLokaciju(Adrese nova)
         {
-            using (var context = new PI2227_DBEntities1())
+            using (var context = new PI2227_DBEntitiesAutokuca())
             {
                 Adresa adresa = new Adresa()
                 {
@@ -384,7 +386,7 @@ namespace PI_Projekt_Autokuca.Klase
         }
         public static void AzurirajLokaciju(int sifra, string broj, string mjesto, string naziv, string opis, string postanskiBroj, TimeSpan rvrijemeOd, TimeSpan rvrijemeDo, string ulica)
         {
-            using (var context = new PI2227_DBEntities1())
+            using (var context = new PI2227_DBEntitiesAutokuca())
             {
                 var query = from a in context.Adresas
                             where a.IdAdrese == sifra
@@ -403,7 +405,7 @@ namespace PI_Projekt_Autokuca.Klase
         }
         public static void ObrisiLokaciju(Adrese odabrana)
         {
-            using (var context = new PI2227_DBEntities1())
+            using (var context = new PI2227_DBEntitiesAutokuca())
             {
                 var query = from a in context.Adresas
                             where a.IdAdrese == odabrana.IDAdrese

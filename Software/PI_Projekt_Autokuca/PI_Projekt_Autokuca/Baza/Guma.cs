@@ -25,10 +25,10 @@ namespace PI_Projekt_Autokuca.Baza
         public int Sirina { get; set; }
         public int Visina { get; set; }
         public int Promjer { get; set; }
-        public decimal NabavnaCijena { get; set; }
-        public decimal ProdajnaCijena { get; set; }
+        public Nullable<decimal> NabavnaCijena { get; set; }
+        public Nullable<decimal> ProdajnaCijena { get; set; }
         public int KolicinaNaSkladistu { get; set; }
-        public int Korisnik { get; set; }
+        public Nullable<int> Korisnik { get; set; }
         public int Proizvodac { get; set; }
     
         public virtual Korisnik Korisnik1 { get; set; }
