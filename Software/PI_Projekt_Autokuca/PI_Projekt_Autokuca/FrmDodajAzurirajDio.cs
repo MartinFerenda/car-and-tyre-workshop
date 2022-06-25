@@ -41,6 +41,7 @@ namespace PI_Projekt_Autokuca
                 cmbOriginal.Text = ProvjeriOriginal();
                 txtProdCijena.Text = OdabraniDio.ProdajnaCijena.ToString();
                 txtSifra.Text = OdabraniDio.SifraDijela.ToString();
+                txtSifra.Enabled = false;
                 cmbProizvodac.Text = OdabraniDio.Proizvodac.ToString();
             }
         }
@@ -58,33 +59,70 @@ namespace PI_Projekt_Autokuca
 
         private void btnSpremi_Click(object sender, EventArgs e)
         {
-            if (!Azuriraj)
+            string poruka = "";
+            
+            if (!ProvjeraUnosa.PopunjenaSvaPolja(txtKolSkladiste.Text, txtNabCijena.Text, txtProdCijena.Text, txtNaziv.Text, txtSifra.Text))
+            {
+                poruka += "Nisu popunjena sva polja!\r\n";
+            }
+            else
+            {
+                int kolicinaNaSkladistu = int.Parse(txtKolSkladiste.Text);
+                decimal nabavnaCijena = decimal.Parse(txtNabCijena.Text);
+                decimal prodajnaCijena = decimal.Parse(txtProdCijena.Text);
+
+                if (!ProvjeraUnosa.IspravnaKolicina(kolicinaNaSkladistu))
+                {
+                    poruka += "Nije unesena ispravna količina!\r\n";
+                }
+                if (!ProvjeraUnosa.IspravnaCijena(nabavnaCijena, prodajnaCijena))
+                {
+                    poruka += "Nije unesena ispravna cijena!\r\n";
+                }
+            }
+
+            if (poruka == "")
             {
 
-                AutomobilskiDijelovi novi = new AutomobilskiDijelovi()
+                if (!Azuriraj)
                 {
-                    KolicinaNaSkladistu = int.Parse(txtKolSkladiste.Text),
-                    NabavnaCijena = decimal.Parse(txtNabCijena.Text),
-                    Naziv = txtNaziv.Text,
-                    Original = OriginalOdabir(),
-                    ProdajnaCijena = decimal.Parse(txtProdCijena.Text),
-                    Proizvodac = cmbProizvodac.SelectedItem as Proizvodaci,
-                    SifraDijela = int.Parse(txtSifra.Text)
-                };
-                try
-                {
-                    RepozitorijAutokuca.KreirajAutomobilskiDio(novi);
-                    Close();
+
+                    AutomobilskiDijelovi novi = new AutomobilskiDijelovi()
+                    {
+                        KolicinaNaSkladistu = int.Parse(txtKolSkladiste.Text),
+                        NabavnaCijena = decimal.Parse(txtNabCijena.Text),
+                        Naziv = txtNaziv.Text,
+                        Original = OriginalOdabir(),
+                        ProdajnaCijena = decimal.Parse(txtProdCijena.Text),
+                        Proizvodac = cmbProizvodac.SelectedItem as Proizvodaci,
+                        SifraDijela = int.Parse(txtSifra.Text)
+                    };
+                    try
+                    {
+                        RepozitorijAutokuca.KreirajAutomobilskiDio(novi);
+                        Close();
+                    }
+                    catch (IDAlreadyExists ex)
+                    {
+                        MessageBox.Show(ex.Obavijest);
+                    }
                 }
-                catch (IDAlreadyExists ex)
+                else
                 {
-                    MessageBox.Show(ex.Obavijest);
+                    OdabraniDio.KolicinaNaSkladistu = int.Parse(txtKolSkladiste.Text);
+                    OdabraniDio.NabavnaCijena = decimal.Parse(txtNabCijena.Text);
+                    OdabraniDio.Naziv = txtNaziv.Text;
+                    OdabraniDio.Original = OriginalOdabir();
+                    OdabraniDio.ProdajnaCijena = decimal.Parse(txtProdCijena.Text);
+                    OdabraniDio.Proizvodac = cmbProizvodac.SelectedItem as Proizvodaci;
+                    OdabraniDio.SifraDijela = int.Parse(txtSifra.Text);
+                    RepozitorijAutokuca.AzurirajAutomobilskiDio(OdabraniDio);
+                    Close();
                 }
             }
             else
             {
-                RepozitorijAutokuca.AzurirajAutomobilskiDio(OdabraniDio);
-                Close();
+                MessageBox.Show(poruka);
             }
         }
         private bool OriginalOdabir()

@@ -116,6 +116,7 @@
             this.btnZatvori.TabIndex = 4;
             this.btnZatvori.Text = "Zatvori";
             this.btnZatvori.UseVisualStyleBackColor = true;
+            this.btnZatvori.Click += new System.EventHandler(this.btnZatvori_Click);
             // 
             // btnDodajGumu
             // 
@@ -241,6 +242,7 @@
             this.btnDodajKolDio.TabIndex = 20;
             this.btnDodajKolDio.Text = "Dodaj";
             this.btnDodajKolDio.UseVisualStyleBackColor = true;
+            this.btnDodajKolDio.Click += new System.EventHandler(this.btnDodajKolDio_Click);
             // 
             // btnOduzmiKolGuma
             // 
@@ -259,6 +261,7 @@
             this.btnOduzmiKolDio.TabIndex = 22;
             this.btnOduzmiKolDio.Text = "Oduzmi";
             this.btnOduzmiKolDio.UseVisualStyleBackColor = true;
+            this.btnOduzmiKolDio.Click += new System.EventHandler(this.btnOduzmiKolDio_Click);
             // 
             // gboxGumaKol
             // 

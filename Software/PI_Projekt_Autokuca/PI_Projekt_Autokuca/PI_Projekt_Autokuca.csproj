@@ -183,6 +183,7 @@
     <Compile Include="Klase\Korisnici.cs" />
     <Compile Include="Klase\Marke.cs" />
     <Compile Include="Klase\NaciniPlacanja.cs" />
+    <Compile Include="Klase\ProvjeraUnosa.cs" />
     <Compile Include="Klase\Racuni.cs" />
     <Compile Include="Klase\RepozitorijAutokuca.cs" />
     <Compile Include="Klase\Rezervacije.cs" />

@@ -15,6 +15,7 @@ namespace PI_Projekt_Autokuca
 {
     public partial class FrmSkladisteIEvidencija : Form
     {
+        string poruka = "";
         public FrmSkladisteIEvidencija()
         {
             InitializeComponent();
@@ -65,6 +66,9 @@ namespace PI_Projekt_Autokuca
         {
             FrmDodajAzurirajDio form = new FrmDodajAzurirajDio(false, null);
             form.ShowDialog();
+            dgvDijelovi.DataSource = null;
+            dgvDijelovi.DataSource = RepozitorijAutokuca.DohvatiDijelove();
+            UrediPrikazDijelova();
         }
 
         private void btnAzurirajDio_Click(object sender, EventArgs e)
@@ -114,6 +118,86 @@ namespace PI_Projekt_Autokuca
             dgvDijelovi.DataSource = null;
             dgvDijelovi.DataSource = RepozitorijAutokuca.DohvatiDijelove();
             UrediPrikazDijelova();
+        }
+
+        private void btnZatvori_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnDodajKolDio_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvDijelovi.CurrentRow != null)
+                {
+                    AutomobilskiDijelovi odabrani = dgvDijelovi.CurrentRow.DataBoundItem as AutomobilskiDijelovi;
+                    int kolicina = int.Parse(txtPromjenaKolicineDio.Text);
+                    if (kolicina < 0)
+                    {
+                        MessageBox.Show("Nije unesena ispravna količina!");
+                    }
+                    else
+                    {
+                        odabrani.KolicinaNaSkladistu += kolicina;
+                        RepozitorijAutokuca.AzurirajAutomobilskiDio(odabrani);
+                        dgvDijelovi.DataSource = null;
+                        dgvDijelovi.DataSource = RepozitorijAutokuca.DohvatiDijelove();
+                        UrediPrikazDijelova();
+                        txtPromjenaKolicineDio.Text = "";
+                    } 
+                }
+                else
+                {
+                    throw new WantedItemNotSelectedException("Nije odabran automobilski dio!");
+                }
+
+            }
+            catch (WantedItemNotSelectedException ex)
+            {
+                MessageBox.Show(ex.Obavijest);
+            }
+        }
+
+        private void btnOduzmiKolDio_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvDijelovi.CurrentRow != null)
+                {
+                    AutomobilskiDijelovi odabrani = dgvDijelovi.CurrentRow.DataBoundItem as AutomobilskiDijelovi;
+                    int kolicina = int.Parse(txtPromjenaKolicineDio.Text);
+                    if (kolicina < 0)
+                    {
+                        MessageBox.Show("Nije unesena ispravna količina!");
+                    }
+                    else
+                    {
+                        if (kolicina > odabrani.KolicinaNaSkladistu)
+                        {
+                            MessageBox.Show("Nedovoljna količina na skladištu!");
+                        }
+                        else
+                        {
+                            odabrani.KolicinaNaSkladistu -= kolicina;
+                            RepozitorijAutokuca.AzurirajAutomobilskiDio(odabrani);
+                            dgvDijelovi.DataSource = null;
+                            dgvDijelovi.DataSource = RepozitorijAutokuca.DohvatiDijelove();
+                            UrediPrikazDijelova();
+                            txtPromjenaKolicineDio.Text = "";
+                        }
+                    }
+                }
+                else
+                {
+                    throw new WantedItemNotSelectedException("Nije odabran automobilski dio!");
+                }
+
+            }
+            catch (WantedItemNotSelectedException ex)
+            {
+                MessageBox.Show(ex.Obavijest);
+            }
         }
     }
 }
