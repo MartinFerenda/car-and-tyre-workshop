@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PI_Projekt_Autokuca.Klase;
+using PI_Projekt_Autokuca.Iznimke;
+using SkladisteLib;
 
 namespace PI_Projekt_Autokuca
 {
@@ -55,7 +57,7 @@ namespace PI_Projekt_Autokuca
         private void txtPretragaNaziv_TextChanged(object sender, EventArgs e)
         {
             dgvDijelovi.DataSource = null;
-            dgvDijelovi.DataSource = RepozitorijAutokuca.DohvatiDijelove();
+            dgvDijelovi.DataSource = RepozitorijAutokuca.DohvatiDijelove(txtPretragaNaziv.Text);
             UrediPrikazDijelova();
         }
 
@@ -63,6 +65,55 @@ namespace PI_Projekt_Autokuca
         {
             FrmDodajAzurirajDio form = new FrmDodajAzurirajDio(false, null);
             form.ShowDialog();
+        }
+
+        private void btnAzurirajDio_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvDijelovi.CurrentRow != null)
+                {
+                    AutomobilskiDijelovi odabrani = dgvDijelovi.CurrentRow.DataBoundItem as AutomobilskiDijelovi;
+                    FrmDodajAzurirajDio form = new FrmDodajAzurirajDio(true, odabrani);
+                    form.ShowDialog();
+                }
+                else
+                {
+                    throw new WantedItemNotSelectedException("Nije odabran automobilski dio!");
+                }
+                
+            }
+            catch (WantedItemNotSelectedException ex)
+            {
+                MessageBox.Show(ex.Obavijest);
+            }
+            dgvDijelovi.DataSource = null;
+            dgvDijelovi.DataSource = RepozitorijAutokuca.DohvatiDijelove();
+            UrediPrikazDijelova();
+        }
+
+        private void btnIzbrisiDio_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvDijelovi.CurrentRow != null)
+                {
+                    AutomobilskiDijelovi odabrani = dgvDijelovi.CurrentRow.DataBoundItem as AutomobilskiDijelovi;
+                    RepozitorijAutokuca.ObrisiDio(odabrani);
+                }
+                else
+                {
+                    throw new WantedItemNotSelectedException("Nije odabran automobilski dio!");
+                }
+
+            }
+            catch (WantedItemNotSelectedException ex)
+            {
+                MessageBox.Show(ex.Obavijest);
+            }
+            dgvDijelovi.DataSource = null;
+            dgvDijelovi.DataSource = RepozitorijAutokuca.DohvatiDijelove();
+            UrediPrikazDijelova();
         }
     }
 }

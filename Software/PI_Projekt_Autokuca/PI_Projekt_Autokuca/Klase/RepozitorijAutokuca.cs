@@ -489,7 +489,7 @@ namespace PI_Projekt_Autokuca.Klase
                 return vlasnik;
             }
         }
-        public static List<AutomobilskiDijelovi> DohvatiDijelove()
+        public static List<AutomobilskiDijelovi> DohvatiDijelove(string pretraga = "")
         {
             List<AutomobilskiDijelovi> dijelovi = new List<AutomobilskiDijelovi>();
             List<AutomobilskiDio> dijeloviBaza = new List<AutomobilskiDio>();
@@ -498,19 +498,40 @@ namespace PI_Projekt_Autokuca.Klase
                 var query = from d in context.AutomobilskiDios
                             select d;
                 dijeloviBaza = query.ToList();
+
                 foreach (AutomobilskiDio dio in dijeloviBaza)
                 {
-                    AutomobilskiDijelovi novi = new AutomobilskiDijelovi()
+                    if (pretraga == "")
                     {
-                        KolicinaNaSkladistu = dio.KolicinaNaSkladistu,
-                        Proizvodac = DohvatiProizvodaca(dio.Proizvodac),
-                        NabavnaCijena = dio.NabavnaCijena,
-                        Naziv = dio.Naziv,
-                        Original = dio.Original,
-                        ProdajnaCijena = dio.ProdajnaCijena,
-                        SifraDijela = dio.IdDijela
-                    };
-                    dijelovi.Add(novi);
+                        AutomobilskiDijelovi novi = new AutomobilskiDijelovi()
+                        {
+                            KolicinaNaSkladistu = dio.KolicinaNaSkladistu,
+                            Proizvodac = DohvatiProizvodaca(dio.Proizvodac),
+                            NabavnaCijena = dio.NabavnaCijena,
+                            Naziv = dio.Naziv,
+                            Original = dio.Original,
+                            ProdajnaCijena = dio.ProdajnaCijena,
+                            SifraDijela = dio.IdDijela
+                        };
+                        dijelovi.Add(novi);
+                    }
+                    else
+                    {
+                        if (dio.Naziv.ToLower().Contains(pretraga.ToLower()))
+                        {
+                            AutomobilskiDijelovi novi = new AutomobilskiDijelovi()
+                            {
+                                KolicinaNaSkladistu = dio.KolicinaNaSkladistu,
+                                Proizvodac = DohvatiProizvodaca(dio.Proizvodac),
+                                NabavnaCijena = dio.NabavnaCijena,
+                                Naziv = dio.Naziv,
+                                Original = dio.Original,
+                                ProdajnaCijena = dio.ProdajnaCijena,
+                                SifraDijela = dio.IdDijela
+                            };
+                            dijelovi.Add(novi);
+                        }
+                    } 
                 }
                 return dijelovi;
             }
@@ -570,6 +591,35 @@ namespace PI_Projekt_Autokuca.Klase
                     context.AutomobilskiDios.Add(noviBaza);
                     context.SaveChanges();
                 }
+            }
+        }
+        public static void AzurirajAutomobilskiDio(AutomobilskiDijelovi odabrani)
+        {
+            using (var context = new PI2227_DBEntitiesAutokuca())
+            {
+                var query = from d in context.AutomobilskiDios
+                            where d.IdDijela == odabrani.SifraDijela
+                            select d;
+                AutomobilskiDio trazeni = query.First();
+                trazeni.KolicinaNaSkladistu = odabrani.KolicinaNaSkladistu;
+                trazeni.NabavnaCijena = odabrani.NabavnaCijena;
+                trazeni.ProdajnaCijena = odabrani.ProdajnaCijena;
+                trazeni.Naziv = odabrani.Naziv;
+                trazeni.Original = odabrani.Original;
+                trazeni.Proizvodac = odabrani.Proizvodac.IDProizvodaca;
+                context.SaveChanges();
+            }
+        }
+        public static void ObrisiDio(AutomobilskiDijelovi odabrani)
+        {
+            using (var context = new PI2227_DBEntitiesAutokuca())
+            {
+                var query = from d in context.AutomobilskiDios
+                            where d.IdDijela == odabrani.SifraDijela
+                            select d;
+                AutomobilskiDio zaObrisati = query.First();
+                context.AutomobilskiDios.Remove(zaObrisati);
+                context.SaveChanges();
             }
         }
     }

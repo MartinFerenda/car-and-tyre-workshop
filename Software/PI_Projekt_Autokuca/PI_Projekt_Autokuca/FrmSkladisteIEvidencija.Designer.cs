@@ -80,10 +80,14 @@
             // 
             // dgvGume
             // 
+            this.dgvGume.AllowUserToAddRows = false;
+            this.dgvGume.AllowUserToDeleteRows = false;
             this.dgvGume.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvGume.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGume.Location = new System.Drawing.Point(18, 129);
+            this.dgvGume.MultiSelect = false;
             this.dgvGume.Name = "dgvGume";
+            this.dgvGume.ReadOnly = true;
             this.dgvGume.RowHeadersWidth = 51;
             this.dgvGume.RowTemplate.Height = 24;
             this.dgvGume.Size = new System.Drawing.Size(448, 321);
@@ -91,10 +95,14 @@
             // 
             // dgvDijelovi
             // 
+            this.dgvDijelovi.AllowUserToAddRows = false;
+            this.dgvDijelovi.AllowUserToDeleteRows = false;
             this.dgvDijelovi.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvDijelovi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDijelovi.Location = new System.Drawing.Point(505, 129);
+            this.dgvDijelovi.MultiSelect = false;
             this.dgvDijelovi.Name = "dgvDijelovi";
+            this.dgvDijelovi.ReadOnly = true;
             this.dgvDijelovi.RowHeadersWidth = 51;
             this.dgvDijelovi.RowTemplate.Height = 24;
             this.dgvDijelovi.Size = new System.Drawing.Size(618, 321);
@@ -154,6 +162,7 @@
             this.btnIzbrisiDio.TabIndex = 9;
             this.btnIzbrisiDio.Text = "Izbriši dio";
             this.btnIzbrisiDio.UseVisualStyleBackColor = true;
+            this.btnIzbrisiDio.Click += new System.EventHandler(this.btnIzbrisiDio_Click);
             // 
             // btnAzurirajDio
             // 
@@ -163,6 +172,7 @@
             this.btnAzurirajDio.TabIndex = 10;
             this.btnAzurirajDio.Text = "Ažuriraj postojeći dio";
             this.btnAzurirajDio.UseVisualStyleBackColor = true;
+            this.btnAzurirajDio.Click += new System.EventHandler(this.btnAzurirajDio_Click);
             // 
             // lblPretraga
             // 

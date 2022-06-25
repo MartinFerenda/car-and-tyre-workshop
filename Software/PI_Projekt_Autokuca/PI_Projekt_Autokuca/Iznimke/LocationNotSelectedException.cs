@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace PI_Projekt_Autokuca.Iznimke
 {
-    public class LocationNotSelectedException : ApplicationException
+    public class WantedItemNotSelectedException : ApplicationException
     {
         public string Obavijest { get; set; }
-        public LocationNotSelectedException(string obavijest)
+        public WantedItemNotSelectedException(string obavijest)
         {
             Obavijest = obavijest;
         }

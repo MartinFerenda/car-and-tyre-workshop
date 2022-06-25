@@ -78,10 +78,10 @@ namespace PI_Projekt_Autokuca
                 }
                 else
                 {
-                    throw new LocationNotSelectedException("Nije odabrana lokacija!");
+                    throw new WantedItemNotSelectedException("Nije odabrana lokacija!");
                 }
             }
-            catch (LocationNotSelectedException iznimkaLokacije)
+            catch (WantedItemNotSelectedException iznimkaLokacije)
             {
                 MessageBox.Show(iznimkaLokacije.Obavijest);
             }
@@ -107,10 +107,10 @@ namespace PI_Projekt_Autokuca
                 }
                 else
                 {
-                    throw new LocationNotSelectedException("Nije odabrana lokacija!");
+                    throw new WantedItemNotSelectedException("Nije odabrana lokacija!");
                 }
             }
-            catch (LocationNotSelectedException iznimkaLokacije)
+            catch (WantedItemNotSelectedException iznimkaLokacije)
             {
                 MessageBox.Show(iznimkaLokacije.Obavijest);
             }
@@ -130,10 +130,10 @@ namespace PI_Projekt_Autokuca
                 }
                 else
                 {
-                    throw new LocationNotSelectedException("Nije odabrana lokacija!");
+                    throw new WantedItemNotSelectedException("Nije odabrana lokacija!");
                 }
             }
-            catch (LocationNotSelectedException iznimkaLokacije)
+            catch (WantedItemNotSelectedException iznimkaLokacije)
             {
                 MessageBox.Show(iznimkaLokacije.Obavijest);
             }

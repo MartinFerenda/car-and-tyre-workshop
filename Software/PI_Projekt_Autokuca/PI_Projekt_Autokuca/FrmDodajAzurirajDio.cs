@@ -38,10 +38,21 @@ namespace PI_Projekt_Autokuca
                 txtKolSkladiste.Text = OdabraniDio.KolicinaNaSkladistu.ToString();
                 txtNabCijena.Text = OdabraniDio.NabavnaCijena.ToString();
                 txtNaziv.Text = OdabraniDio.Naziv;
-                cmbOriginal.Text = OdabraniDio.Original.ToString();
+                cmbOriginal.Text = ProvjeriOriginal();
                 txtProdCijena.Text = OdabraniDio.ProdajnaCijena.ToString();
                 txtSifra.Text = OdabraniDio.SifraDijela.ToString();
                 cmbProizvodac.Text = OdabraniDio.Proizvodac.ToString();
+            }
+        }
+        private string ProvjeriOriginal()
+        {
+            if (OdabraniDio.Original == true)
+            {
+                return "Da";
+            }
+            else
+            {
+                return "Ne";
             }
         }
 
@@ -72,7 +83,8 @@ namespace PI_Projekt_Autokuca
             }
             else
             {
-
+                RepozitorijAutokuca.AzurirajAutomobilskiDio(OdabraniDio);
+                Close();
             }
         }
         private bool OriginalOdabir()
