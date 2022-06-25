@@ -61,7 +61,8 @@ namespace PI_Projekt_Autokuca
 
         private void btnDodajDio_Click(object sender, EventArgs e)
         {
-            Frm
+            FrmDodajAzurirajDio form = new FrmDodajAzurirajDio(false, null);
+            form.ShowDialog();
         }
     }
 }

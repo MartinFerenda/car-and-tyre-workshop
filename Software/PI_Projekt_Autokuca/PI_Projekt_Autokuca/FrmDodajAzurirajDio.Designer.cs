@@ -1,6 +1,6 @@
 ﻿namespace PI_Projekt_Autokuca
 {
-    partial class DodajAzurirajDio
+    partial class FrmDodajAzurirajDio
     {
         /// <summary>
         /// Required designer variable.
@@ -37,14 +37,14 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtSifra = new System.Windows.Forms.TextBox();
             this.txtNaziv = new System.Windows.Forms.TextBox();
-            this.txtOriginal = new System.Windows.Forms.TextBox();
             this.txtNabCijena = new System.Windows.Forms.TextBox();
             this.txtProdCijena = new System.Windows.Forms.TextBox();
             this.txtKolSkladiste = new System.Windows.Forms.TextBox();
-            this.txtProizvodac = new System.Windows.Forms.TextBox();
             this.btnSpremi = new System.Windows.Forms.Button();
             this.btnZatvori = new System.Windows.Forms.Button();
             this.lblDio = new System.Windows.Forms.Label();
+            this.cmbOriginal = new System.Windows.Forms.ComboBox();
+            this.cmbProizvodac = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -131,13 +131,6 @@
             this.txtNaziv.Size = new System.Drawing.Size(178, 22);
             this.txtNaziv.TabIndex = 8;
             // 
-            // txtOriginal
-            // 
-            this.txtOriginal.Location = new System.Drawing.Point(198, 162);
-            this.txtOriginal.Name = "txtOriginal";
-            this.txtOriginal.Size = new System.Drawing.Size(178, 22);
-            this.txtOriginal.TabIndex = 9;
-            // 
             // txtNabCijena
             // 
             this.txtNabCijena.Location = new System.Drawing.Point(198, 202);
@@ -159,13 +152,6 @@
             this.txtKolSkladiste.Size = new System.Drawing.Size(178, 22);
             this.txtKolSkladiste.TabIndex = 12;
             // 
-            // txtProizvodac
-            // 
-            this.txtProizvodac.Location = new System.Drawing.Point(198, 325);
-            this.txtProizvodac.Name = "txtProizvodac";
-            this.txtProizvodac.Size = new System.Drawing.Size(178, 22);
-            this.txtProizvodac.TabIndex = 13;
-            // 
             // btnSpremi
             // 
             this.btnSpremi.Location = new System.Drawing.Point(234, 365);
@@ -174,6 +160,7 @@
             this.btnSpremi.TabIndex = 14;
             this.btnSpremi.Text = "Spremi";
             this.btnSpremi.UseVisualStyleBackColor = true;
+            this.btnSpremi.Click += new System.EventHandler(this.btnSpremi_Click);
             // 
             // btnZatvori
             // 
@@ -183,6 +170,7 @@
             this.btnZatvori.TabIndex = 15;
             this.btnZatvori.Text = "Odustani";
             this.btnZatvori.UseVisualStyleBackColor = true;
+            this.btnZatvori.Click += new System.EventHandler(this.btnZatvori_Click);
             // 
             // lblDio
             // 
@@ -194,19 +182,35 @@
             this.lblDio.TabIndex = 26;
             this.lblDio.Text = "Automobilski dio";
             // 
-            // DodajAzurirajDio
+            // cmbOriginal
+            // 
+            this.cmbOriginal.FormattingEnabled = true;
+            this.cmbOriginal.Location = new System.Drawing.Point(198, 164);
+            this.cmbOriginal.Name = "cmbOriginal";
+            this.cmbOriginal.Size = new System.Drawing.Size(178, 24);
+            this.cmbOriginal.TabIndex = 27;
+            // 
+            // cmbProizvodac
+            // 
+            this.cmbProizvodac.FormattingEnabled = true;
+            this.cmbProizvodac.Location = new System.Drawing.Point(198, 325);
+            this.cmbProizvodac.Name = "cmbProizvodac";
+            this.cmbProizvodac.Size = new System.Drawing.Size(178, 24);
+            this.cmbProizvodac.TabIndex = 28;
+            // 
+            // FrmDodajAzurirajDio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(406, 479);
+            this.Controls.Add(this.cmbProizvodac);
+            this.Controls.Add(this.cmbOriginal);
             this.Controls.Add(this.lblDio);
             this.Controls.Add(this.btnZatvori);
             this.Controls.Add(this.btnSpremi);
-            this.Controls.Add(this.txtProizvodac);
             this.Controls.Add(this.txtKolSkladiste);
             this.Controls.Add(this.txtProdCijena);
             this.Controls.Add(this.txtNabCijena);
-            this.Controls.Add(this.txtOriginal);
             this.Controls.Add(this.txtNaziv);
             this.Controls.Add(this.txtSifra);
             this.Controls.Add(this.label7);
@@ -216,8 +220,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "DodajAzurirajDio";
+            this.Name = "FrmDodajAzurirajDio";
             this.Text = "Dodaj/ažuriraj automobilski dio";
+            this.Load += new System.EventHandler(this.DodajAzurirajDio_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,13 +239,13 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtSifra;
         private System.Windows.Forms.TextBox txtNaziv;
-        private System.Windows.Forms.TextBox txtOriginal;
         private System.Windows.Forms.TextBox txtNabCijena;
         private System.Windows.Forms.TextBox txtProdCijena;
         private System.Windows.Forms.TextBox txtKolSkladiste;
-        private System.Windows.Forms.TextBox txtProizvodac;
         private System.Windows.Forms.Button btnSpremi;
         private System.Windows.Forms.Button btnZatvori;
         private System.Windows.Forms.Label lblDio;
+        private System.Windows.Forms.ComboBox cmbOriginal;
+        private System.Windows.Forms.ComboBox cmbProizvodac;
     }
 }

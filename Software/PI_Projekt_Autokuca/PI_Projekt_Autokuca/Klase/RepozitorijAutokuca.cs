@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using PI_Projekt_Autokuca.Baza;
 using AdreseLib;
 using SkladisteLib;
+using PI_Projekt_Autokuca.Iznimke;
 
 namespace PI_Projekt_Autokuca.Klase
 {
@@ -524,6 +525,51 @@ namespace PI_Projekt_Autokuca.Klase
                 Proizvodac odabrani = query.FirstOrDefault();
                 Proizvodaci proizGuma = new Proizvodaci(idProizvodaca, odabrani.Naziv, odabrani.Kontakt);
                 return proizGuma;
+            }
+        }
+        public static List<Proizvodaci> DohvatiProizvodace()
+        {
+            List<Proizvodaci> proizvodaci = new List<Proizvodaci>();
+            List<Proizvodac> proizvodaciBaza = new List<Proizvodac>();
+            using (var context = new PI2227_DBEntitiesAutokuca())
+            {
+                proizvodaciBaza = context.Proizvodacs.ToList();
+                foreach (Proizvodac proizvodac in proizvodaciBaza)
+                {
+                    Proizvodaci novi = new Proizvodaci(proizvodac.IdProizvodaca, proizvodac.Naziv, proizvodac.Kontakt);
+                    proizvodaci.Add(novi);
+                }
+                return proizvodaci;
+            }
+        }
+        public static void KreirajAutomobilskiDio(AutomobilskiDijelovi novi)
+        {
+            using (var context = new PI2227_DBEntitiesAutokuca())
+            {
+                AutomobilskiDio provjera = null;
+                var query = from a in context.AutomobilskiDios
+                            where a.IdDijela == novi.SifraDijela
+                            select a;
+                provjera = query.FirstOrDefault();
+                if (provjera != null)
+                {
+                    throw new IDAlreadyExists("Automobilski dio s navedenom šifrom već postoji u bazi podataka! Odaberite drugu šifru ili ažurirajte postojeći automobilski dio!");
+                }
+                else
+                {
+                    AutomobilskiDio noviBaza = new AutomobilskiDio()
+                    {
+                        IdDijela = novi.SifraDijela,
+                        KolicinaNaSkladistu = novi.KolicinaNaSkladistu,
+                        NabavnaCijena = novi.NabavnaCijena,
+                        Naziv = novi.Naziv,
+                        Original = novi.Original,
+                        ProdajnaCijena = novi.ProdajnaCijena,
+                        Proizvodac = novi.Proizvodac.IDProizvodaca
+                    };
+                    context.AutomobilskiDios.Add(noviBaza);
+                    context.SaveChanges();
+                }
             }
         }
     }
