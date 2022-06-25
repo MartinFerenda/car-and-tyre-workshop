@@ -144,6 +144,7 @@
             this.btnDodajDio.TabIndex = 8;
             this.btnDodajDio.Text = "Dodaj novi automobilski dio";
             this.btnDodajDio.UseVisualStyleBackColor = true;
+            this.btnDodajDio.Click += new System.EventHandler(this.btnDodajDio_Click);
             // 
             // btnIzbrisiDio
             // 
@@ -167,7 +168,7 @@
             // 
             this.lblPretraga.AutoSize = true;
             this.lblPretraga.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPretraga.Location = new System.Drawing.Point(199, 96);
+            this.lblPretraga.Location = new System.Drawing.Point(188, 96);
             this.lblPretraga.Name = "lblPretraga";
             this.lblPretraga.Size = new System.Drawing.Size(114, 18);
             this.lblPretraga.TabIndex = 11;
@@ -179,12 +180,13 @@
             this.txtPretragaGuma.Name = "txtPretragaGuma";
             this.txtPretragaGuma.Size = new System.Drawing.Size(147, 22);
             this.txtPretragaGuma.TabIndex = 12;
+            this.txtPretragaGuma.TextChanged += new System.EventHandler(this.txtPretragaGuma_TextChanged);
             // 
             // lblPretragaDio
             // 
             this.lblPretragaDio.AutoSize = true;
             this.lblPretragaDio.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPretragaDio.Location = new System.Drawing.Point(840, 98);
+            this.lblPretragaDio.Location = new System.Drawing.Point(815, 96);
             this.lblPretragaDio.Name = "lblPretragaDio";
             this.lblPretragaDio.Size = new System.Drawing.Size(130, 18);
             this.lblPretragaDio.TabIndex = 13;
@@ -196,6 +198,7 @@
             this.txtPretragaNaziv.Name = "txtPretragaNaziv";
             this.txtPretragaNaziv.Size = new System.Drawing.Size(147, 22);
             this.txtPretragaNaziv.TabIndex = 14;
+            this.txtPretragaNaziv.TextChanged += new System.EventHandler(this.txtPretragaNaziv_TextChanged);
             // 
             // txtPromjenaKolicineGuma
             // 
@@ -306,7 +309,7 @@
             this.Controls.Add(this.lblAutoDijelovi);
             this.Controls.Add(this.lblPrikazGuma);
             this.Name = "FrmSkladisteIEvidencija";
-            this.Text = "Skladiste i evidencija";
+            this.Text = "Skladište i evidencija";
             this.Load += new System.EventHandler(this.FrmSkladisteIEvidencija_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGume)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDijelovi)).EndInit();

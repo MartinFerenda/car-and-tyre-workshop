@@ -416,29 +416,102 @@ namespace PI_Projekt_Autokuca.Klase
                 context.SaveChanges();
             }
         }
-        public static List<Gume> DohvatiGume(Korisnici prijavljeniKorisnik)
+        public static List<Gume> DohvatiGume(Korisnici prijavljeniKorisnik = null, string pretraga ="")
         {
             List<Gume> gume = new List<Gume>();
+            List<Guma> gumas = new List<Guma>();
             using (var context = new PI2227_DBEntitiesAutokuca())
             {
-                var query = from g in context.Gumas
-                            where g.Korisnik == prijavljeniKorisnik.IDKorisnik
-                            select g;
-                List<Guma> gumas = query.ToList();
+                if (prijavljeniKorisnik == null)
+                {
+                    var query = from g in context.Gumas
+                                select g;
+                    gumas = query.ToList();
+                }
+                else
+                {
+                    var query = from g in context.Gumas
+                                where g.Korisnik == prijavljeniKorisnik.IDKorisnik
+                                select g;
+                    gumas = query.ToList();
+                }
                 foreach (Guma guma in gumas)
                 {
-                    Gume nova = new Gume()
+                    if (pretraga == "")
                     {
-                        KolicinaNaSkladistu = guma.KolicinaNaSkladistu,
-                        Proizvodac = DohvatiProizvodaca(guma.Proizvodac),
-                        Promjer = guma.Promjer,
-                        SifraGume = guma.SifraGume,
-                        Sirina = guma.Sirina,
-                        Visina = guma.Visina
-                    };
-                    gume.Add(nova);
+                        Gume nova = new Gume()
+                        {
+                            KolicinaNaSkladistu = guma.KolicinaNaSkladistu,
+                            Proizvodac = DohvatiProizvodaca(guma.Proizvodac),
+                            Promjer = guma.Promjer,
+                            SifraGume = guma.SifraGume,
+                            Sirina = guma.Sirina,
+                            Visina = guma.Visina,
+                            Vlasnik = PronadiVlasnika(guma.Korisnik)
+                        };
+                        gume.Add(nova);
+                    }
+                    else
+                    {
+                        if (guma.SifraGume.ToString().Contains(pretraga))
+                        {
+                            Gume nova = new Gume()
+                            {
+                                KolicinaNaSkladistu = guma.KolicinaNaSkladistu,
+                                Proizvodac = DohvatiProizvodaca(guma.Proizvodac),
+                                Promjer = guma.Promjer,
+                                SifraGume = guma.SifraGume,
+                                Sirina = guma.Sirina,
+                                Visina = guma.Visina,
+                                Vlasnik = PronadiVlasnika(guma.Korisnik)
+                            };
+                            gume.Add(nova);
+                        }
+                    }
+                    
                 }
                 return gume;
+            }
+        }
+        public static Vlasnik PronadiVlasnika(int? sifra)
+        {
+            Vlasnik vlasnik = new Vlasnik();
+            using (var context = new PI2227_DBEntitiesAutokuca())
+            {
+                var query = from v in context.Korisniks
+                            where v.IdKorisnika == sifra
+                            select v;
+                Korisnik korisnik = query.First();
+                vlasnik.IdVlasnika = korisnik.IdKorisnika;
+                vlasnik.Ime = korisnik.Ime;
+                vlasnik.Prezime = korisnik.Prezime;
+                return vlasnik;
+            }
+        }
+        public static List<AutomobilskiDijelovi> DohvatiDijelove()
+        {
+            List<AutomobilskiDijelovi> dijelovi = new List<AutomobilskiDijelovi>();
+            List<AutomobilskiDio> dijeloviBaza = new List<AutomobilskiDio>();
+            using (var context = new PI2227_DBEntitiesAutokuca())
+            {
+                var query = from d in context.AutomobilskiDios
+                            select d;
+                dijeloviBaza = query.ToList();
+                foreach (AutomobilskiDio dio in dijeloviBaza)
+                {
+                    AutomobilskiDijelovi novi = new AutomobilskiDijelovi()
+                    {
+                        KolicinaNaSkladistu = dio.KolicinaNaSkladistu,
+                        Proizvodac = DohvatiProizvodaca(dio.Proizvodac),
+                        NabavnaCijena = dio.NabavnaCijena,
+                        Naziv = dio.Naziv,
+                        Original = dio.Original,
+                        ProdajnaCijena = dio.ProdajnaCijena,
+                        SifraDijela = dio.IdDijela
+                    };
+                    dijelovi.Add(novi);
+                }
+                return dijelovi;
             }
         }
         public static Proizvodaci DohvatiProizvodaca(int idProizvodaca)

@@ -136,6 +136,12 @@
     <Compile Include="Baza\Zaposlenik.cs">
       <DependentUpon>AutokucaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DodajAzurirajDio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajAzurirajDio.Designer.cs">
+      <DependentUpon>DodajAzurirajDio.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmDodajAzurirajLokaciju.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +206,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DodajAzurirajDio.resx">
+      <DependentUpon>DodajAzurirajDio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDodajAzurirajLokaciju.resx">
       <DependentUpon>FrmDodajAzurirajLokaciju.cs</DependentUpon>
     </EmbeddedResource>

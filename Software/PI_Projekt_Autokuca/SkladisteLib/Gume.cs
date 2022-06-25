@@ -16,7 +16,7 @@ namespace SkladisteLib
         public decimal NabavnaCijena { get; set; }
         public decimal ProdajnaCijena { get; set; }
         public int KolicinaNaSkladistu { get; set; }
-        public int Korisnik { get; set; }
+        public Vlasnik Vlasnik { get; set; }
         public Proizvodaci Proizvodac { get; set; }
     }
 }
