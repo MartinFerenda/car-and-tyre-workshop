@@ -16,5 +16,10 @@ namespace PI_Projekt_Autokuca
         {
             InitializeComponent();
         }
+
+        private void FrmSkladisteIEvidencija_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
