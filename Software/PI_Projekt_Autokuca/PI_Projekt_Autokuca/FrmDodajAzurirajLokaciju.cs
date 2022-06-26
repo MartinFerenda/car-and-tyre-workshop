@@ -49,8 +49,6 @@ namespace PI_Projekt_Autokuca
             }
             else
             {
-
-
                 if (!Azuriraj)
                 {
                     Adrese nova = new Adrese()
