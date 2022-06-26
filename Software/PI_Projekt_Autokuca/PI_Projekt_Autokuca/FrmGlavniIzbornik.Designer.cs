@@ -44,6 +44,7 @@
             this.gboxPrikazIPretraga = new System.Windows.Forms.GroupBox();
             this.gboxUsluge = new System.Windows.Forms.GroupBox();
             this.pboxSlika = new System.Windows.Forms.PictureBox();
+            this.hpPomoc = new System.Windows.Forms.HelpProvider();
             this.gboxSkladiste.SuspendLayout();
             this.gboxPrikazIPretraga.SuspendLayout();
             this.gboxUsluge.SuspendLayout();
@@ -230,6 +231,11 @@
             this.pboxSlika.TabIndex = 15;
             this.pboxSlika.TabStop = false;
             // 
+            // hpPomoc
+            // 
+            this.hpPomoc.HelpNamespace = "C:\\Users\\marti\\Documents\\GitHub\\pi22-dfaletar-mferenda-vkapelina\\Software\\PI_Proj" +
+    "ekt_Autokuca\\PI_Projekt_Autokuca\\Autokuca-Help.chm";
+            // 
             // FrmGlavniIzbornik
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -243,9 +249,12 @@
             this.Controls.Add(this.btnMojRacun);
             this.Controls.Add(this.btnOdjava);
             this.Controls.Add(this.lblDobrodosli);
+            this.HelpButton = true;
             this.Name = "FrmGlavniIzbornik";
+            this.hpPomoc.SetShowHelp(this, true);
             this.Text = "Glavni izbornik";
             this.Load += new System.EventHandler(this.FrmGlavniIzbornik_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmGlavniIzbornik_KeyDown);
             this.gboxSkladiste.ResumeLayout(false);
             this.gboxPrikazIPretraga.ResumeLayout(false);
             this.gboxUsluge.ResumeLayout(false);
@@ -273,6 +282,7 @@
         private System.Windows.Forms.GroupBox gboxPrikazIPretraga;
         private System.Windows.Forms.GroupBox gboxUsluge;
         private System.Windows.Forms.PictureBox pboxSlika;
+        private System.Windows.Forms.HelpProvider hpPomoc;
     }
 }
 

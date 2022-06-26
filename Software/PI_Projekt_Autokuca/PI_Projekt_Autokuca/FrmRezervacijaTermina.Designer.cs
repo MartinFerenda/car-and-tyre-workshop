@@ -326,6 +326,7 @@
             this.Name = "FrmRezervacijaTermina";
             this.Text = "Rezervacija termina";
             this.Load += new System.EventHandler(this.FrmRezervacijaTermina_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmRezervacijaTermina_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMojeRezervacije)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTermini)).EndInit();
             this.ResumeLayout(false);

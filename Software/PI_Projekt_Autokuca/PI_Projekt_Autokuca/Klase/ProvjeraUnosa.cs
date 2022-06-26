@@ -63,5 +63,16 @@ namespace PI_Projekt_Autokuca.Klase
                 return false;
             }
         }
+        public static bool ProvjeriPopunjenostPoljaAdrese(string broj, string ulica, string mjesto, string postBroj, string naziv, string vrsta, string vrijemeOd, string vrijemeDo)
+        {
+            if (broj == "" || ulica == "" || mjesto == "" || postBroj == "" || naziv == "" || vrsta == "" || vrijemeOd == "" || vrijemeDo == "")
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }

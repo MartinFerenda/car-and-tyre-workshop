@@ -26,6 +26,7 @@ namespace PI_Projekt_Autokuca
 
         private void DodajAzurirajDio_Load(object sender, EventArgs e)
         {
+            this.KeyPreview = true;
             List<string> original = new List<string>()
             {
                 "Da",
@@ -140,6 +141,16 @@ namespace PI_Projekt_Autokuca
         private void btnZatvori_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void FrmDodajAzurirajDio_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.ToString() == "F1")
+            {
+                string path = System.IO.Directory.GetCurrentDirectory();
+                string putanja = path.Remove(path.Length - 10);
+                Help.ShowHelp(this, "file://" + putanja + "\\Autokuca-Help.chm", HelpNavigator.Topic, "Dodaj ili azuriraj dio.htm");
+            }
         }
     }
 }

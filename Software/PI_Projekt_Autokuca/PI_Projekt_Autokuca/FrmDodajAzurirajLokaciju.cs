@@ -25,6 +25,7 @@ namespace PI_Projekt_Autokuca
 
         private void FrmDodajAzurirajLokaciju_Load(object sender, EventArgs e)
         {
+            this.KeyPreview = true;
             txtVrsta.Text = "Servis";
             txtVrsta.Enabled = false;
             if (Azuriraj && Odabrana != null)
@@ -42,40 +43,59 @@ namespace PI_Projekt_Autokuca
 
         private void btnSpremi_Click(object sender, EventArgs e)
         {
-            if (!Azuriraj)
+            if (!ProvjeraUnosa.ProvjeriPopunjenostPoljaAdrese(txtBroj.Text, txtUlica.Text, txtMjesto.Text, txtPostBroj.Text, txtNaziv.Text, txtVrsta.Text, txtRadVrijemeOd.Text, txtRadVrijemeDo.Text))
             {
-                Adrese nova = new Adrese()
-                {
-                    Broj = txtBroj.Text,
-                    Mjesto = txtMjesto.Text,
-                    NazivPodruznice = txtNaziv.Text,
-                    OpisPodruznice = txtVrsta.Text,
-                    PostanskiBroj = txtPostBroj.Text,
-                    RadnoVrijemeDo = new TimeSpan(int.Parse(txtRadVrijemeDo.Text), 0, 0),
-                    RadnoVrijemeOd = new TimeSpan(int.Parse(txtRadVrijemeOd.Text), 0, 0),
-                    Ulica = txtUlica.Text
-                };
-                RepozitorijAutokuca.KreirajLokaciju(nova);
-                Close();
+                MessageBox.Show("Nisu popunjena sva polja!");
             }
             else
             {
-                string broj = txtBroj.Text;
-                string mjesto = txtMjesto.Text;
-                string nazivPodruznice = txtNaziv.Text;
-                string opisPodruznice = txtVrsta.Text;
-                string postanskiBroj = txtPostBroj.Text;
-                TimeSpan radnoVrijemeDo = new TimeSpan(int.Parse(txtRadVrijemeDo.Text), 0, 0);
-                TimeSpan radnoVrijemeOd = new TimeSpan(int.Parse(txtRadVrijemeOd.Text), 0, 0);
-                string ulica = txtUlica.Text;
-                RepozitorijAutokuca.AzurirajLokaciju(Odabrana.IDAdrese, broj, mjesto, nazivPodruznice, opisPodruznice, postanskiBroj, radnoVrijemeOd, radnoVrijemeDo, ulica);
-                Close();
+
+
+                if (!Azuriraj)
+                {
+                    Adrese nova = new Adrese()
+                    {
+                        Broj = txtBroj.Text,
+                        Mjesto = txtMjesto.Text,
+                        NazivPodruznice = txtNaziv.Text,
+                        OpisPodruznice = txtVrsta.Text,
+                        PostanskiBroj = txtPostBroj.Text,
+                        RadnoVrijemeDo = new TimeSpan(int.Parse(txtRadVrijemeDo.Text), 0, 0),
+                        RadnoVrijemeOd = new TimeSpan(int.Parse(txtRadVrijemeOd.Text), 0, 0),
+                        Ulica = txtUlica.Text
+                    };
+                    RepozitorijAutokuca.KreirajLokaciju(nova);
+                    Close();
+                }
+                else
+                {
+                    string broj = txtBroj.Text;
+                    string mjesto = txtMjesto.Text;
+                    string nazivPodruznice = txtNaziv.Text;
+                    string opisPodruznice = txtVrsta.Text;
+                    string postanskiBroj = txtPostBroj.Text;
+                    TimeSpan radnoVrijemeDo = new TimeSpan(int.Parse(txtRadVrijemeDo.Text), 0, 0);
+                    TimeSpan radnoVrijemeOd = new TimeSpan(int.Parse(txtRadVrijemeOd.Text), 0, 0);
+                    string ulica = txtUlica.Text;
+                    RepozitorijAutokuca.AzurirajLokaciju(Odabrana.IDAdrese, broj, mjesto, nazivPodruznice, opisPodruznice, postanskiBroj, radnoVrijemeOd, radnoVrijemeDo, ulica);
+                    Close();
+                }
             }
         }
 
         private void btnOdustani_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void FrmDodajAzurirajLokaciju_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.ToString() == "F1")
+            {
+                string path = System.IO.Directory.GetCurrentDirectory();
+                string putanja = path.Remove(path.Length - 10);
+                Help.ShowHelp(this, "file://" + putanja + "\\Autokuca-Help.chm", HelpNavigator.Topic, "Dodaj ili azuriraj lokaciju.htm");
+            }
         }
     }
 }

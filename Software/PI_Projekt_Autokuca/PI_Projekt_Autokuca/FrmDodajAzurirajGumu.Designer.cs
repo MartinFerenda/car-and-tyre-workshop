@@ -266,6 +266,7 @@
             this.Name = "FrmDodajAzurirajGumu";
             this.Text = "Dodaj/ažuriraj gumu";
             this.Load += new System.EventHandler(this.FrmDodajAzurirajGumu_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmDodajAzurirajGumu_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

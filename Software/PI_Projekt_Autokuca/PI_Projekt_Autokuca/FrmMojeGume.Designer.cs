@@ -68,6 +68,7 @@
             this.Name = "FrmMojeGume";
             this.Text = "Moje gume u skladištu";
             this.Load += new System.EventHandler(this.FrmMojeGume_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmMojeGume_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMojeGume)).EndInit();
             this.ResumeLayout(false);
 

@@ -151,6 +151,7 @@
             this.Name = "FrmPrikazLokacijaServisa";
             this.Text = "Prikaz lokacija servisa";
             this.Load += new System.EventHandler(this.FrmPrikazLokacijaServisa_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmPrikazLokacijaServisa_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLokacije)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

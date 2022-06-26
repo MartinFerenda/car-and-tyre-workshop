@@ -325,5 +325,15 @@ namespace PI_Projekt_Autokuca
                 MessageBox.Show(ex.Obavijest);
             }
         }
+
+        private void FrmSkladisteIEvidencija_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.ToString() == "F1")
+            {
+                string path = System.IO.Directory.GetCurrentDirectory();
+                string putanja = path.Remove(path.Length - 10);
+                Help.ShowHelp(this, "file://" + putanja + "\\Autokuca-Help.chm", HelpNavigator.Topic, "Skladiste i evidencija.htm");
+            }
+        }
     }
 }

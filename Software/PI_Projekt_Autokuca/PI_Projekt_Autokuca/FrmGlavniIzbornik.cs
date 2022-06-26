@@ -20,6 +20,7 @@ namespace PI_Projekt_Autokuca
 
         private void FrmGlavniIzbornik_Load(object sender, EventArgs e)
         {
+            this.KeyPreview = true;
             RepozitorijAutokuca.PrijavljeniKorisnik = null;
             Osvjezi();
         }
@@ -116,6 +117,16 @@ namespace PI_Projekt_Autokuca
             else
             {
                 gboxSkladiste.Visible = false;
+            }
+        }
+
+        private void FrmGlavniIzbornik_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.ToString() == "F1")
+            {
+                string path = System.IO.Directory.GetCurrentDirectory();
+                string putanja = path.Remove(path.Length - 10);
+                Help.ShowHelp(this, "file://" + putanja + "\\Autokuca-Help.chm", HelpNavigator.Topic, "Glavni izbornik.htm");
             }
         }
     }

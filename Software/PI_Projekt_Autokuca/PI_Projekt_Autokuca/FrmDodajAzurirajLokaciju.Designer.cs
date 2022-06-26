@@ -231,6 +231,7 @@
             this.Name = "FrmDodajAzurirajLokaciju";
             this.Text = "Dodaj/ažuriraj lokaciju";
             this.Load += new System.EventHandler(this.FrmDodajAzurirajLokaciju_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmDodajAzurirajLokaciju_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

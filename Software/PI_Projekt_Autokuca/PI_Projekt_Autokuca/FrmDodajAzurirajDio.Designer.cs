@@ -224,6 +224,7 @@
             this.Name = "FrmDodajAzurirajDio";
             this.Text = "Dodaj/ažuriraj automobilski dio";
             this.Load += new System.EventHandler(this.DodajAzurirajDio_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmDodajAzurirajDio_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -23,6 +23,7 @@ namespace PI_Projekt_Autokuca
 
         private void FrmDodajAzurirajGumu_Load(object sender, EventArgs e)
         {
+            this.KeyPreview = true;
             if (GumaZaAzuriranje == null)
             {
                 cmbKorisnik.DataSource = RepozitorijAutokuca.DohvatiVlasnike();
@@ -134,6 +135,16 @@ namespace PI_Projekt_Autokuca
         private void btnOdustani_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void FrmDodajAzurirajGumu_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.ToString() == "F1")
+            {
+                string path = System.IO.Directory.GetCurrentDirectory();
+                string putanja = path.Remove(path.Length - 10);
+                Help.ShowHelp(this, "file://" + putanja + "\\Autokuca-Help.chm", HelpNavigator.Topic, "Dodaj ili azuriraj gumu.htm");
+            }
         }
     }
 }

@@ -329,6 +329,7 @@
             this.Name = "FrmSkladisteIEvidencija";
             this.Text = "Skladište i evidencija";
             this.Load += new System.EventHandler(this.FrmSkladisteIEvidencija_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmSkladisteIEvidencija_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGume)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDijelovi)).EndInit();
             this.gboxGumaKol.ResumeLayout(false);

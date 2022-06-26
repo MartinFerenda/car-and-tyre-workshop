@@ -94,6 +94,7 @@
             this.Name = "FrmIzborRezervacije";
             this.Text = "Izbor vrste rezervacije";
             this.Load += new System.EventHandler(this.Proba_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmIzborRezervacije_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

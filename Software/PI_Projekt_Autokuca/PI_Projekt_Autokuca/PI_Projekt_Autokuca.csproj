@@ -258,6 +258,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>AutokucaModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="Autokuca-Help.chm" />
     <None Include="Baza\AutokucaModel.edmx.diagram">
       <DependentUpon>AutokucaModel.edmx</DependentUpon>
     </None>
