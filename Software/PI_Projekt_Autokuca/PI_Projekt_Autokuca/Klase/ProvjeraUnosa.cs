@@ -41,5 +41,27 @@ namespace PI_Projekt_Autokuca.Klase
                 return true;
             }
         }
+        public static bool ProvjeriPopunjenostPoljaGume(string sifra, string sirina, string visina, string promjer, string kolicina, string nabavna, string prodajna)
+        {
+            if (sifra == "" || sifra == "" || visina == "" || promjer == "" || kolicina == "" || nabavna == "" || prodajna == "")
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        public static bool IspravneDimenzije(int sirina, int visina, int promjer)
+        {
+            if (sirina > 0 && visina > 0 && promjer > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

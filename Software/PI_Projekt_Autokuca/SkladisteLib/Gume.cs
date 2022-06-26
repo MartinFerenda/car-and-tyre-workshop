@@ -13,8 +13,8 @@ namespace SkladisteLib
         public int Sirina { get; set; }
         public int Visina { get; set; }
         public int Promjer { get; set; }
-        public decimal NabavnaCijena { get; set; }
-        public decimal ProdajnaCijena { get; set; }
+        public decimal? NabavnaCijena { get; set; }
+        public decimal? ProdajnaCijena { get; set; }
         public int KolicinaNaSkladistu { get; set; }
         public Vlasnik Vlasnik { get; set; }
         public Proizvodaci Proizvodac { get; set; }

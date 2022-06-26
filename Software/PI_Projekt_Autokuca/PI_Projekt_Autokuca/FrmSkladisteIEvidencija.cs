@@ -15,7 +15,6 @@ namespace PI_Projekt_Autokuca
 {
     public partial class FrmSkladisteIEvidencija : Form
     {
-        string poruka = "";
         public FrmSkladisteIEvidencija()
         {
             InitializeComponent();
@@ -66,9 +65,7 @@ namespace PI_Projekt_Autokuca
         {
             FrmDodajAzurirajDio form = new FrmDodajAzurirajDio(false, null);
             form.ShowDialog();
-            dgvDijelovi.DataSource = null;
-            dgvDijelovi.DataSource = RepozitorijAutokuca.DohvatiDijelove();
-            UrediPrikazDijelova();
+            OsvjeziPrikazDijelova();
         }
 
         private void btnAzurirajDio_Click(object sender, EventArgs e)
@@ -91,9 +88,7 @@ namespace PI_Projekt_Autokuca
             {
                 MessageBox.Show(ex.Obavijest);
             }
-            dgvDijelovi.DataSource = null;
-            dgvDijelovi.DataSource = RepozitorijAutokuca.DohvatiDijelove();
-            UrediPrikazDijelova();
+            OsvjeziPrikazDijelova();
         }
 
         private void btnIzbrisiDio_Click(object sender, EventArgs e)
@@ -115,9 +110,7 @@ namespace PI_Projekt_Autokuca
             {
                 MessageBox.Show(ex.Obavijest);
             }
-            dgvDijelovi.DataSource = null;
-            dgvDijelovi.DataSource = RepozitorijAutokuca.DohvatiDijelove();
-            UrediPrikazDijelova();
+            OsvjeziPrikazDijelova();
         }
 
         private void btnZatvori_Click(object sender, EventArgs e)
@@ -141,9 +134,7 @@ namespace PI_Projekt_Autokuca
                     {
                         odabrani.KolicinaNaSkladistu += kolicina;
                         RepozitorijAutokuca.AzurirajAutomobilskiDio(odabrani);
-                        dgvDijelovi.DataSource = null;
-                        dgvDijelovi.DataSource = RepozitorijAutokuca.DohvatiDijelove();
-                        UrediPrikazDijelova();
+                        OsvjeziPrikazDijelova();
                         txtPromjenaKolicineDio.Text = "";
                     } 
                 }
@@ -181,9 +172,7 @@ namespace PI_Projekt_Autokuca
                         {
                             odabrani.KolicinaNaSkladistu -= kolicina;
                             RepozitorijAutokuca.AzurirajAutomobilskiDio(odabrani);
-                            dgvDijelovi.DataSource = null;
-                            dgvDijelovi.DataSource = RepozitorijAutokuca.DohvatiDijelove();
-                            UrediPrikazDijelova();
+                            OsvjeziPrikazDijelova();
                             txtPromjenaKolicineDio.Text = "";
                         }
                     }
@@ -193,6 +182,143 @@ namespace PI_Projekt_Autokuca
                     throw new WantedItemNotSelectedException("Nije odabran automobilski dio!");
                 }
 
+            }
+            catch (WantedItemNotSelectedException ex)
+            {
+                MessageBox.Show(ex.Obavijest);
+            }
+        }
+
+        private void btnDodajGumu_Click(object sender, EventArgs e)
+        {
+            FrmDodajAzurirajGumu form = new FrmDodajAzurirajGumu();
+            form.ShowDialog();
+            OsvjeziPrikazGuma();
+        }
+
+        private void btnAzurirajGumu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvGume.CurrentRow != null)
+                {
+                    Gume odabrana = dgvGume.CurrentRow.DataBoundItem as Gume;
+                    FrmDodajAzurirajGumu form = new FrmDodajAzurirajGumu(odabrana);
+                    form.ShowDialog();
+                }
+                else
+                {
+                    throw new WantedItemNotSelectedException("Nije odabrana guma!");
+                }
+            }
+            catch (WantedItemNotSelectedException ex)
+            {
+                MessageBox.Show(ex.Obavijest);
+            }
+            OsvjeziPrikazGuma();
+        }
+
+        private void btnIzbrisiGumu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvGume.CurrentRow != null)
+                {
+                    Gume odabrana = dgvGume.CurrentRow.DataBoundItem as Gume;
+                    RepozitorijAutokuca.ObrisiGumu(odabrana);
+                }
+                else
+                {
+                    throw new WantedItemNotSelectedException("Nije odabrana guma!");
+                }
+            }
+            catch (WantedItemNotSelectedException ex)
+            {
+                MessageBox.Show(ex.Obavijest);
+            }
+            OsvjeziPrikazGuma();
+        }
+
+        private void btnDodajKolGuma_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvGume.CurrentRow != null)
+                {
+                    Gume odabrana = dgvGume.CurrentRow.DataBoundItem as Gume;
+                    if (txtPromjenaKolicineGuma.Text != "")
+                    {
+                        int kolicina = int.Parse(txtPromjenaKolicineGuma.Text);
+                        if (kolicina > 0)
+                        {
+                            odabrana.KolicinaNaSkladistu += kolicina;
+                            RepozitorijAutokuca.AzurirajGumu(odabrana);
+                            OsvjeziPrikazGuma();
+                            txtPromjenaKolicineGuma.Text = "";
+                        }
+                        else
+                        {
+                            MessageBox.Show("Nije unesena ispravna količina!");
+                        }
+                    }
+                }
+                else
+                {
+                    throw new WantedItemNotSelectedException("Nije odabrana guma!");
+                }
+            }
+            catch (WantedItemNotSelectedException ex)
+            {
+                MessageBox.Show(ex.Obavijest);
+            } 
+        }
+        private void OsvjeziPrikazGuma()
+        {
+            dgvGume.DataSource = null;
+            dgvGume.DataSource = RepozitorijAutokuca.DohvatiGume();
+            UrediPrikazGume();
+        }
+        private void OsvjeziPrikazDijelova()
+        {
+            dgvDijelovi.DataSource = null;
+            dgvDijelovi.DataSource = RepozitorijAutokuca.DohvatiDijelove();
+            UrediPrikazDijelova();
+        }
+
+        private void btnOduzmiKolGuma_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvGume.CurrentRow != null)
+                {
+                    Gume odabrana = dgvGume.CurrentRow.DataBoundItem as Gume;
+                    if (txtPromjenaKolicineGuma.Text != "")
+                    {
+                        int kolicina = int.Parse(txtPromjenaKolicineGuma.Text);
+                        if (kolicina > 0)
+                        {
+                            if (kolicina > odabrana.KolicinaNaSkladistu)
+                            {
+                                MessageBox.Show("Nedovoljna količina na skladištu!");
+                            }
+                            else
+                            {
+                                odabrana.KolicinaNaSkladistu -= kolicina;
+                                RepozitorijAutokuca.AzurirajGumu(odabrana);
+                                OsvjeziPrikazGuma();
+                                txtPromjenaKolicineGuma.Text = "";
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Nije unesena ispravna količina!");
+                        }
+                    }
+                }
+                else
+                {
+                    throw new WantedItemNotSelectedException("Nije odabrana guma!");
+                }
             }
             catch (WantedItemNotSelectedException ex)
             {
