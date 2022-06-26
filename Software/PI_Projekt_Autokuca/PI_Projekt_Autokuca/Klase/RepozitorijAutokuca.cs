@@ -699,7 +699,15 @@ namespace PI_Projekt_Autokuca.Klase
                 trazena.KolicinaNaSkladistu = odabrana.KolicinaNaSkladistu;
                 trazena.NabavnaCijena = odabrana.NabavnaCijena;
                 trazena.ProdajnaCijena = odabrana.ProdajnaCijena;
-                trazena.Korisnik = odabrana.Vlasnik.IdVlasnika;
+                if (odabrana.Vlasnik != null)
+                {
+                    trazena.Korisnik = odabrana.Vlasnik.IdVlasnika;
+
+                }
+                else
+                {
+                    trazena.Korisnik = null;
+                }
                 trazena.Promjer = odabrana.Promjer;
                 trazena.SifraGume = odabrana.SifraGume;
                 trazena.Sirina = odabrana.Sirina;

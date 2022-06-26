@@ -168,6 +168,7 @@ namespace PI_Projekt_Autokuca
                     dgvMojeRezervacije.DataSource = RepozitorijAutokuca.DohvatiRezervacijeKorisnika(false);
                 }
                 UrediDataGridPrikaz();
+                OsvjeziDostupnostTermina();
             }
         }
         private void UrediDataGridPrikaz()
@@ -208,20 +209,24 @@ namespace PI_Projekt_Autokuca
                 lblMojeRezervacije.Text = "Moje rezervacije termina servisa:";
             }
             UrediDataGridPrikaz();
-
+            OsvjeziDostupnostTermina();
         }
 
         private void dgvMojeRezervacije_SelectionChanged(object sender, EventArgs e)
         {
-            Rezervacije odabrana = dgvMojeRezervacije.CurrentRow.DataBoundItem as Rezervacije;
-            if (odabrana.DatumIVrijeme.DayOfYear <= DateTime.Now.DayOfYear)
+            if (dgvMojeRezervacije.DataSource != null)
             {
-                btnOtkazi.Enabled = false;
+                Rezervacije odabrana = dgvMojeRezervacije.CurrentRow.DataBoundItem as Rezervacije;
+                if (odabrana.DatumIVrijeme.DayOfYear <= DateTime.Now.DayOfYear)
+                {
+                    btnOtkazi.Enabled = false;
+                }
+                else
+                {
+                    btnOtkazi.Enabled = true;
+                }
             }
-            else
-            {
-                btnOtkazi.Enabled = true;
-            }
+            
         }
     }
 }

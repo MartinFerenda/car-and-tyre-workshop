@@ -48,7 +48,6 @@ namespace PI_Projekt_Autokuca
                 {
                     cmbKorisnik.Text = "";
                 }
-                
                 cmbProizvodac.DataSource = RepozitorijAutokuca.DohvatiProizvodace();
                 cmbProizvodac.Text = GumaZaAzuriranje.Proizvodac.ToString();
             }
@@ -113,7 +112,15 @@ namespace PI_Projekt_Autokuca
                     GumaZaAzuriranje.Sirina = int.Parse(txtSrina.Text);
                     GumaZaAzuriranje.Visina = int.Parse(txtVisina.Text);
                     GumaZaAzuriranje.SifraGume = int.Parse(txtSifra.Text);
-                    GumaZaAzuriranje.Vlasnik = cmbKorisnik.SelectedItem as Vlasnik;
+                    if (cmbKorisnik.Text == "")
+                    {
+                        GumaZaAzuriranje.Vlasnik = null;
+                    }
+                    else
+                    {
+                        GumaZaAzuriranje.Vlasnik = cmbKorisnik.SelectedItem as Vlasnik;
+
+                    }
                     RepozitorijAutokuca.AzurirajGumu(GumaZaAzuriranje);
                     Close();
                 }

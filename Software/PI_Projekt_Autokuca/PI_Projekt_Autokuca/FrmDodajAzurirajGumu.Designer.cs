@@ -36,7 +36,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.btnSpremi = new System.Windows.Forms.Button();
             this.btnOdustani = new System.Windows.Forms.Button();
@@ -47,8 +46,9 @@
             this.txtNabavna = new System.Windows.Forms.TextBox();
             this.txtProdajna = new System.Windows.Forms.TextBox();
             this.txtKolicina = new System.Windows.Forms.TextBox();
-            this.cmbKorisnik = new System.Windows.Forms.ComboBox();
             this.cmbProizvodac = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cmbKorisnik = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lblSkladiste
@@ -131,16 +131,6 @@
             this.label6.TabIndex = 33;
             this.label6.Text = "Količina na skladištu:";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(88, 362);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 18);
-            this.label7.TabIndex = 34;
-            this.label7.Text = "Korisnik:";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -220,14 +210,6 @@
             this.txtKolicina.Size = new System.Drawing.Size(175, 22);
             this.txtKolicina.TabIndex = 44;
             // 
-            // cmbKorisnik
-            // 
-            this.cmbKorisnik.FormattingEnabled = true;
-            this.cmbKorisnik.Location = new System.Drawing.Point(175, 360);
-            this.cmbKorisnik.Name = "cmbKorisnik";
-            this.cmbKorisnik.Size = new System.Drawing.Size(175, 24);
-            this.cmbKorisnik.TabIndex = 45;
-            // 
             // cmbProizvodac
             // 
             this.cmbProizvodac.FormattingEnabled = true;
@@ -235,6 +217,24 @@
             this.cmbProizvodac.Name = "cmbProizvodac";
             this.cmbProizvodac.Size = new System.Drawing.Size(175, 24);
             this.cmbProizvodac.TabIndex = 46;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(88, 362);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(63, 18);
+            this.label7.TabIndex = 34;
+            this.label7.Text = "Korisnik:";
+            // 
+            // cmbKorisnik
+            // 
+            this.cmbKorisnik.FormattingEnabled = true;
+            this.cmbKorisnik.Location = new System.Drawing.Point(175, 360);
+            this.cmbKorisnik.Name = "cmbKorisnik";
+            this.cmbKorisnik.Size = new System.Drawing.Size(175, 24);
+            this.cmbKorisnik.TabIndex = 45;
             // 
             // FrmDodajAzurirajGumu
             // 
@@ -281,7 +281,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnSpremi;
         private System.Windows.Forms.Button btnOdustani;
@@ -292,7 +291,8 @@
         private System.Windows.Forms.TextBox txtNabavna;
         private System.Windows.Forms.TextBox txtProdajna;
         private System.Windows.Forms.TextBox txtKolicina;
-        private System.Windows.Forms.ComboBox cmbKorisnik;
         private System.Windows.Forms.ComboBox cmbProizvodac;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cmbKorisnik;
     }
 }
