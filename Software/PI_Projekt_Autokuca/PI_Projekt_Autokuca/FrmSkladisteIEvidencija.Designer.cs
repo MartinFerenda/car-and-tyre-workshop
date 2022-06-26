@@ -72,7 +72,7 @@
             // 
             this.lblAutoDijelovi.AutoSize = true;
             this.lblAutoDijelovi.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAutoDijelovi.Location = new System.Drawing.Point(703, 96);
+            this.lblAutoDijelovi.Location = new System.Drawing.Point(756, 96);
             this.lblAutoDijelovi.Name = "lblAutoDijelovi";
             this.lblAutoDijelovi.Size = new System.Drawing.Size(195, 18);
             this.lblAutoDijelovi.TabIndex = 1;
@@ -90,7 +90,7 @@
             this.dgvGume.ReadOnly = true;
             this.dgvGume.RowHeadersWidth = 51;
             this.dgvGume.RowTemplate.Height = 24;
-            this.dgvGume.Size = new System.Drawing.Size(666, 321);
+            this.dgvGume.Size = new System.Drawing.Size(717, 321);
             this.dgvGume.TabIndex = 2;
             // 
             // dgvDijelovi
@@ -99,18 +99,18 @@
             this.dgvDijelovi.AllowUserToDeleteRows = false;
             this.dgvDijelovi.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvDijelovi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDijelovi.Location = new System.Drawing.Point(706, 129);
+            this.dgvDijelovi.Location = new System.Drawing.Point(759, 129);
             this.dgvDijelovi.MultiSelect = false;
             this.dgvDijelovi.Name = "dgvDijelovi";
             this.dgvDijelovi.ReadOnly = true;
             this.dgvDijelovi.RowHeadersWidth = 51;
             this.dgvDijelovi.RowTemplate.Height = 24;
-            this.dgvDijelovi.Size = new System.Drawing.Size(618, 321);
+            this.dgvDijelovi.Size = new System.Drawing.Size(694, 321);
             this.dgvDijelovi.TabIndex = 3;
             // 
             // btnZatvori
             // 
-            this.btnZatvori.Location = new System.Drawing.Point(1217, 593);
+            this.btnZatvori.Location = new System.Drawing.Point(1346, 594);
             this.btnZatvori.Name = "btnZatvori";
             this.btnZatvori.Size = new System.Drawing.Size(107, 42);
             this.btnZatvori.TabIndex = 4;
@@ -150,7 +150,7 @@
             // 
             // btnDodajDio
             // 
-            this.btnDodajDio.Location = new System.Drawing.Point(706, 536);
+            this.btnDodajDio.Location = new System.Drawing.Point(759, 536);
             this.btnDodajDio.Name = "btnDodajDio";
             this.btnDodajDio.Size = new System.Drawing.Size(107, 62);
             this.btnDodajDio.TabIndex = 8;
@@ -160,7 +160,7 @@
             // 
             // btnIzbrisiDio
             // 
-            this.btnIzbrisiDio.Location = new System.Drawing.Point(932, 536);
+            this.btnIzbrisiDio.Location = new System.Drawing.Point(985, 536);
             this.btnIzbrisiDio.Name = "btnIzbrisiDio";
             this.btnIzbrisiDio.Size = new System.Drawing.Size(107, 62);
             this.btnIzbrisiDio.TabIndex = 9;
@@ -170,7 +170,7 @@
             // 
             // btnAzurirajDio
             // 
-            this.btnAzurirajDio.Location = new System.Drawing.Point(819, 536);
+            this.btnAzurirajDio.Location = new System.Drawing.Point(872, 536);
             this.btnAzurirajDio.Name = "btnAzurirajDio";
             this.btnAzurirajDio.Size = new System.Drawing.Size(107, 62);
             this.btnAzurirajDio.TabIndex = 10;
@@ -182,7 +182,7 @@
             // 
             this.lblPretraga.AutoSize = true;
             this.lblPretraga.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPretraga.Location = new System.Drawing.Point(406, 96);
+            this.lblPretraga.Location = new System.Drawing.Point(457, 96);
             this.lblPretraga.Name = "lblPretraga";
             this.lblPretraga.Size = new System.Drawing.Size(114, 18);
             this.lblPretraga.TabIndex = 11;
@@ -190,7 +190,7 @@
             // 
             // txtPretragaGuma
             // 
-            this.txtPretragaGuma.Location = new System.Drawing.Point(537, 94);
+            this.txtPretragaGuma.Location = new System.Drawing.Point(588, 94);
             this.txtPretragaGuma.Name = "txtPretragaGuma";
             this.txtPretragaGuma.Size = new System.Drawing.Size(147, 22);
             this.txtPretragaGuma.TabIndex = 12;
@@ -200,7 +200,7 @@
             // 
             this.lblPretragaDio.AutoSize = true;
             this.lblPretragaDio.Font = new System.Drawing.Font("Trebuchet MS", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPretragaDio.Location = new System.Drawing.Point(1016, 96);
+            this.lblPretragaDio.Location = new System.Drawing.Point(1145, 96);
             this.lblPretragaDio.Name = "lblPretragaDio";
             this.lblPretragaDio.Size = new System.Drawing.Size(130, 18);
             this.lblPretragaDio.TabIndex = 13;
@@ -208,7 +208,7 @@
             // 
             // txtPretragaNaziv
             // 
-            this.txtPretragaNaziv.Location = new System.Drawing.Point(1177, 94);
+            this.txtPretragaNaziv.Location = new System.Drawing.Point(1306, 94);
             this.txtPretragaNaziv.Name = "txtPretragaNaziv";
             this.txtPretragaNaziv.Size = new System.Drawing.Size(147, 22);
             this.txtPretragaNaziv.TabIndex = 14;
@@ -285,7 +285,7 @@
             this.gboxDioKol.Controls.Add(this.txtPromjenaKolicineDio);
             this.gboxDioKol.Controls.Add(this.btnDodajKolDio);
             this.gboxDioKol.Controls.Add(this.btnOduzmiKolDio);
-            this.gboxDioKol.Location = new System.Drawing.Point(706, 456);
+            this.gboxDioKol.Location = new System.Drawing.Point(759, 456);
             this.gboxDioKol.Name = "gboxDioKol";
             this.gboxDioKol.Size = new System.Drawing.Size(402, 66);
             this.gboxDioKol.TabIndex = 24;
@@ -296,7 +296,7 @@
             // 
             this.lblSkladiste.AutoSize = true;
             this.lblSkladiste.Font = new System.Drawing.Font("Trebuchet MS", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSkladiste.Location = new System.Drawing.Point(511, 28);
+            this.lblSkladiste.Location = new System.Drawing.Point(642, 19);
             this.lblSkladiste.Name = "lblSkladiste";
             this.lblSkladiste.Size = new System.Drawing.Size(130, 36);
             this.lblSkladiste.TabIndex = 25;
@@ -307,7 +307,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(1345, 648);
+            this.ClientSize = new System.Drawing.Size(1473, 648);
             this.Controls.Add(this.lblSkladiste);
             this.Controls.Add(this.gboxDioKol);
             this.Controls.Add(this.gboxGumaKol);

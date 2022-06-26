@@ -26,5 +26,10 @@ namespace PI_Projekt_Autokuca
                 Close();
             }
         }
+
+        private void PrijavaPomocna_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

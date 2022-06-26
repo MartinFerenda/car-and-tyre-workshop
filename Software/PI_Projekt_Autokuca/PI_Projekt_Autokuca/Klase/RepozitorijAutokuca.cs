@@ -57,6 +57,46 @@ namespace PI_Projekt_Autokuca.Klase
                 PrijavljeniKorisnik = prijavljen;
                 return;
             }
+            if (korisnickoIme == "landrasek" && lozinka == "n1k0la")
+            {
+                Korisnici prijavljen = new Korisnici()
+                {
+                    IDKorisnik = 7,
+                    Uloga = Uloge.NeregistriraniKorisnik
+                };
+                PrijavljeniKorisnik = prijavljen;
+                return;
+            }
+            if (korisnickoIme == "gkosaric" && lozinka == "k0rdun")
+            {
+                Korisnici prijavljen = new Korisnici()
+                {
+                    IDKorisnik = 5,
+                    Uloga = Uloge.RegistriraniKorisnik
+                };
+                PrijavljeniKorisnik = prijavljen;
+                return;
+            }
+            if (korisnickoIme == "jkljucaric" && lozinka == "p0sta12")
+            {
+                Korisnici prijavljen = new Korisnici()
+                {
+                    IDKorisnik = 6,
+                    Uloga = Uloge.Zaposlenik
+                };
+                PrijavljeniKorisnik = prijavljen;
+                return;
+            }
+            if (korisnickoIme == "fzugec" && lozinka == "m3chan1c")
+            {
+                Korisnici prijavljen = new Korisnici()
+                {
+                    IDKorisnik = 8,
+                    Uloga = Uloge.Administrator
+                };
+                PrijavljeniKorisnik = prijavljen;
+                return;
+            }
         }
         public static List<Vozila> DohvatiVozila(bool probnaVoznja)
         {

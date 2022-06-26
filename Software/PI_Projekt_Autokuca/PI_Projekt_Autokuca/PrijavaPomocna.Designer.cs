@@ -103,6 +103,7 @@
             this.Controls.Add(this.lblDobrodosli);
             this.Name = "PrijavaPomocna";
             this.Text = "Prijava";
+            this.Load += new System.EventHandler(this.PrijavaPomocna_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

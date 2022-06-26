@@ -195,21 +195,28 @@ namespace PI_Projekt_Autokuca
 
         private void btnOtkazi_Click(object sender, EventArgs e)
         {
-            Rezervacije odabrana = dgvMojeRezervacije.CurrentRow.DataBoundItem as Rezervacije;
-            RepozitorijAutokuca.ObrisiRezervaciju(odabrana);
-
-            if (ProbnaVoznja)
+            if (dgvMojeRezervacije.CurrentRow != null)
             {
-                dgvMojeRezervacije.DataSource = RepozitorijAutokuca.DohvatiRezervacijeKorisnika(ProbnaVoznja);
-                lblMojeRezervacije.Text = "Moje rezervacije termina probnih vožnji:";
+                Rezervacije odabrana = dgvMojeRezervacije.CurrentRow.DataBoundItem as Rezervacije;
+                RepozitorijAutokuca.ObrisiRezervaciju(odabrana);
+
+                if (ProbnaVoznja)
+                {
+                    dgvMojeRezervacije.DataSource = RepozitorijAutokuca.DohvatiRezervacijeKorisnika(ProbnaVoznja);
+                    lblMojeRezervacije.Text = "Moje rezervacije termina probnih vožnji:";
+                }
+                else
+                {
+                    dgvMojeRezervacije.DataSource = RepozitorijAutokuca.DohvatiRezervacijeKorisnika(false);
+                    lblMojeRezervacije.Text = "Moje rezervacije termina servisa:";
+                }
+                UrediDataGridPrikaz();
+                OsvjeziDostupnostTermina();
             }
             else
             {
-                dgvMojeRezervacije.DataSource = RepozitorijAutokuca.DohvatiRezervacijeKorisnika(false);
-                lblMojeRezervacije.Text = "Moje rezervacije termina servisa:";
+                MessageBox.Show("Nije odabrana rezervacija!");
             }
-            UrediDataGridPrikaz();
-            OsvjeziDostupnostTermina();
         }
 
         private void dgvMojeRezervacije_SelectionChanged(object sender, EventArgs e)
