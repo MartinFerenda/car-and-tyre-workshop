@@ -294,6 +294,18 @@ namespace PI_Projekt_Autokuca.Klase
                 context.SaveChanges();
             }
         }
+        public static void ObrisiRezervaciju(Rezervacije odabrana)
+        {
+            using (var context = new PI2227_DBEntitiesAutokuca())
+            {
+                var query = from r in context.Rezervacijas
+                            where r.IdRezervacije == odabrana.IDRezervacije
+                            select r;
+                Rezervacija zaObrisati = query.FirstOrDefault();
+                context.Rezervacijas.Remove(zaObrisati);
+                context.SaveChanges();
+            }
+        }
         public static bool ProvjeriIspravnostRezervacije(DateTime datum, DateTime pocetak, Adrese odabranaLokacija, Vozila vozilo, bool probnaVoznja)
         {
             if (datum.DayOfYear <= DateTime.Now.DayOfYear)

@@ -191,5 +191,37 @@ namespace PI_Projekt_Autokuca
                 }
             }
         }
+
+        private void btnOtkazi_Click(object sender, EventArgs e)
+        {
+            Rezervacije odabrana = dgvMojeRezervacije.CurrentRow.DataBoundItem as Rezervacije;
+            RepozitorijAutokuca.ObrisiRezervaciju(odabrana);
+
+            if (ProbnaVoznja)
+            {
+                dgvMojeRezervacije.DataSource = RepozitorijAutokuca.DohvatiRezervacijeKorisnika(ProbnaVoznja);
+                lblMojeRezervacije.Text = "Moje rezervacije termina probnih vožnji:";
+            }
+            else
+            {
+                dgvMojeRezervacije.DataSource = RepozitorijAutokuca.DohvatiRezervacijeKorisnika(false);
+                lblMojeRezervacije.Text = "Moje rezervacije termina servisa:";
+            }
+            UrediDataGridPrikaz();
+
+        }
+
+        private void dgvMojeRezervacije_SelectionChanged(object sender, EventArgs e)
+        {
+            Rezervacije odabrana = dgvMojeRezervacije.CurrentRow.DataBoundItem as Rezervacije;
+            if (odabrana.DatumIVrijeme.DayOfYear <= DateTime.Now.DayOfYear)
+            {
+                btnOtkazi.Enabled = false;
+            }
+            else
+            {
+                btnOtkazi.Enabled = true;
+            }
+        }
     }
 }

@@ -51,6 +51,7 @@
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtSlobodno = new System.Windows.Forms.TextBox();
             this.txtZauzeto = new System.Windows.Forms.TextBox();
+            this.btnOtkazi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMojeRezervacije)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTermini)).BeginInit();
             this.SuspendLayout();
@@ -143,6 +144,7 @@
             this.dgvMojeRezervacije.RowTemplate.Height = 24;
             this.dgvMojeRezervacije.Size = new System.Drawing.Size(464, 446);
             this.dgvMojeRezervacije.TabIndex = 9;
+            this.dgvMojeRezervacije.SelectionChanged += new System.EventHandler(this.dgvMojeRezervacije_SelectionChanged);
             // 
             // lblDatum
             // 
@@ -282,12 +284,24 @@
             this.txtZauzeto.Size = new System.Drawing.Size(50, 50);
             this.txtZauzeto.TabIndex = 20;
             // 
+            // btnOtkazi
+            // 
+            this.btnOtkazi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOtkazi.Location = new System.Drawing.Point(806, 486);
+            this.btnOtkazi.Name = "btnOtkazi";
+            this.btnOtkazi.Size = new System.Drawing.Size(105, 56);
+            this.btnOtkazi.TabIndex = 21;
+            this.btnOtkazi.Text = "Otkaži rezervaciju";
+            this.btnOtkazi.UseVisualStyleBackColor = true;
+            this.btnOtkazi.Click += new System.EventHandler(this.btnOtkazi_Click);
+            // 
             // FrmRezervacijaTermina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(1282, 554);
+            this.Controls.Add(this.btnOtkazi);
             this.Controls.Add(this.txtZauzeto);
             this.Controls.Add(this.txtSlobodno);
             this.Controls.Add(this.dgvTermini);
@@ -344,5 +358,6 @@
         private System.Windows.Forms.TextBox txtZauzeto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Termin;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.Button btnOtkazi;
     }
 }
